@@ -56,13 +56,9 @@ bundle exec jekyll serve
 # 6. Visit your website at http://127.0.0.1:4000
 ```
 
-## Option 2: use papicu-remote-example
+## Option 2: clone or fork this repository
 
-If you are starting from scratch and want something working out-of-the-box, fork the repository [@lucasrla/papicu-remote-example](https://github.com/lucasrla/papicu-remote-example) and follow from there.
-
-## Option 3: clone or fork this repository
-
-If you are starting from scratch and are reasonably well-versed in Jekyll, clone/fork this repository ([@lucasrla/papicu](https://github.com/lucasrla/papicu)) and have fun. 
+If you are starting from scratch and are reasonably well-versed in Jekyll, clone or fork this repository and have fun. 
 
 
 ## ⚠️ GitHub Pages currently **not** supported
@@ -112,7 +108,7 @@ Finally, run:
 
 ```sh
 # We are passing `local` as `jekyll.environment` and checking for that inside `default.html` 
-# in order to avoid sending analytics events when running locally.
+# to avoid sending analytics events when running locally.
 # For more info: https://jekyllrb.com/docs/configuration/environments/
 
 JEKYLL_ENV=local bundle exec jekyll serve
@@ -121,10 +117,10 @@ JEKYLL_ENV=local bundle exec jekyll serve
 
 # License
 
-[MIT License](https://en.wikipedia.org/wiki/MIT_License).
+Papicu itself is distributed under the terms of the [MIT License](https://en.wikipedia.org/wiki/MIT_License). Plugins and third party code have their own licenses. Check them out.
 
 
-# Acknowledgments
+# Credits and Acknowledgments
 
 - Code, examples, and inspiration from Jekyll themes [Clio](https://github.com/danromero/clio) and [Poole](https://github.com/poole/poole/)
 - Dark mode via [Darken](https://github.com/ColinEspinas/darken)
@@ -136,6 +132,6 @@ JEKYLL_ENV=local bundle exec jekyll serve
 - YouTube embeds via [jekyll-youtube](https://github.com/pibby/jekyll-youtube)
 
 
-# What does "Papicu" mean?
+# What does "papicu" mean?
 
 Papicu means "narrow, elongated pond" in an indigenous language from Brazil. It is also the name of a [neighborhood in Fortaleza](https://goo.gl/maps/qJeHn1RXG8vH7k3f9), [a city of northeastern Brazil](https://en.wikipedia.org/wiki/Fortaleza).
