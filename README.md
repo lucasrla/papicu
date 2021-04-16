@@ -138,4 +138,4 @@ JEKYLL_ENV=local bundle exec jekyll serve
 
 # What does "Papicu" mean?
 
-Papicu means "narrow, elongated pond" in an indigenous language from Brazil. It is also the name of a [neighborhood in Fortaleza](https://goo.gl/maps/qJeHn1RXG8vH7k3f9), [a city in Northeast of Brazil](https://en.wikipedia.org/wiki/Fortaleza).
+Papicu means "narrow, elongated pond" in an indigenous language from Brazil. It is also the name of a [neighborhood in Fortaleza](https://goo.gl/maps/qJeHn1RXG8vH7k3f9), [a city of northeastern Brazil](https://en.wikipedia.org/wiki/Fortaleza).
