@@ -1,0 +1,50 @@
+/* Copied from Poole, I have made just a few minor tweaks */
+/* https://github.com/poole/poole/blob/master/_sass/_code.scss */
+
+code,
+pre {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;;
+}
+
+code {
+  font-size: 85%;
+}
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 3rem;
+  overflow: auto;
+}
+
+.highlight {
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+  background-color: var(--bg-code);
+
+  pre {
+    margin-bottom: 0;
+  }
+
+  // Triple backticks (code fencing) doubles the .highlight elements
+  .highlight {
+    padding: 0;
+  }
+}
+
+.rouge-table {
+  margin-bottom: 0;
+  font-size: 100%;
+
+  &,
+  td,
+  th {
+    border: 0;
+  }
+
+  .gutter {
+    vertical-align: top;
+    user-select: none;
+    opacity: .25;
+  }
+}

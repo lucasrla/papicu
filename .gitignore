@@ -1,0 +1,19 @@
+.DS_Store
+*.plist
+*.swp
+.vscode/
+.ruby-version
+
+# bundler
+vendor/
+vendor.noindex/
+bin/
+
+# jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata/
+
+# misc
+_/
+TODOs.md

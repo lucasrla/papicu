@@ -1,0 +1,36 @@
+title: "John Doe"
+description: "John Doe's personal website"
+url: https://john_doe.website.com
+
+email: john_doe@example.com
+twitter: "john_doe_example"
+
+# shynet: "https://shynet.john_doe_website.com/ingress/uuid-universally-unique-identifier/"
+
+baseurl: ""
+
+markdown: kramdown
+
+kramdown:
+  parse_block_html: true
+  math_engine: katex
+
+permalink: /:slugified_categories/:title/
+
+sass:
+  sass_dir: _sass
+  style: :compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-optional-front-matter
+  - jekyll-redirect-from
+  - jekyll-archives
+
+exclude:
+  - "vendor.noindex/"
+  - "bin/"
+  - "TODOs.md"
+  - "README.md"

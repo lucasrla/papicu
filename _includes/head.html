@@ -1,0 +1,88 @@
+<meta content="text/html; charset=UTF-8" name="Content-Type" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width" />
+
+{% if page.layout == 'post' or page.layout == 'page' %}
+<title>{{ page.title }} · {{ site.title }}</title>
+{% else %}
+<title>{{ site.title }}</title>
+{% endif %}
+
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:locale" content="en_US">
+
+{% if page.title %}
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:type" content="article">
+{% else %}
+<meta property="og:title" content="{{ site.title }}">
+<meta property="og:type" content="website">
+{% endif %}
+
+{% if page.url %}
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{% else %}
+<meta property="og:url" content="{{ site.url }}">
+<link rel="canonical" href="{{ site.url }}">
+{% endif %}
+
+{% if page.description %}
+<meta name="description" content="{{ page.description }}">
+<meta property="og:description" content="{{ page.description }}">
+{% else %}
+<meta name="description" content="{{ site.description }}">
+<meta property="og:description" content="{{ site.description }}">
+{% endif %}
+
+{% if page.ogimg %}
+<meta property="og:image" content="{{ site.url }}/assets/img/og/{{ page.ogimg }}">
+{% else %}
+<meta property="og:image" content="/assets/icons/icon-96x96.png">
+{% endif %}
+
+{% if site.twitter %}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@{{ site.twitter }}" />
+<meta name="twitter:creator" content="@{{ site.twitter }}" />
+{% endif %}
+
+<meta name="theme" content="Papicu" />
+<meta name="theme_author" content="Lucas Amaro" />
+<meta name="theme_url" content="https://github.com/lucasrla/papicu" />
+
+<link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+
+{% if page.code_highlighter %}
+<link rel="stylesheet" href="{{ '/assets/rouge.css' | relative_url }}">
+{% endif %}
+
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS feed" href="{{ site.url }}/feed.xml" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+<link rel="manifest" href="/assets/site.webmanifest">
+<link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#5ac8fa">
+
+{% if page.chartjs %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js"
+integrity="sha256-Ctym065YsaugUvysT5nHayKynbiDGVpgNBqUePRAL+0=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair@1.1.6/dist/chartjs-plugin-crosshair.min.js"
+integrity="sha256-r/9biws8g6l28IaMAzQW4jw/wTmuDPmcEaXn1qqD9iM=" crossorigin="anonymous"></script>
+{% endif %}
+
+{% if page.katex %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.css" integrity="sha256-xkGWW9LkLeyOnuL6+COchlFwRPHO9tkh59ogotN8S7g=" crossorigin="anonymous">
+{% endif %}
+
+{% if page.toc %}
+<script src="https://cdn.jsdelivr.net/npm/gumshoejs@5.1.2/dist/gumshoe.min.js" integrity="sha256-jQ/h16s1N4POLTSUtG12NXoZLMMNCNwyMJ+PwHEuDUs=" crossorigin="anonymous"></script>
+{% endif %}
+
+<script src="https://cdn.jsdelivr.net/npm/darken@1.5.0/dist/darken.umd.js"
+integrity="sha256-Y6pO59dXdOEEwUl/HiqekT5Fj1o+thlUS/gkwgXIZo4=" crossorigin="anonymous"></script>

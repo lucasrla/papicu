@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+<head>
+{%- include head.html -%}
+</head>
+
+<body>
+  {{ content }}
+
+  {% if jekyll.environment != "local" and site.shynet %}
+  <noscript><img src="{{ site.shynet }}/pixel.gif"></noscript>
+  <script src="{{ site.shynet }}/script.js"></script>
+  {% endif %}
+
+  {% if page.toc %}
+  <script>
+    var spy = new Gumshoe('ul.toc_menu a', {
+      offset: 2 * parseFloat(getComputedStyle(document.documentElement).fontSize),
+    });
+  </script>
+  {% endif %}
+
+  {%- include darken/init.html -%}
+</body>
+
+</html>

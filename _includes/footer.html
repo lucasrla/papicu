@@ -1,0 +1,21 @@
+<hr />
+
+<footer>
+  <div class="flex-footer small">
+    <p><a class="muted" href="/">← Main</a></p>
+    <p><a class="muted" href="#">Top ↑</a></p>
+  </div>
+
+  <p class="muted small">
+    © <span id="copyright-year">2020</span> 
+    &#183; <a class="muted" href="/feed.xml">RSS</a> 
+    &#183; <a class="muted" href="/thanks">Thanks</a>
+    &mdash;
+    Powered by <a class="muted" href="https://lucasamaro.com/papicu">Papicu</a>
+  </p>
+</footer>
+
+<script>
+  const yearStr = new Date().getFullYear()
+  document.querySelector('#copyright-year').innerText = yearStr
+</script>

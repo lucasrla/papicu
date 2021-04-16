@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<header>
+  <div class="flex-header">
+    <a class="muted small" href="/">{{ site.title | escape }}</a>
+    {%- include darken/button.html -%}
+  </div>
+</header>
+
+<article>
+
+  <h1>{{ page.title | escape }}</h1>
+
+  {% if page.toc %}
+  <aside class="toc_sticky_sidebar">
+    <nav>
+      <header>Contents</header>
+      {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc_menu" skip_no_ids=true %}
+    </nav>
+  </aside>
+  {% endif %}
+
+  {{ content }}
+
+</article>
+
+{%- include footer.html -%}

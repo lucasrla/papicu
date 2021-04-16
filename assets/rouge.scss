@@ -1,0 +1,10 @@
+---
+# Use a comment to ensure Jekyll reads the file to be transformed into CSS later
+# only main files contain this front matter, not partials.
+---
+
+/* Copied from Poole, I have made just a few minor tweaks */
+/* https://github.com/poole/poole/blob/master/styles.scss */
+
+@import "code";
+@import "highlight";

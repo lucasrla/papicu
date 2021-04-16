@@ -1,0 +1,305 @@
+<script>
+  var charts = [];
+
+  // Set up log ticks
+  function logTicksFn(tick) {
+    const log10Tick = Chart.helpers.math.log10(tick);
+    const r = tick / Math.pow(10, Math.floor(log10Tick));
+    if (r === 1 || r === 2 || r === 5) {
+      return tick.toString();
+    }
+    return '';
+
+  }
+
+  // Set up tooltips
+  function tooltipLabelFn(tooltipItem, data) {
+    let label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+    // Remove substring between ( )
+    label = label.replace(/\(.*\)/, '').trim();
+
+    if (label) {
+      // label += ' — ';
+      // label += ' · ';
+      label += ':  ';
+    }
+
+    label += tooltipItem.value; // + " at " + tooltipItem.label + " y.o.";
+    return label;
+  }
+
+  function tooltipLabelPercentFn(tooltipItem, data) {
+    let label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+    // Remove fitted functions from tooltips
+    if(label.indexOf("Fit") > 0) return;
+
+    label = label.replace(/\(.*\)/, '').trim();
+    if (label) label += ':  ';
+    label += parseFloat(tooltipItem.value * 100).toPrecision(2) + "%";
+    return label;
+  }
+
+  // https://github.com/chartjs/Chart.js/issues/7839#issuecomment-702734116
+  function tooltipTitleFn(tooltipItem, data) {
+    // console.log(tooltipItem)
+    // Label is a string with y value, but this does not work
+    // return tooltipItem.label; 
+
+    let dataSet = tooltipItem[0].datasetIndex;
+    let index = tooltipItem[0].index;
+    let title = "At age " + data.datasets[dataSet].data[index].x + " y.o.";
+    return title;
+  }
+
+  // Helper function to add transparency (alpha channel) to existing colors
+  const applyA = (colorString, alpha) => {
+    return Chart.helpers.color(colorString).alpha(alpha).rgbString();
+  };
+
+  // Set up the look and feel of datasets
+  function createDatasets(data, pointSizing) {
+    let parsedDatasets = data.slice(0).reduce((acc, obj) => {
+      let dataset = {}
+      // https://www.chartjs.org/docs/latest/charts/line.html#dataset-properties
+      // The scatter supports all of the same properties as the line chart
+
+      // console.log("obj", obj)
+
+      dataset["label"] = obj["label"]
+      dataset["data"] = obj["data"]
+
+      // colors and transparency
+      const color = obj["color"]
+
+      if (obj["alpha"]){
+        dataset["borderColor"] = applyA(color, obj["alpha"])
+        dataset["pointBackgroundColor"] = applyA(color, obj["alpha"])
+        dataset["pointBorderColor"] = applyA(color, obj["alpha"])
+        dataset["backgroundColor"] = applyA(color, obj["alpha"])
+      } else {
+        dataset["borderColor"] = color
+        dataset["pointBackgroundColor"] = color
+        dataset["pointBorderColor"] = color
+        dataset["backgroundColor"] = color
+      }
+
+      // Extra radius added to point radius for hit detection
+      dataset["pointHitRadius"] = 0
+
+      dataset["pointBorderWidth"] = 0
+      dataset["pointHoverBorderWidth"] = 0
+
+      // line sizing
+      // https://www.chartjs.org/docs/latest/configuration/elements.html
+      if (obj["type"] == "line") {
+        dataset["fill"] = false
+        dataset["showLine"] = true
+        dataset["borderWidth"] = 2
+        dataset["pointRadius"] = 0
+        dataset["pointHoverRadius"] = 0        
+      
+      // point sizing
+      // https://www.chartjs.org/docs/latest/configuration/elements.html
+      } else if (pointSizing == "smallPoints"){
+        dataset["borderWidth"] = 0
+        dataset["pointRadius"] = 1
+        dataset["pointHoverRadius"] = 1
+
+      } else if (pointSizing == "mediumPoints"){
+        dataset["borderWidth"] = 0
+        dataset["pointRadius"] = 2
+        dataset["pointHoverRadius"] = 2
+
+      } else {
+        dataset["borderWidth"] = 0
+        dataset["pointRadius"] = 4
+        dataset["pointHoverRadius"] = 4
+      }
+      
+      acc.push(dataset)
+      return acc
+    }, [])
+
+    return {"datasets": parsedDatasets}
+  }
+
+  // Create the actual charts
+  function createChart(canvasId, data, chartType, axes, title, ttLabelFn) {
+
+    let context = document.getElementById(canvasId).getContext('2d');
+
+    // workarounds to enhance responsiveness on mobile phones
+    // inspired by:
+    // - https://stackoverflow.com/questions/44540746/how-i-can-prevent-of-labels-overlapping-on-mobile-screen-chart-js
+    // - https://stackoverflow.com/questions/47791250/chartjs-hide-labels-on-small-screen-sizes/
+
+    // TODO: register this as a global plugin instead
+    // https://www.chartjs.org/docs/latest/developers/plugins.html#global-plugins
+    let isSmallScreen;
+
+    let adjToScreenSize = (c) => {
+      // console.log(c);
+
+      // using the height of the chart element to scale things properly
+      const chartHeight = c.chart.height;
+
+      const smallAdj = Math.max(chartHeight * 2.7 / 100, 10);
+      const largeAdj = Math.max(chartHeight * 3.6 / 100, 12);
+
+      c.scales['y-axis-1'].options.ticks.fontSize = smallAdj;
+      c.scales['y-axis-1'].options.scaleLabel.fontSize = smallAdj;
+
+      c.scales['x-axis-1'].options.ticks.fontSize = smallAdj;
+      c.scales['x-axis-1'].options.scaleLabel.fontSize = smallAdj;
+      c.scales['x-axis-1'].options.scaleLabel.padding.top = 0 // Math.max(chartHeight * 1 / 100, 2);
+
+      // console.log(c)
+      isSmallScreen = (chartHeight < 300) ? true : false;
+      c.legend.options.display = !isSmallScreen;
+
+      c.legend.options.labels.fontSize = smallAdj;
+      c.legend.options.labels.boxWidth = Math.max(chartHeight * 5 / 100, 16);
+      c.legend.options.labels.padding = Math.max(chartHeight * 2 / 100, 4);
+
+      c.titleBlock.options.fontSize = largeAdj;
+      c.titleBlock.options.padding = Math.max(chartHeight * 2.5 / 100, 10);
+    };
+
+    // overwrite Chart defaults with my CSS
+    // https://github.com/chartjs/Chart.js/issues/5353
+    // https://www.chartjs.org/docs/latest/general/fonts.html
+    let overwriteChartGlobalStyle = () => {
+      let bodyEl = document.querySelector('body');
+      let bodyCompStyle = window.getComputedStyle(bodyEl);
+      
+      if(Chart.defaults.global.defaultFontFamily != bodyCompStyle.fontFamily){
+        Chart.defaults.global.defaultFontFamily = bodyCompStyle.fontFamily;
+        Chart.defaults.global.defaultFontColor = bodyCompStyle.color;
+
+        let mutedEl = document.querySelector('.muted');
+        let mutedCompStyle = window.getComputedStyle(mutedEl);
+        Chart.defaults.global.defaultColor = mutedCompStyle.color;
+      }
+    }
+
+    let config = {
+      type: chartType,
+      data: data,
+      plugins: [{
+        beforeUpdate: adjToScreenSize,
+      }],
+      options: {
+        plugins: {
+          // https://nagix.github.io/chartjs-plugin-colorschemes/colorchart.html
+          colorschemes: {
+            scheme: 'tableau.ColorBlind10',
+            fillAlpha: 1.0,
+          },
+          // https://github.com/abelheinsbroek/chartjs-plugin-crosshair
+          crosshair: {
+            line: {
+              color: applyA(Chart.defaults.global.defaultColor, 0.2)
+            },
+            sync: {
+              enabled: false,
+            }
+          },
+        },
+        // https://www.chartjs.org/docs/latest/general/performance.html#disable-animations
+        animation: {
+          duration: 0 // general animation time
+        },
+        hover: {
+          animationDuration: 0 // duration of animations when hovering an item
+        },
+        responsiveAnimationDuration: 0,
+        tooltips: {
+          // https://www.chartjs.org/samples/latest/tooltips/interactions.html
+          // mode: 'nearest',
+          mode: 'x',
+          intersect: false,
+          callbacks: {},
+          xPadding: 10,
+          yPadding: 10,
+        },
+        aspectRatio: 1.33,
+        title: {
+          display: true,
+          text: title,
+          fontStyle: 'normal',
+        },
+        legend: {
+          position: 'bottom',
+          // display: !isSmallScreen,
+        },
+        scales: {
+          yAxes: [{
+            type: axes.y.scale,
+            position: 'left',
+            gridLines: {
+              color: applyA(Chart.defaults.global.defaultColor, 0.1),
+              zeroLineColor: applyA(Chart.defaults.global.defaultColor, 0.3),
+              zeroLineWidth: 1.5,
+              drawBorder: false,
+            },
+            ticks: {
+              // max: 0.1,
+            },
+            scaleLabel: {
+              labelString: axes.y.label,
+              display: true,
+            }
+          }],
+          xAxes: [{
+            type: axes.x.scale,
+            position: 'bottom',
+            gridLines: {
+              color: applyA(Chart.defaults.global.defaultColor, 0.1),
+              zeroLineColor: applyA(Chart.defaults.global.defaultColor, 0.3),
+              zeroLineWidth: 1.5,
+              drawBorder: false,
+            },
+            ticks: {
+              min: 0,
+              // max: 120,
+            },
+            scaleLabel: {
+              labelString: axes.x.label,
+              display: true
+            }
+          }]
+        }
+      }
+    };
+
+    // Callbacks
+
+    // https://github.com/chartjs/Chart.js/blob/171a7e3a7a23b1d4a9d37ed2b2495698969b79d5/src/core/core.tooltip.js#L626
+    // sort tooltip labels in descending order (by value)
+    config.options.tooltips.itemSort = function(a, b){ 
+      return (b.value - a.value)
+    }
+
+    if (ttLabelFn) {
+      config.options.tooltips.callbacks.label = ttLabelFn;
+    }
+
+    if (config.options.tooltips.mode == 'x') {
+      config.options.tooltips.callbacks.title = tooltipTitleFn;
+    }
+
+    if (axes.x.ticksCallback) {
+      config.options.scales.xAxes[0].ticks.callback = axes.x.ticksCallback;
+    }
+    if (axes.y.ticksCallback) {
+      config.options.scales.yAxes[0].ticks.callback = axes.y.ticksCallback;
+    }
+
+    overwriteChartGlobalStyle();
+
+    const chart = new Chart(context, config);
+    charts.push(chart);
+  }
+</script>
