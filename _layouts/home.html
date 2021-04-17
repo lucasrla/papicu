@@ -8,14 +8,26 @@ layout: default
   <div class="small flex-header">
     <div>
       {% if site.twitter %}
-       <a href="https://twitter.com/{{ site.twitter }}">twitter</a> &#183;
+       <a href="https://twitter.com/{{ site.twitter }}">twitter</a>
+      {% endif %}
+
+      {% if site.twitter and site.email %}
+      &#183;
       {% endif %}
 
       {% if site.email %}
-      <a href="mailto:{{ site.email }}">email</a> &#183;
+      <a href="mailto:{{ site.email }}">email</a>
       {% endif %}
 
+      {% assign about_page = site.pages | where: "permalink", "/about" %}
+
+      {% if site.email and about_page[0].permalink %}
+      &#183;
+      {% endif %}
+
+      {% if about_page[0].permalink %}
       <a href="/about">about</a>
+      {% endif %}
     </div>
     {%- include darken/button.html -%}
   </div>

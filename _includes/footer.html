@@ -9,7 +9,12 @@
   <p class="muted small">
     © <span id="copyright-year">2020</span> 
     &#183; <a class="muted" href="/feed.xml">RSS</a> 
+
+    {% assign thanks_page = site.pages | where: "permalink", "/thanks" %}
+    {% if thanks_page[0].permalink %}
     &#183; <a class="muted" href="/thanks">Thanks</a>
+    {% endif %}
+
     &mdash;
     Powered by <a class="muted" href="https://lucasamaro.com/papicu">Papicu</a>
   </p>
