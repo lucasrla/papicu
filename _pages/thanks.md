@@ -1,6 +1,7 @@
 ---
-title: "Thanks"
 layout: page
+title: "Thanks"
+permalink: /thanks/
 katex: True
 ---
 
