@@ -1,10 +1,10 @@
 # Papicu
 
-[Papicu](https://lucasamaro.com/papicu) is a minimalist [Jekyll](jekyllrb.com/) template and theme. 
+[Papicu](https://lucasamaro.com/papicu) is a minimalist [Jekyll](https://jekyllrb.com/) template and theme. 
 
 It's been heavily inspired by [Clio](https://github.com/danromero/clio), another Jekyll theme. In fact, Papicu is basically a fork of Clio. I did make it to meet my own needs but, if you like it, Papicu is free to use and modify.
 
-Try the [live demo here](https://papicu.netlify.app). 
+Try the live demo at [papicu.netlify.app](https://papicu.netlify.app).
 
 
 # What's inside?
@@ -34,9 +34,11 @@ Papicu also includes:
 
 ## Option 1: use jekyll-remote-theme
 
-If you already have a Jekyll website and want to change its theme to Papicu, use great [jekyll-remote-theme](https://github.com/benbalter/jekyll-remote-theme/) plugin:
+If you are new to Jekyll, get familiar with it first: [jekyllrb.com/docs](https://jekyllrb.com/docs/).
 
 ```sh
+# 0. Have a Jekyll website set up on your local machine
+
 # 1. Add the following to your `Gemfile`
 gem "jekyll-remote-theme"
 
@@ -47,7 +49,7 @@ bundle install
 plugins:
   - jekyll-remote-theme
 
-# 4. Add the following to your `_config.yml` to choose your theme
+# 4. Add the following to your `_config.yml` to choose Papicu as your theme
 remote_theme: lucasrla/papicu
 
 # 5. Run jekyll
@@ -58,17 +60,25 @@ bundle exec jekyll serve
 
 ## Option 2: clone or fork this repository
 
-If you are starting from scratch and are reasonably well-versed in Jekyll, clone or fork this repository and have fun. 
+If you are reasonably well-versed in Jekyll, clone or fork this repository and have fun. 
 
 
-## ⚠️ GitHub Pages currently **not** supported
+## ⚠️ GitHub Pages **not** supported out-of-the-box
 
-Unfortunately, Papicu **does not run** on GitHub Pages. Why? Because, as of April 2021, GitHub Pages ([version 214](https://rubygems.org/gems/github-pages)) still uses Jekyll `=3.9`. Papicu needs Jekyll `>4.1` for `slugified_categories` (i.e., [well-formed permalinks](https://jekyllrb.com/docs/permalinks/#placeholders)).
+Unfortunately, Papicu **is not compatible** with GitHub Pages standard workflow.
+
+Why? Because, as of April 2021, GitHub Pages ([gem version 214](https://rubygems.org/gems/github-pages)) still uses Jekyll `=3.9`. Papicu needs Jekyll `>=4.1` for `slugified_categories` (i.e., [well-formed permalinks](https://jekyllrb.com/docs/permalinks/#placeholders)).
+
+For those who are really interested, it is possible circumvent this limitation and run Papicu on GitHub Pages by using GitHub Actions. Read [Jekyll's official guide on GitHub Actions](https://jekyllrb.com/docs/continuous-integration/github-actions/) for the details.
 
 
-# Usage tips
+# Usage
 
-Check out the example post titled [A post with bells and whistles](https://papicu.netlify.app/post-with-bells-and-whistles/). Make sure to review its source code `_posts/2021-02-01-post-with-bells-and-whistles.md` as well.
+## Examples
+
+Each example post inside `_posts/` demonstrates a few of Papicu features. 
+
+Have a look, for example, at the post titled [A post with bells and whistles](https://papicu.netlify.app/post-with-bells-and-whistles/), and make sure you review its source code `_posts/2021-02-01-post-with-bells-and-whistles.md` as well.
 
 
 ## Favicon generator
@@ -84,9 +94,9 @@ Try [realfavicongenerator.net](https://realfavicongenerator.net).
 For an actual example, see `_posts/2021-01-01-textual-post.md`.
 
 
-## Running Jekyll on your local machine
+## Tips for a Jekyll setup on your local machine
 
-First, you must install `ruby` and `bundler`. If you are on macOS, read the instructions at [lucasrla.github.io/macos-setup/ruby](https://lucasrla.github.io/macos-setup/ruby).
+First, you must install `ruby` and `bundler` locally. If you are on macOS, read the instructions at [lucasrla.github.io/macos-setup/ruby](https://lucasrla.github.io/macos-setup/ruby).
 
 Next, make sure `bundler` is configured with isolated environments by project:
 
@@ -117,7 +127,7 @@ JEKYLL_ENV=local bundle exec jekyll serve
 
 # License
 
-Papicu itself is distributed under the terms of the [MIT License](https://en.wikipedia.org/wiki/MIT_License). Plugins and third party code have their own licenses. Check them out.
+Papicu itself is distributed under the terms of the [MIT License](https://en.wikipedia.org/wiki/MIT_License). Plugins and third-party code have their own licenses. Check them out.
 
 
 # Credits and Acknowledgments
@@ -132,6 +142,6 @@ Papicu itself is distributed under the terms of the [MIT License](https://en.wik
 - YouTube embeds via [jekyll-youtube](https://github.com/pibby/jekyll-youtube)
 
 
-# What does "papicu" mean?
+# What does papicu mean?
 
 Papicu means "narrow, elongated pond" in an indigenous language from Brazil. It is also the name of a [neighborhood in Fortaleza](https://goo.gl/maps/qJeHn1RXG8vH7k3f9), [a city of northeastern Brazil](https://en.wikipedia.org/wiki/Fortaleza).
