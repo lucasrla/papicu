@@ -11,4 +11,5 @@ gem "jekyll-optional-front-matter"
 gem "jekyll-redirect-from"
 gem "jekyll-archives"
 
+gem "katex", github: "lucasrla/katex-ruby"
 gem "kramdown-math-katex"
