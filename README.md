@@ -67,7 +67,7 @@ If you are reasonably well-versed in Jekyll, clone or fork this repository and h
 
 Unfortunately, Papicu **is not compatible** with GitHub Pages standard workflow.
 
-Why? Because, as of April 2021, GitHub Pages ([gem version 214](https://rubygems.org/gems/github-pages)) still uses Jekyll `=3.9`. Papicu needs Jekyll `>=4.1` for `slugified_categories` (i.e., [well-formed permalinks](https://jekyllrb.com/docs/permalinks/#placeholders)).
+Why? Because, as of April 2021, GitHub Pages ([gem version 214](https://rubygems.org/gems/github-pages)) still uses Jekyll `=3.9.0`. Papicu needs Jekyll `~>4.1` for `slugified_categories` (i.e., [well-formed permalinks](https://jekyllrb.com/docs/permalinks/#placeholders)).
 
 For those who are really interested, it is possible circumvent this limitation and run Papicu on GitHub Pages by using GitHub Actions. Read [Jekyll's official guide on GitHub Actions](https://jekyllrb.com/docs/continuous-integration/github-actions/) for the details.
 
