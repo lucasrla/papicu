@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/lucasrla/katex-ruby.git
+  revision: 02b5ff8ee7b2bd8eaabc26f83c26dac08ee95eef
+  specs:
+    katex (0.6.2)
+      execjs (~> 2.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,8 +53,6 @@ GEM
       jekyll (>= 3.7, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
-    katex (0.6.1)
-      execjs (~> 2.7)
     kramdown (2.3.1)
       rexml
     kramdown-math-katex (1.0.1)
@@ -86,6 +91,7 @@ DEPENDENCIES
   jekyll-redirect-from
   jekyll-seo-tag
   jekyll-sitemap
+  katex!
   kramdown-math-katex
 
 BUNDLED WITH
