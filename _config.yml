@@ -29,6 +29,9 @@ plugins:
   - jekyll-redirect-from
   - jekyll-archives
 
+include:
+  - _pages/
+
 exclude:
   - "vendor.noindex/"
   - "bin/"
