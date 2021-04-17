@@ -2,7 +2,9 @@
 
 [Papicu](https://lucasamaro.com/papicu) is a minimalist [Jekyll](https://jekyllrb.com/) template and theme. 
 
-It's been heavily inspired by [Clio](https://github.com/danromero/clio), another Jekyll theme. In fact, Papicu is basically a fork of Clio. I did make it to meet my own needs but, if you like it, Papicu is free to use and modify.
+It's been heavily inspired by [Clio](https://github.com/danromero/clio), another Jekyll theme. In fact, Papicu is basically a fork of Clio. 
+
+I did make it to meet my own needs but, if you like it, Papicu is free to use and modify.
 
 Try the live demo at [papicu.netlify.app](https://papicu.netlify.app).
 
@@ -34,29 +36,46 @@ Papicu also includes:
 
 ## Option 1: use jekyll-remote-theme
 
+First, have a Jekyll website/blog set up on your local machine. 
+
 If you are new to Jekyll, get familiar with it first: [jekyllrb.com/docs](https://jekyllrb.com/docs/).
 
-```sh
-# 0. Have a Jekyll website set up on your local machine
+1. Add the following to your `Gemfile`
 
-# 1. Add the following to your `Gemfile`
-gem "jekyll-remote-theme"
+    ```gemfile
+    gem "jekyll-remote-theme"
+    gem "katex", github: "lucasrla/katex-ruby"
+    gem "kramdown-math-katex"
+    ```
 
-# 2. Install the plugin by running
-bundle install
+2. Install the gems by running on terminal
 
-# 3. Add the following to your `_config.yml` to enable the plugin
-plugins:
-  - jekyll-remote-theme
+    ```sh
+    bundle install
+    ```
 
-# 4. Add the following to your `_config.yml` to choose Papicu as your theme
-remote_theme: lucasrla/papicu
+3. Add the following to your `_config.yml`
 
-# 5. Run jekyll
-bundle exec jekyll serve
+    ```yml
+    markdown: kramdown
 
-# 6. Visit your website at http://127.0.0.1:4000
-```
+    kramdown:
+      parse_block_html: true
+      math_engine: katex
+
+    plugins:
+      - jekyll-remote-theme
+
+    remote_theme: lucasrla/papicu
+    ```
+
+4. Run jekyll on terminal
+
+    ```sh
+    bundle exec jekyll serve
+    ```
+
+5. Visit your website at http://127.0.0.1:4000
 
 ## Option 2: clone or fork this repository
 
