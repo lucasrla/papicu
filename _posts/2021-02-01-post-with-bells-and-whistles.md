@@ -205,6 +205,25 @@ The source code for that is simply:
 $$h(x) = B e^{C x}$$
 ```
 
+Here is a more elaborate example, taking advantage of KaTeX's [environments](https://katex.org/docs/supported.html#environments):
+
+$$
+\begin{equation*}
+\begin{split}
+a &=b+c \\ &=e+f
+\end{split}
+\end{equation*}
+$$
+
+```tex
+$$
+\begin{equation*}
+\begin{split}
+a &=b+c \\ &=e+f
+\end{split}
+\end{equation*}
+$$
+```
 
 ## Responsive images
 
