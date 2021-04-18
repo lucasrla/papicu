@@ -10,7 +10,7 @@
 
   {% if jekyll.environment != "local" and site.shynet %}
 
-  <!-- Prevent double slashes "//" -->
+  {% comment %} This is to prevent double slashes "//" {% endcomment %}
   {% assign shynet_last_char = site.shynet | slice: -1 %}
 
   {% if shynet_last_char == "/" %}
