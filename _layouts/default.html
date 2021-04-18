@@ -9,8 +9,19 @@
   {{ content }}
 
   {% if jekyll.environment != "local" and site.shynet %}
-  <noscript><img src="{{ site.shynet }}/pixel.gif"></noscript>
-  <script src="{{ site.shynet }}/script.js"></script>
+
+  <!-- Prevent double slashes "//" -->
+  {% assign shynet_last_char = site.shynet | slice: -1 %}
+
+  {% if shynet_last_char == "/" %}
+  {% assign new_length = site.shynet | size | minus: 1 %}
+  {% assign shynet = site.shynet | slice: 0, new_length %}
+  {% else %}
+  {% assign shynet = site.shynet %}
+  {% endif %}
+
+  <noscript><img src="{{ shynet }}/pixel.gif"></noscript>
+  <script src="{{ shynet }}/script.js"></script>
   {% endif %}
 
   {% if page.toc %}
