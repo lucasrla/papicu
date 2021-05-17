@@ -43,6 +43,7 @@ hr {
 
 h1,
 h2,
+h3,
 strong {
   color: var(--headings);
 }
@@ -62,7 +63,8 @@ h2 {
 h3 {
   font-size: 1.1em;
   line-height: normal;
-  font-style: italic;
+  font-variant: all-small-caps;
+  margin-bottom: 0.2em;
 }
 
 p {
@@ -126,6 +128,10 @@ a.muted {
 
 .small {
   font-size: 0.8em;
+}
+
+.all-small-caps {
+  font-variant: all-small-caps;
 }
 
 /* -------------- LAYOUT -------------- */
@@ -329,6 +335,7 @@ ul.toc_menu li.active a {
 aside.toc_sticky_sidebar header {
   color: var(--muted);
   margin-bottom: 0;
+  font-variant: all-small-caps;
 }
 
 @media only screen and (min-width: 1000px) {
