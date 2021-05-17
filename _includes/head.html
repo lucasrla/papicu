@@ -38,8 +38,12 @@
 {% if page.ogimg %}
 <meta property="og:image" content="{{ site.url }}/assets/img/og/{{ page.ogimg }}">
 {% else %}
-<meta property="og:image" content="/assets/icons/icon-96x96.png">
+<meta property="og:image" content="/assets/icons/android-chrome-512x512.png">
 {% endif %}
+
+{% comment %} 
+TODO: add something like [Open Graph Image as a Service](https://github.com/vercel/og-image)
+{% endcomment %}
 
 {% if site.twitter %}
 <meta name="twitter:card" content="summary_large_image" />
