@@ -43,7 +43,6 @@ hr {
 
 h1,
 h2,
-h3,
 strong {
   color: var(--headings);
 }
@@ -57,14 +56,12 @@ h2 {
   font-size: 1.3em;
   line-height: normal;
   margin-top: 1.3em;
-  margin-bottom: 0.2em;
 }
 
 h3 {
   font-size: 1.1em;
   line-height: normal;
   font-variant: all-small-caps;
-  margin-bottom: 0.2em;
 }
 
 p {
