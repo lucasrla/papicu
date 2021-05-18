@@ -96,11 +96,11 @@ Papicu has it, too.
 Here is a `<summary>` and `<details>` example that starts out as open by default
 </summary>
 <div>
-If you are on a computer, hover your mouse over here. 
+If you are on a computer, hover your mouse the box above (the one that says "Here is a `<summary>` and `<details>` example that starts out as open by default").
 
-Have you noticed the borders? This works like a "box" for your content.
+Have you noticed triangle on the left and the border at the bottom? They indicate "expandable" content.
 
-Users can easily "open" or "close" it with a tap/click at the top.
+You can easily "open" or "close" the "box" with a tap/click.
 </div>
 </details>
 

@@ -259,12 +259,12 @@ details + :is(p, ul, h1, h2, h3) {
 
 details[open] {
   margin-bottom: 2em;
-  border: 1px solid var(--bg);
+  /* border: 1px solid var(--bg); */
 }
 
-details[open]:hover {
+/* details[open]:hover {
   border: 1px solid var(--border);
-}
+} */
 
 details[open] summary {
   background-color: var(--bg-code);
