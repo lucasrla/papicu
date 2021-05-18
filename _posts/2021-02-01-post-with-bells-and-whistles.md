@@ -41,7 +41,7 @@ shynet: "https://shynet.john_doe_website.com/ingress/uuid-universally-unique-ide
 
 [Chart.js](https://www.chartjs.org/) provides "Simple HTML5 Charts using the `<canvas>` tag."
 
-> As of April 2020, we are still using [Chart.js 2.9.4](https://www.chartjs.org/docs/2.9.4/). Some time in the future we might migrate to the new Chart.js 3+.
+> As of April 2020, we are still using [Chart.js 2.9.4](https://www.chartjs.org/docs/2.9.4/). At some point in the future we might migrate to Chart.js 3+.
 
 Here's an example of a nice interactive chart built with Chart.js.
 
