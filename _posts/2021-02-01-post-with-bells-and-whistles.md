@@ -193,7 +193,7 @@ To enable KaTeX use, you must add `katex: True` to a post or page [front matter]
 
 Here's an example of a KaTeX expression displayed inline: $$h(x) = B e^{C x}$$.
 
-(In case you are curios, this is  a definition of the [Gompertz hazard function](https://en.wikipedia.org/wiki/Gompertz_function).)
+(In case you are curious, this is  a definition of the [Gompertz hazard function](https://en.wikipedia.org/wiki/Gompertz_function).)
 
 You can also give the formula more space to breath by leaving the expression alone on a paragraph. KaTeX will automatically center it:
 
