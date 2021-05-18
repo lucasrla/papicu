@@ -98,9 +98,9 @@ Here is a `<summary>` and `<details>` example that starts out as open by default
 <div>
 If you are on a computer, hover your mouse the box above (the one that says "Here is a `<summary>` and `<details>` example that starts out as open by default").
 
-Have you noticed triangle on the left and the border at the bottom? They indicate "expandable" content.
+Have you noticed a triangle on the left and a border at the bottom? They indicate a box with "expandable" content.
 
-You can easily "open" or "close" the "box" with a tap/click.
+You can easily open or close the "box" with a tap/click. Try it out!
 </div>
 </details>
 
