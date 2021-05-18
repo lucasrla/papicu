@@ -42,7 +42,7 @@ layout: default
 
   {% assign posts = site.posts %}
   {%- for post in posts -%}
-  <ul class="padded no-list">
+  <ul class="padded none-list">
     <li class="flex-item">
       <a href="{{ post.url | relative_url }}">
         {{ post.title | escape }}
