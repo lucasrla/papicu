@@ -36,13 +36,13 @@ layout: default
 <main>
   {{ content }}
 
-  {% include separator.html %}
+  <br />
   
   <h2>Posts</h2>
 
   {% assign posts = site.posts %}
   {%- for post in posts -%}
-  <ul class="post-list">
+  <ul class="padded no-list">
     <li class="flex-item">
       <a href="{{ post.url | relative_url }}">
         {{ post.title | escape }}
