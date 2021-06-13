@@ -241,7 +241,7 @@ Here is the source code behind what you see above:
 <p class="small center"><em>Photo by [deltafruit](https://www.flickr.com/photos/55953988@N00/), via [Wikipedia entry about Fortaleza](https://en.wikipedia.org/wiki/Fortaleza)</em></p>
 ```
 
-## Responsive, 16:9 YouTube embeds
+## Lazy-loaded, responsive, 16:9 YouTube embeds
 
 Now, why not some drone aerial footage the city of Fortaleza?
 
@@ -255,7 +255,7 @@ Here is how to use it:
 ```
 {% endraw %}
 
-Our implementation was based on [this snippet](https://github.com/pibby/jekyll-youtube) by [@pibby](https://pibby.com/).
+Our implementation was based on [this snippet](https://github.com/pibby/jekyll-youtube) by [@pibby](https://pibby.com/) and [this codesandbox](https://codesandbox.io/s/youtube-iframe-lazy-load-qdzu6) by [@haggen](https://codesandbox.io/u/haggen).
 
 {% include separator.html %}
 

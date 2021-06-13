@@ -1,13 +1,15 @@
+{% comment %}
+- Lazy loading inspired by https://dev.to/haggen/lazy-load-embedded-youtube-videos-520g
+- YouTube params from https://developers.google.com/youtube/player_parameters
+{% endcomment %}
+
 {% if include.width %}
 <div style="width: {{ include.width }}; margin:0 auto;">
 {% else %}
 <div>
 {% endif %}
 <div class="ytp-container">
-  {% comment %} 
-    https://developers.google.com/youtube/player_parameters
-  {% endcomment %}
-  <iframe class="ytp" src="https://www.youtube.com/embed/{{ include.id }}?rel=0&iv_load_policy=3&modestbranding=1" allowfullscreen>
+  <iframe class="ytp" src="https://www.youtube.com/embed/{{ include.id }}?rel=0&iv_load_policy=3&modestbranding=1" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/{{ include.id }}?autoplay=1><img src=https://img.youtube.com/vi/{{ include.id }}/hqdefault.jpg alt='Tap/click to start'><span>▶</span></a>" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube" allowfullscreen>
   </iframe>
 </div>
 </div>
