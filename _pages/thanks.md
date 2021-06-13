@@ -19,6 +19,7 @@ Free, open source software:
 - [Chart.js](https://www.chartjs.org)
 - [jekyll-toc](https://github.com/allejo/jekyll-toc)
 - [gumshoe](https://github.com/cferdinandi/gumshoe/)
+- [jekyll-minifier](https://github.com/Mendeo/jekyll-minifier)
 
 Services provided for free:
 
