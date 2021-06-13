@@ -17,6 +17,14 @@ pre {
   overflow: auto;
 }
 
+/* Inline code */
+p {
+  code {
+    background-color: var(--bg-code);
+    padding: 0.15em;
+  }
+}
+
 .highlight {
   padding: 1rem;
   margin: 0 0 1rem 0;
@@ -26,7 +34,7 @@ pre {
     margin-bottom: 0;
   }
 
-  // Triple backticks (code fencing) doubles the .highlight elements
+  /* Triple backticks (code fencing) doubles the .highlight elements */
   .highlight {
     padding: 0;
   }

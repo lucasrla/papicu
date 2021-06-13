@@ -1,3 +1,7 @@
+---
+layout: html_minifier
+---
+
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
@@ -26,7 +30,7 @@
 
   {% if page.toc %}
   <script>
-    var spy = new Gumshoe('ul.toc_menu a', {
+    var spy = new Gumshoe('ul.toc-menu a', {
       offset: 2 * parseFloat(getComputedStyle(document.documentElement).fontSize),
     });
   </script>
