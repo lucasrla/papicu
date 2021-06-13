@@ -12,7 +12,7 @@ layout: default
       {% endif %}
 
       {% if site.twitter and site.email %}
-      &#183;
+      &nbsp;&#183;&nbsp;
       {% endif %}
 
       {% if site.email %}
@@ -22,7 +22,7 @@ layout: default
       {% assign about_page = site.pages | where: "permalink", "/about" %}
 
       {% if site.email and about_page[0].permalink %}
-      &#183;
+      &nbsp;&#183;&nbsp;
       {% endif %}
 
       {% if about_page[0].permalink %}
@@ -49,7 +49,7 @@ layout: default
       </a>
       <span class="muted small dont-shrink">
         {% if post.category %}
-        {{ post.category | escape }} &#183; 
+        {{ post.category | escape }} &#183;&nbsp;
         {% endif %}
         {{ post.date | date: "%b %Y"}}
       </span>
