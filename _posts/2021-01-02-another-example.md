@@ -51,31 +51,22 @@ Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est 
 
 ### Code
 
-Inline code is available with the `<code>` element. Snippets of multiple lines of code are supported through Rouge. Longer lines will automatically scroll horizontally when needed. You may also use code fencing (triple backticks) for rendering code.
+Inline code is available with the `<code>` element.
+
+Snippets of multiple lines of code are supported through Rouge's `{% raw %}{% highlight %}{% endraw %}`:
 
 {% highlight js %}
-// Example can be run directly in your JavaScript console
+/* Example can be run directly in your JavaScript console */
 
-// Create a function that takes two arguments and returns the sum of those arguments
+/* Create a function that takes two arguments and returns the sum of those arguments */
 var adder = new Function("a", "b", "return a + b");
 
-// Call the function
+/* Call the function */
 adder(2, 6);
-// > 8
+/* > 8 */
 {% endhighlight %}
 
-You may also optionally show code snippets with line numbers. Add `linenos` to the Rouge tags.
-
-{% highlight js linenos %}
-// Example can be run directly in your JavaScript console
-
-// Create a function that takes two arguments and returns the sum of those arguments
-var adder = new Function("a", "b", "return a + b");
-
-// Call the function
-adder(2, 6);
-// > 8
-{% endhighlight %}
+Longer lines will automatically scroll horizontally when needed. You may also use code fencing (triple backticks: <code>```</code>) for rendering code. Avoid using `linenos` within Rouge `{% raw %}{% highlight %}{% endraw %}` tags, though. [It makes Jekyll generate invalid HTML](https://www.bytedude.com/jekyll-syntax-highlighting-and-line-numbers/#goodbye-rouge-tuesday).
 
 Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
 
