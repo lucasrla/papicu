@@ -159,6 +159,7 @@ Papicu itself is distributed under the terms of the [MIT License](https://en.wik
 - Interactive charts via [Chart.js](https://www.chartjs.org)
 - Redirects via [jekyll-redirect-from](https://github.com/jekyll/jekyll-redirect-from)
 - YouTube embeds via [jekyll-youtube](https://github.com/pibby/jekyll-youtube)
+- Compressed HTML via [jekyll-minifier](https://github.com/Mendeo/jekyll-minifier)
 
 
 # What does papicu mean?
