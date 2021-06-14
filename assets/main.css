@@ -23,7 +23,7 @@ body {
 
 @media only screen and (min-width: 120rem) {
   body {
-   font-size: 22px;
+   font-size: 20px;
   }
  }
 
@@ -78,6 +78,7 @@ h2 + h3, aside + h2 {
 p {
   margin-top: 0.5em;
   margin-bottom: 1em;
+  line-height: 1.5em;
 }
 
 li {
