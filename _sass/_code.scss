@@ -19,7 +19,7 @@ pre {
 
 /* Inline code */
 article {
-  code:not(pre.highlight code) {
+  code:not(pre.highlight code):not(figure.highlight pre code) {
     background-color: var(--bg-inline-code);
     padding: 0.15em;
   }
