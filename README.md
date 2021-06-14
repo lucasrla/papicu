@@ -31,11 +31,10 @@ Papicu also includes:
 - An `RSS` feed
 - Support to [Open Graph](https://ogp.me/) images as [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started)
 
-Performance:
+Performance-wise:
 
-- PageSpeed: [theme home page scores 99](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpapicu.netlify.app)
-- Lighthouse: 99 performance (see PageSpeed above), 93 accessibility, 100 best practices, 100 SEO
-- PageSpeed: [a heavy-loaded post gets 93](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpapicu.netlify.app%2Fpost-with-bells-and-whistles%2F))
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/): 99 performance (see PageSpeed below), 93 accessibility, 100 best practices, 100 SEO
+- PageSpeed: [theme home page scores 99](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpapicu.netlify.app), [a heavy-loaded post gets 93](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpapicu.netlify.app%2Fpost-with-bells-and-whistles%2F)
 - W3C: [valid HTML](https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=https%3A%2F%2Fpapicu.netlify.app)
 
 
