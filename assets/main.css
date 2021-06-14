@@ -237,8 +237,14 @@ footer {
   align-items: center;
 }
 
-/* TODO: find a way to move the following into `_includes/darken/button.html` */
 @media (prefers-color-scheme: dark) {
+  body {
+    /* Dirty workaround (hardcoded) to prevent flash/flickering that happens with heavy pages before Darken and its variables are loaded */
+    /* Inspired by https://github.com/ColinEspinas/darken/issues/20 */
+    color: #ccc;
+    background-color: #2c2c2c;
+  }
+
   img {
     filter: brightness(0.8) contrast(1.2);
   }

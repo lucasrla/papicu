@@ -12,6 +12,8 @@ layout: html_minifier
 <body>
   {{ content }}
 
+  {%- include darken/init.html -%}
+
   {% if jekyll.environment != "local" and site.shynet %}
 
   {% comment %} This is to prevent double slashes "//" {% endcomment %}
@@ -35,8 +37,6 @@ layout: html_minifier
     });
   </script>
   {% endif %}
-
-  {%- include darken/init.html -%}
 </body>
 
 </html>
