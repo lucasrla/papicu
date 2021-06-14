@@ -100,7 +100,7 @@ Have you noticed that the box has a triangle on the left and the text inside it 
 
 These are signals to indicate that the box has "expandable" content. You can easily open or close the "box" with a tap/click. 
 
-Try it out!
+> Try it out!
 </div>
 </details>
 
