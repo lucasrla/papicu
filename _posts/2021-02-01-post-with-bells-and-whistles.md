@@ -87,24 +87,24 @@ If you want to understand what is really going on, I recommend that you [inspect
 
 ## Expandable & collapsible content via `<summary>` and `<details>`
 
-If you have ever used [Workflowy](https://workflowy.com) or [Notion](https://notion.so), it is very likely you have experienced the power of collapsible blocks. 
-
-Papicu has it, too.
+If you have ever used [Workflowy](https://workflowy.com) or [Notion](https://notion.so), you likely have experienced the power of collapsible blocks already. Papicu takes advantage of it as well.
 
 <details open>
 <summary markdown="span">
 Here is a `<summary>` and `<details>` example that starts out as open by default
 </summary>
 <div>
-If you are reading this on a computer with a mouse, hover over the box above that says "Here is a `<summary>` and `<details>` example that starts out as open by default".
+If you are reading this on a computer with a mouse, hover over the box that says "Here is a `<summary>` and `<details>` example that starts out as open by default" above.
 
-Have you noticed that the box has a triangle on the left and its text behaves like a [link](#expandable--collapsible-content-via-summary-and-details)? These are signals to indicate that the box has "expandable" content. You can easily open or close the "box" with a tap/click. 
+Have you noticed that the box has a triangle on the left and the text inside it behaves like a [link](#expandable--collapsible-content-via-summary-and-details)? 
+
+These are signals to indicate that the box has "expandable" content. You can easily open or close the "box" with a tap/click. 
 
 Try it out!
 </div>
 </details>
 
-We started with plain, vanilla CSS to create boxes like this. Then, we came up with a few tricks[^2] using [kramdown](https://github.com/gettalong/kramdown/).
+We started with vanilla CSS to create boxes like this. Then, we added a few tricks[^2] to make [kramdown](https://github.com/gettalong/kramdown/) behave properly.
 
 [^2]: 
     For more information on the tricks, check out: [kramdown Syntax - HTML Blocks](https://kramdown.gettalong.org/syntax.html#html-blocks), [kramdown Options - parse_block_html](https://kramdown.gettalong.org/options.html), [issue #155](https://github.com/gettalong/kramdown/issues/155), [issue #213](https://github.com/gettalong/kramdown/issues/213). 
