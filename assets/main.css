@@ -326,10 +326,7 @@ summary {
 
   summary:hover {
     cursor: pointer;
-    /* text-decoration: underline; */
     border-bottom: 1px solid var(--links);
-    /* TODO: find a way to make macOS Safari show these underlines */
-    /* For so reason it is working only on Firefox and Chrome */
   }
 }
 
