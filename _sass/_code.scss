@@ -19,8 +19,8 @@ pre {
 
 /* Inline code */
 article {
-  code {
-    background-color: var(--bg-code);
+  code:not(pre.highlight code) {
+    background-color: var(--bg-inline-code);
     padding: 0.15em;
   }
 }
@@ -28,7 +28,7 @@ article {
 .highlight {
   padding: 1rem;
   margin: 0 0 1rem 0;
-  background-color: var(--bg-code);
+  background-color: var(--bg-code-block);
 
   pre {
     margin-bottom: 0;
