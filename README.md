@@ -21,7 +21,7 @@ Main features:
 - Support to [Chart.js](https://www.chartjs.org) interactive charts
 - Support to table of contents (TOC)
 - Expandable & collapsible content
-- Responsive YouTube embeds with 16:9 aspect ratio
+- Lazy-loaded, responsive YouTube embeds with 16:9 aspect ratio
 
 Papicu also includes:
 
@@ -30,6 +30,13 @@ Papicu also includes:
 - Three sample blog posts
 - An `RSS` feed
 - Support to [Open Graph](https://ogp.me/) images as [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started)
+
+Performance:
+
+- PageSpeed: [theme home page scores 99](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpapicu.netlify.app)
+- Lighthouse: 99 performance (see PageSpeed above), 93 accessibility, 100 best practices, 100 SEO
+- PageSpeed: [a heavy-loaded post gets 93](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpapicu.netlify.app%2Fpost-with-bells-and-whistles%2F))
+- W3C: [valid HTML](https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=https%3A%2F%2Fpapicu.netlify.app)
 
 
 # Setup
@@ -159,6 +166,7 @@ Papicu itself is distributed under the terms of the [MIT License](https://en.wik
 - Interactive charts via [Chart.js](https://www.chartjs.org)
 - Redirects via [jekyll-redirect-from](https://github.com/jekyll/jekyll-redirect-from)
 - YouTube embeds via [jekyll-youtube](https://github.com/pibby/jekyll-youtube)
+- YouTube lazy loading via [dev.to/haggen](https://dev.to/haggen/lazy-load-embedded-youtube-videos-520g)
 - Compressed HTML via [jekyll-minifier](https://github.com/Mendeo/jekyll-minifier)
 
 
