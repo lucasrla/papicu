@@ -96,15 +96,15 @@ Papicu has it, too.
 Here is a `<summary>` and `<details>` example that starts out as open by default
 </summary>
 <div>
-If you are reading this on a computer with a mouse, hover over the box above (the box that says "Here is a `<summary>` and `<details>` example that starts out as open by default").
+If you are reading this on a computer with a mouse, hover over the box above that says "Here is a `<summary>` and `<details>` example that starts out as open by default".
 
-Have you noticed a triangle on the left and a border at the bottom? They indicate that the box has "expandable" content.
+Have you noticed that the box has a triangle on the left and its text behaves like a [link](#expandable--collapsible-content-via-summary-and-details)? These are signals to indicate that the box has "expandable" content. You can easily open or close the "box" with a tap/click. 
 
-You can easily open or close the "box" with a tap/click. Try it out!
+Try it out!
 </div>
 </details>
 
-We started with plain, vanilla CSS to create boxes like this, and then we did a few tricks[^2] with [kramdown](https://github.com/gettalong/kramdown/), too.
+We started with plain, vanilla CSS to create boxes like this. Then, we came up with a few tricks[^2] using [kramdown](https://github.com/gettalong/kramdown/).
 
 [^2]: 
     For more information on the tricks, check out: [kramdown Syntax - HTML Blocks](https://kramdown.gettalong.org/syntax.html#html-blocks), [kramdown Options - parse_block_html](https://kramdown.gettalong.org/options.html), [issue #155](https://github.com/gettalong/kramdown/issues/155), [issue #213](https://github.com/gettalong/kramdown/issues/213). 
@@ -119,7 +119,7 @@ Here are a few more examples of "expandable" boxes. The ones below are all close
 
 <details>
 <summary markdown="span">
-Here are a few more examples
+Here are a few more examples (that start out as closed)
 </summary>
 <div>
 Hey!
@@ -128,7 +128,7 @@ Hey!
 
 <details>
 <summary markdown="span">
-Yet another one
+Yet another closed one
 </summary>
 <div>
 Howdy!
@@ -149,7 +149,7 @@ Their source code is pretty straightforward:
 ```html
 <details>
 <summary markdown="span">
-Here are a few more examples
+Here are a few more examples (that start out as closed)
 </summary>
 <div>
 Hey!
@@ -158,7 +158,7 @@ Hey!
 
 <details>
 <summary markdown="span">
-Yet another one
+Yet another closed one
 </summary>
 <div>
 Howdy!

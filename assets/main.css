@@ -303,12 +303,14 @@ details[open] > div {
 summary {
   padding: 0.5em;
   background-color: var(--bg-code);
-  border-bottom: 2px solid var(--border);
+  /* border-bottom: 1px solid var(--links); */
+  color: var(--links);
 }
 
 summary:hover {
   cursor: pointer;
-  border-bottom: 2px solid var(--text);
+  /* border-bottom: 1px solid var(--links); */
+  text-decoration: underline;
 }
 
 /* TODO: find a way to vertically center details marker on Safari and Firefox */
