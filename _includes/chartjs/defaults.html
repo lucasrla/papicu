@@ -5,11 +5,12 @@
   function logTicksFn(tick) {
     const log10Tick = Chart.helpers.math.log10(tick);
     const r = tick / Math.pow(10, Math.floor(log10Tick));
-    if (r === 1 || r === 2 || r === 5) {
-      return tick.toString();
+    const roundedR = Math.round(r);
+    /* console.log("log10Tick", log10Tick, "tick", tick, "r", r, "roundedR", roundedR); */
+    if (roundedR === 1 || roundedR === 2 || roundedR === 5) {
+      return Number.parseFloat(tick).toPrecision(1).toString();
     }
     return '';
-
   }
 
   /* Set up tooltips */
