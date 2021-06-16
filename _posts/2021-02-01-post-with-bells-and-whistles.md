@@ -91,10 +91,10 @@ If you have ever used [Workflowy](https://workflowy.com) or [Notion](https://not
 
 <details open>
 <summary markdown="span">
-Here is a `<summary>` and `<details>` example that starts out as open by default
+Here is a `<summary>` and `<details>` example that starts out open (i.e., expanded)
 </summary>
 <div>
-If you are reading this on a computer with a mouse, hover over the box that says "Here is a `<summary>` and `<details>` example that starts out as open by default" above.
+If you are reading this on a computer with a mouse, hover over the box that says "Here is a `<summary>` and `<details>` example that starts out open (i.e., expanded)" above.
 
 Have you noticed that the box has a triangle on the left and the text inside it behaves like a [link](#expandable--collapsible-content-via-summary-and-details)? 
 

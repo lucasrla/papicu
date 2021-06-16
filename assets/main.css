@@ -284,22 +284,25 @@ details[open] {
 }
 
 details[open] summary {
-  background-color: var(--bg);
+  /* background-color: var(--bg); */
+  border: 1px solid var(--bg);
   border-bottom: 1px solid var(--links);
 }
 
 summary:focus {
   outline: none;
+  border: 1px solid var(--border);
   border-bottom: 1px solid var(--links);
 }
 
 details[open] > div {
-  padding: 1em;
+  padding: 0.5em;
 }
 
 summary {
   padding: 0.5em;
-  border-bottom: 1px solid var(--bg);
+  /* border-bottom: 1px solid var(--bg); */
+  border: 1px solid var(--border);
   line-height: 1.5em;
 }
 
