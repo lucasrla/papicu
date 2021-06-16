@@ -376,7 +376,7 @@ aside.toc-sticky-sidebar header {
   font-variant: all-small-caps;
 }
 
-@media only screen and (min-width: 85rem) {
+@media only screen and (min-width: 86rem) {
   aside.toc-sticky-sidebar {
     display: block;
     box-sizing: border-box;
@@ -387,7 +387,7 @@ aside.toc-sticky-sidebar header {
     right: 0;
     float: right;
     width: 20rem;
-    margin-right: -20rem;
+    margin-right: -22rem;
     margin-bottom: 1em;
     padding-left: 1em;
     z-index: 10;
