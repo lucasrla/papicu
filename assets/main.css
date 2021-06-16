@@ -301,6 +301,7 @@ summary {
   padding: 0.5em;
   color: var(--links);
   border-bottom: 1px solid var(--bg);
+  line-height: 1.5em;
 }
 
 /* TODO: find a way to vertically center details marker on Safari and Firefox */
