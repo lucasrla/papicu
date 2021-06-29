@@ -33,8 +33,8 @@ Papicu also includes:
 
 Performance-wise:
 
-- [Lighthouse](https://developers.google.com/web/tools/lighthouse/): 99 performance (see PageSpeed below), 93 accessibility, 100 best practices, 100 SEO
-- PageSpeed: [theme home page scores 99](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpapicu.netlify.app), [a heavy-loaded post gets 93](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpapicu.netlify.app%2Fpost-with-bells-and-whistles%2F)
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/) via [web.dev/measure](https://web.dev/measure/): [99 performance (see PageSpeed below), 95 accessibility, 100 best practices, 100 SEO](https://lighthouse-dot-webdotdevsite.appspot.com//lh/html?url=https%3A%2F%2Fpapicu.netlify.app%2F)
+- PageSpeed: [Papicu theme home page scores 99](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpapicu.netlify.app), [a heavy-loaded post with third-party scripts gets 93](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpapicu.netlify.app%2Fpost-with-bells-and-whistles%2F)
 - W3C: [valid HTML](https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=https%3A%2F%2Fpapicu.netlify.app)
 
 
