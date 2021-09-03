@@ -26,9 +26,9 @@ We use two beautiful SVG images (<img alt="moon" src="data:image/svg+xml;base64,
 
 Here is my own [how-to guide for self-hosting Shynet](https://github.com/lucasrla/shynet-docker-lightsail) using AWS Lightsail and Cloudflare.
 
-Besides Shynet, there are several other privacy-friendly alternatives to Google Analytics. [umami](https://umami.is/), for instance, looks great, and it offers events tracking! (Shynet currently does not.) 
+Besides Shynet, there are several other privacy-friendly alternatives to Google Analytics. [umami](https://umami.is/), for instance, looks great, and it offers events tracking! (Shynet currently does not.)
 
-Browse a good list of analytics alternatives at [github.com/0xnr/awesome-analytics](https://github.com/0xnr/awesome-analytics#privacy-focused-analytics).
+Browse a good list of analytics alternatives at [github.com/0xnr/awesome-analytics](https://github.com/0xnr/awesome-analytics#privacy-focused-analytics) and [Privacy Focused Analytics](https://privacyfocusedanalytics.info/).
 
 To enable Shynet, you must uncomment and modify the following line in `_config.yml`:
 
