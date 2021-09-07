@@ -13,6 +13,11 @@ layout: default
 
   <h1>{{ page.title | escape }}</h1>
 
+  {% if page.description %}
+  <em>{{ page.description | escape }}</em>
+  {% include separator.html %}
+  {% endif %}
+
   {% if page.toc %}
   <aside class="toc-sticky-sidebar">
     <nav>

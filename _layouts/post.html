@@ -13,7 +13,10 @@ layout: default
 
   <h1>{{ page.title | escape }}</h1>
 
-  <p class="muted small right">{{ page.date | date: "%B %Y" }}</p>
+  {% if page.description %}
+  <p class="muted">{{ page.description | escape }}</p>
+  {% include separator.html %}
+  {% endif %}
 
   {% if page.toc %}
   <aside class="toc-sticky-sidebar">
@@ -25,6 +28,8 @@ layout: default
   {% endif %}
 
   {{ content }}
+
+  <p class="muted small right">{{ page.date | date: "%B %Y" }}</p>
 
 </article>
 
