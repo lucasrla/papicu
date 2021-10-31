@@ -281,19 +281,18 @@ details {
 
 details[open] {
   margin-bottom: 1em;
-  /* background-color: var(--bg-expandable); */
 }
 
 details[open] summary {
-  /* background-color: var(--bg); */
-  border: 1px solid var(--bg);
-  border-bottom: 1px solid var(--links);
+  /* border: 1px solid var(--bg); */
+  border-bottom: 2px solid var(--links);
+  background-color: var(--bg-expandable);
 }
 
 summary:focus {
   outline: none;
-  border: 1px solid var(--border);
-  border-bottom: 1px solid var(--links);
+  /* border: 1px solid var(--border); */
+  border-bottom: 2px solid var(--links);
 }
 
 details[open] > div {
@@ -301,19 +300,26 @@ details[open] > div {
 }
 
 summary {
-  padding: 0.5em;
-  /* border-bottom: 1px solid var(--bg); */
-  border: 1px solid var(--border);
+  /* padding: 0.5em; */
+  border-bottom: 2px solid var(--bg);
+  /* border: 1px solid var(--border); */
   line-height: 1.5em;
 }
 
 summary::marker {
   color: var(--links);
+  font-family: monospace;
+  content: "+ ";
+  font-weight: bold;
 }
 
 /* TODO: follow https://github.com/GoogleChrome/lighthouse/issues/12089 and eventually remove this */
 summary::-webkit-details-marker {
   color: var(--links);
+}
+
+details[open] > summary::marker {
+  content: "- ";
 }
 
 /* TODO: find a way to vertically center details marker on Safari and Firefox */
@@ -334,7 +340,7 @@ summary::-webkit-details-marker {
 
   summary:hover {
     cursor: pointer;
-    border-bottom: 1px solid var(--links);
+    border-bottom: 2px solid var(--links);
   }
 }
 

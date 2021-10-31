@@ -91,16 +91,16 @@ If you have ever used [Workflowy](https://workflowy.com) or [Notion](https://not
 
 <details open>
 <summary markdown="span">
-Here is a `<summary>` and `<details>` example that starts out open (i.e., expanded)
+Here is a `<summary>` and `<details>` example that starts out open
 </summary>
 <div>
-If you are reading this on a computer with a mouse, hover over the box that says "Here is a `<summary>` and `<details>` example that starts out open (i.e., expanded)" above.
+If you are reading this on a computer with a mouse, hover over the box that says "Here is a `<summary>` and `<details>` example that starts out open" above.
 
-Have you noticed that the box has a triangle on the left and the text inside it behaves like a [link](#expandable--collapsible-content-via-summary-and-details)? 
+Have you noticed that the box has sign on the left? This is to indicate that the box has "expandable" content. 
 
-These are signals to indicate that the box has "expandable" content. You can easily open or close the "box" with a tap/click. 
+Incidentally, the text inside it behaves like a [link](#expandable--collapsible-content-via-summary-and-details). You can easily open or close the "box" with a tap/click.
 
-> Try it out!
+Try it out!
 </div>
 </details>
 
@@ -115,7 +115,7 @@ We started with vanilla CSS to create boxes like this. Then, we added a few tric
 
     Voilà!
 
-Here are a few more examples of "expandable" boxes. The ones below are all closed by default. You will need to tap/click on them to expand (open).
+Here are a few more examples of "expandable" boxes. The ones below are all closed by default. You will need to tap/click on them to see what's inside.
 
 <details>
 <summary markdown="span">
