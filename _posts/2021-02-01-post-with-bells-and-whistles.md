@@ -94,13 +94,11 @@ If you have ever used [Workflowy](https://workflowy.com) or [Notion](https://not
 Here is a `<summary>` and `<details>` example that starts out open
 </summary>
 <div>
-If you are reading this on a computer with a mouse, hover over the box that says "Here is a `<summary>` and `<details>` example that starts out open" above.
+If you are reading this on a computer with a mouse, hover over above (where it reads "Here is a `<summary>` and `<details>` example that starts out open"). Have you noticed a sign on the left? That is to indicate that it contains expandable content.
 
-Have you noticed that the box has sign on the left? This is to indicate that the box has "expandable" content. 
+Incidentally, what you are reading here _is_ the expandable content.
 
-Incidentally, the text inside it behaves like a [link](#expandable--collapsible-content-via-summary-and-details). You can easily open or close the "box" with a tap/click.
-
-Try it out!
+You can also collapse it to hide it out. Simply tap/click near the sign.
 </div>
 </details>
 
