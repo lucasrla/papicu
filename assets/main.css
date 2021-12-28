@@ -285,7 +285,7 @@ details[open] {
   background-color: var(--bg-expandable);
 }
 
-details[open] summary {
+details[open] > summary {
   border-bottom: 1px solid var(--links);
   background-color: var(--bg);
 }
@@ -299,24 +299,24 @@ details[open] > div {
   padding: 0.5em 1em;
 }
 
+summary::-webkit-details-marker {
+  display: none;
+}
+
 summary {
   border-bottom: 1px solid var(--bg);
   line-height: 1.5em;
+  list-style: none;
 }
 
-summary::marker {
+summary:before {
   color: var(--links);
   font-family: monospace;
   content: "+ ";
   font-size: 0.9em;
 }
 
-/* TODO: follow https://github.com/GoogleChrome/lighthouse/issues/12089 and eventually remove this */
-summary::-webkit-details-marker {
-  color: var(--links);
-}
-
-details[open] > summary::marker {
+details[open] > summary:before {
   content: "- ";
 }
 
