@@ -12,7 +12,7 @@ body {
   padding: 2em;
   margin: auto;
   color: var(--text);
-  background: var(--bg);
+  background-color: var(--bg);
 }
 
 @media only screen and (min-width: 80rem) {
@@ -431,4 +431,179 @@ ul.toc-menu a {
 ul.toc-menu li.active a {
   color: var(--muted);
   text-decoration: none;
+}
+
+/* -------------- SIDENOTES -------------- */
+/* thanks to https://github.com/kslstn/sidenotes  */
+
+.sidenote {
+  display: inline;
+}
+
+.sidenote__checkbox {
+  display: none;
+}
+
+.sidenote__button::after {
+  content: "1";
+  display: inline-block;
+  vertical-align: super;
+  font-size: 0.833333em;
+}
+
+.sidenote__content {
+  color: var(--muted);
+  font-size: 0.75em;
+  line-height: 1.4em;
+}
+
+.sidenote__button--number-2::after {
+  content: "2";
+}
+
+.sidenote__button--number-3::after {
+  content: "3";
+}
+
+.sidenote__button--number-4::after {
+  content: "4";
+}
+
+.sidenote__button--number-5::after {
+  content: "5";
+}
+
+.sidenote__button--number-6::after {
+  content: "6";
+}
+
+.sidenote__button--number-7::after {
+  content: "7";
+}
+
+.sidenote__button--number-8::after {
+  content: "8";
+}
+
+.sidenote__button--number-9::after {
+  content: "9";
+}
+
+.sidenote__button--number-10::after {
+  content: "10";
+}
+
+.sidenote__button--number-11::after {
+  content: "11";
+}
+
+/* For narrow viewports, the sidenote is hidden by default and shown when the checkbox is checked. */
+@media screen and (max-width: 1079px) {
+
+  .sidenote__checkbox~.sidenote__content {
+    /* Hidden, but accessible to browsers that don't do CSS (e.g. screenreaders, Pocket) */
+    position: absolute;
+    left: -99999px;
+    top: auto;
+  }
+
+  .sidenote__checkbox:checked~.sidenote__content {
+    /* override hidden-but-accessible */
+    position: relative;
+    left: auto;
+
+    /* Don't break up line containing the sidenote */
+    float: left;
+    min-width: 100%;
+
+    display: block;
+    margin: 1.5em 0 2em 0;
+    padding: 0 1em;
+  }
+
+  .sidenote .sidenote__button::after {
+    color: var(--links);
+    cursor: help;
+  }
+
+  .sidenote__button:not(:hover):focus::after {
+    display: inline;
+    /* display:inline-block causes misalignment between focus ring and background. */
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .sidenote:hover .sidenote__button {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: help;
+  }
+
+  .sidenote .sidenote__button::after {
+    color: var(--muted);
+  }
+
+  .sidenote:hover .sidenote__button::after, 
+  .sidenote:hover .sidenote__content {
+    color: var(--text);
+  }
+
+  .sidenote__content {
+    display: block;
+    position: absolute;
+    margin-left: 56em;
+    margin-top: -1.6em;
+    width: 18rem;
+  }
+}
+
+.sidenote__content::before {
+  content: "1.\ ";
+}
+
+.sidenote__content--number-2::before {
+  content: "2.\ ";
+}
+
+.sidenote__content--number-3::before {
+  content: "3.\ ";
+}
+
+.sidenote__content--number-4::before {
+  content: "4.\ ";
+}
+
+.sidenote__content--number-5::before {
+  content: "5.\ ";
+}
+
+.sidenote__content--number-6::before {
+  content: "6.\ ";
+}
+
+.sidenote__content--number-7::before {
+  content: "7.\ ";
+}
+
+.sidenote__content--number-8::before {
+  content: "8.\ ";
+}
+
+.sidenote__content--number-9::before {
+  content: "9.\ ";
+}
+
+.sidenote__content--number-10::before {
+  content: "10.\ ";
+}
+
+.sidenote__content--number-11::before {
+  content: "11.\ ";
+}
+
+/* Hidden, but accessible to browsers that don't do CSS (e.g. screenreaders, Pocket) */
+.sidenote__content-parenthesis {
+  position: absolute;
+  left: -99999px;
+  top: auto;
 }

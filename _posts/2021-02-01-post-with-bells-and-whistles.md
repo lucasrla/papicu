@@ -45,7 +45,7 @@ shynet: "https://shynet.john_doe_website.com/ingress/uuid-universally-unique-ide
 
 Here's an example of a nice interactive chart built with Chart.js.
 
-Suppose you are a male living in the U.S., England & Wales, or Brazil. Given your age, what are your chances of dying this year? The chart below provides you a very good estimate[^1]:
+Suppose you are a male living in the U.S., England & Wales, or Brazil. Given your age, what are your chances of dying this year? The chart below provides you a good estimate[^1]:
 
 {% include chartjs/warning-narrow-screen.html %}
 <div class="charts">
@@ -225,9 +225,41 @@ a &=b+c \\ &=e+f
 $$
 ```
 
+## Sidenotes
+
+Papicu supports footnotes[^3] out-of-the-box thanks to Jekyll and kramdown. 
+
+[^3]: This is a footnote.
+
+But, if given the choice, some people (including myself) would rather use sidenotes instead. Fortunately, Papicu supports {% include sidenote.html id="4" label="sidenotes" content="This is a sidenote (also known as a margin note)." -%} as well.
+
+A couple of caveats though:
+
+- Be aware that footnotes and sidenotes are numbered independently. So pick your preferred method of annotation and stick to it
+
+- Ours is a very simple implementation of sidenotes. Edge cases have not been properly handled. For instance, multiple notes in a short paragraph may result in ugly overlapping
+
+Our sidenotes draw heavily from the [sidenotes code](https://github.com/kslstn/sidenotes) by {% include sidenote.html id="5" label="Koos Looijesteijn." content="Check out his blog post, <a href='https://www.kooslooijesteijn.net/blog/sidenotes-without-js' class='muted'>Making semantic sidenotes without JavaScript</a>." %}
+
+Here's how to use footnotes:
+
+```html
+Papicu supports footnotes[^3] out-of-the-box thanks to Jekyll and kramdown. 
+
+[^3]: This is a footnote.
+```
+
+And here's how to use sidenotes:
+
+{% raw  %}
+```html
+Our sidenotes draw heavily from the [sidenotes code](https://github.com/kslstn/sidenotes) by {% include sidenote.html id="5" label="Koos Looijesteijn." content="Check out his blog post, <a href='https://www.kooslooijesteijn.net/blog/sidenotes-without-js' class='muted'>Making semantic sidenotes without JavaScript</a>." %}
+```
+{% endraw  %}
+
 ## Responsive images
 
-A nice picture of Fortaleza's coast:
+A picture of Fortaleza's coast that resizes automatically on different screen sizes:
 
 <img alt="Fortaleza's coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
 

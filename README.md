@@ -20,6 +20,7 @@ Main features:
 - Support to [KaTeX](https://katex.org)
 - Support to [Chart.js](https://www.chartjs.org) interactive charts
 - Support to table of contents (TOC)
+- Support to sidenotes (a.k.a. margin notes)
 - Expandable & collapsible content
 - Lazy-loaded, responsive YouTube embeds with 16:9 aspect ratio
 
@@ -163,6 +164,7 @@ Papicu itself is distributed under the terms of the [MIT License](https://en.wik
 - Table of Contents via [jekyll-toc](https://github.com/allejo/jekyll-toc) and [Gumshoe](https://github.com/cferdinandi/gumshoe/)
 - [KaTeX](https://katex.org) support via [kramdown](https://github.com/gettalong/kramdown), [math-katex](https://github.com/kramdown/math-katex), and [katex-ruby](https://github.com/glebm/katex-ruby/)
 - Interactive charts via [Chart.js](https://www.chartjs.org)
+- Sidenotes via [@kslstn/sidenotes](https://github.com/kslstn/sidenotes) ([blog post](https://www.kooslooijesteijn.net/blog/sidenotes-without-js))
 - Redirects via [jekyll-redirect-from](https://github.com/jekyll/jekyll-redirect-from)
 - YouTube embeds via [jekyll-youtube](https://github.com/pibby/jekyll-youtube)
 - YouTube lazy loading via [dev.to/haggen](https://dev.to/haggen/lazy-load-embedded-youtube-videos-520g)
