@@ -453,8 +453,8 @@ ul.toc-menu li.active a {
 
 .sidenote__content {
   color: var(--muted);
-  font-size: 0.75em;
-  line-height: 1.4em;
+  font-size: 0.95rem;
+  line-height: 1.4rem;
 }
 
 .sidenote__button--number-2::after {
@@ -551,10 +551,19 @@ ul.toc-menu li.active a {
   .sidenote__content {
     display: block;
     position: absolute;
-    margin-left: 56em;
+    margin-left: 52.5rem;
     margin-top: -1.6em;
     width: 18rem;
   }
+
+  /* A few ugly workarounds because we're positioning sidenotes relatively */
+  blockquote p .sidenote__content {
+    margin-left: 51.25rem;
+  }
+
+  li .sidenote__content {
+    margin-left: 50rem;
+  }  
 }
 
 .sidenote__content::before {
