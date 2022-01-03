@@ -13,17 +13,24 @@ body {
   margin: auto;
   color: var(--text);
   background-color: var(--bg);
+  
+  --sn-text-ratio: calc(16/16);
+  --sn-margin-fix: 632px;
 }
 
-@media only screen and (min-width: 80rem) {
+@media only screen and (min-width: 1281px) {
   body {
    font-size: 18px;
+   --sn-text-ratio: calc(18/16);
+   --sn-margin-fix: 716px;
   }
  }
 
-@media only screen and (min-width: 120rem) {
+@media only screen and (min-width: 1921px) {
   body {
    font-size: 20px;
+   --sn-text-ratio: calc(20/16);
+   --sn-margin-fix: 800px;
   }
  }
 
@@ -199,7 +206,7 @@ footer {
   flex-direction: unset;
 }
 
-@media only screen and (max-width: 40rem) {
+@media only screen and (max-width: 640px) {
   .flex-item {
     display: flex;
     justify-content: unset;
@@ -260,7 +267,7 @@ footer {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%;
+  padding-bottom: calc(9/16);
 }
 /* 56.25% is 9/16, we use it to enforce a 16:9 aspect ratio */
 
@@ -356,7 +363,7 @@ canvas {
   display: none;
 }
 
-@media only screen and (max-width: 28rem) {
+@media only screen and (max-width: 450px) {
   .warning-narrow-screen {
     display: block;
   }
@@ -368,7 +375,7 @@ canvas {
 /* https://github.com/KaTeX/KaTeX/issues/455 */
 /* https://github.com/KaTeX/KaTeX/issues/327 */
 /* 40rem is the width we set in body */
-@media only screen and (max-width: 40rem) {
+@media only screen and (max-width: 640px) {
   .katex-display > .katex {
     max-width: 100%;
     overflow-x: auto;
@@ -388,7 +395,7 @@ aside.toc-sticky-sidebar {
   margin-bottom: 3em;
 }
 
-@media only screen and (min-width: 80rem) {
+@media only screen and (min-width: 1280px) {
   aside.toc-sticky-sidebar {
     display: block;
     box-sizing: border-box;
@@ -419,7 +426,7 @@ ul.toc-menu {
 }
 
 ul.toc-menu li {
-  font-size: 0.7em;
+  font-size: 0.75em;
   line-height: 1.2em;
 }
 
@@ -453,8 +460,8 @@ ul.toc-menu li.active a {
 
 .sidenote__content {
   color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.4rem;
+  font-size: calc(0.8rem * var(--sn-text-ratio));
+  line-height: calc(1.1rem * var(--sn-text-ratio));
 }
 
 .sidenote__button--number-2::after {
@@ -498,7 +505,7 @@ ul.toc-menu li.active a {
 }
 
 /* For narrow viewports, the sidenote is hidden by default and shown when the checkbox is checked. */
-@media screen and (max-width: 1079px) {
+@media screen and (max-width: 1279px) {
 
   .sidenote__checkbox~.sidenote__content {
     /* Hidden, but accessible to browsers that don't do CSS (e.g. screenreaders, Pocket) */
@@ -532,7 +539,7 @@ ul.toc-menu li.active a {
   }
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1280px) {
   .sidenote:hover .sidenote__button {
     text-decoration: underline;
     text-decoration-style: dotted;
@@ -551,19 +558,19 @@ ul.toc-menu li.active a {
   .sidenote__content {
     display: block;
     position: absolute;
-    margin-left: 52.5rem;
+    margin-left: calc(42rem * var(--sn-text-ratio));
     margin-top: -1.6em;
     width: 18rem;
   }
 
   /* A few ugly workarounds because we're positioning sidenotes relatively */
   blockquote p .sidenote__content {
-    margin-left: 51.25rem;
+    margin-left: calc(41rem * var(--sn-text-ratio));
   }
 
   li .sidenote__content {
-    margin-left: 50rem;
-  }  
+    margin-left: var(--sn-margin-fix);
+  }
 }
 
 .sidenote__content::before {

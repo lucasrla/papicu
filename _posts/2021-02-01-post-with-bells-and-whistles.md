@@ -233,7 +233,9 @@ Papicu supports footnotes[^3] out-of-the-box thanks to Jekyll and kramdown.
 
 But, if given the choice, some people (including myself) would rather use sidenotes instead. Fortunately, Papicu supports {% include sidenote.html id="4" label="sidenotes" content="This is a sidenote (also known as a margin note)." -%} as well.
 
-Ours is a very simple implementation of sidenotes, though. A couple of caveats:
+Our sidenotes draw heavily from the [sidenotes code](https://github.com/kslstn/sidenotes) published by {% include sidenote.html id="5" label="Koos Looijesteijn." content="Check out his blog post, <a href='https://www.kooslooijesteijn.net/blog/sidenotes-without-js' class='muted'>Making semantic sidenotes without JavaScript</a>." %}
+
+A couple of caveats when using sidenotes within Papicu:
 
 - Footnotes and sidenotes are numbered independently. So pick your preferred method of annotation and stick to it
 
@@ -241,23 +243,27 @@ Ours is a very simple implementation of sidenotes, though. A couple of caveats:
 
 - Several edge cases have not been properly handled. For instance, multiple sidenotes in a short paragraph may result in some ugly overlapping
 
-Our sidenotes draw heavily from the [sidenotes code](https://github.com/kslstn/sidenotes) by {% include sidenote.html id="5" label="Koos Looijesteijn." content="Check out his blog post, <a href='https://www.kooslooijesteijn.net/blog/sidenotes-without-js' class='muted'>Making semantic sidenotes without JavaScript</a>." %}
+And just for the sake of it, here are two stress tests to check if our sidenote positions are working correctly:
 
-Here's how to use footnotes:
+- Firstly, a sidenote inside a {% include sidenote.html id="6" label="list" content="Another sidenote." %}
+
+> Secondly, a sidenote inside a `<blockquote>` {% include sidenote.html id="7" label="tag." content="Yet another sidenote." %}
+
+Here's how to use sidenotes in Papicu:
+
+{% raw  %}
+```html
+Our sidenotes draw heavily from the [sidenotes code](https://github.com/kslstn/sidenotes) published by {% include sidenote.html id="5" label="Koos Looijesteijn." content="Check out his blog post, <a href='https://www.kooslooijesteijn.net/blog/sidenotes-without-js' class='muted'>Making semantic sidenotes without JavaScript</a>." %}
+```
+{% endraw  %}
+
+And in case you need a Markdown refresher, here's how to use footnotes:
 
 ```html
 Papicu supports footnotes[^3] out-of-the-box thanks to Jekyll and kramdown. 
 
 [^3]: This is a footnote.
 ```
-
-And here's how to use sidenotes:
-
-{% raw  %}
-```html
-Our sidenotes draw heavily from the [sidenotes code](https://github.com/kslstn/sidenotes) by {% include sidenote.html id="5" label="Koos Looijesteijn." content="Check out his blog post, <a href='https://www.kooslooijesteijn.net/blog/sidenotes-without-js' class='muted'>Making semantic sidenotes without JavaScript</a>." %}
-```
-{% endraw  %}
 
 ## Responsive images
 
