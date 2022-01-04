@@ -564,8 +564,15 @@ ul.toc-menu li.active a {
   }
 
   /* A few ugly workarounds because we're positioning sidenotes relatively */
+  /* TODO: get rid of them! */
+  
+  details p .sidenote__content, 
   blockquote p .sidenote__content {
     margin-left: calc(41rem * var(--sn-text-ratio));
+  }
+
+  details blockquote p .sidenote__content {
+    margin-left: calc(40rem * var(--sn-text-ratio));
   }
 
   li .sidenote__content {

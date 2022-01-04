@@ -243,11 +243,22 @@ A couple of caveats when using sidenotes within Papicu:
 
 - Several edge cases have not been properly handled. For instance, multiple sidenotes in a short paragraph may result in some ugly overlapping
 
-And just for the sake of it, here are two stress tests to check if our sidenote positions are working correctly:
+And just for the sake of it, here are a few stress tests to check if our sidenote positions are working correctly:
 
 - Firstly, a sidenote inside a {% include sidenote.html id="6" label="list" content="Another sidenote." %}
 
 > Secondly, a sidenote inside a `<blockquote>` {% include sidenote.html id="7" label="tag." content="Yet another sidenote." %}
+
+<details>
+<summary markdown="span">
+Thirdly, sidenotes inside a `<details>` tag
+</summary>
+<div>
+A sidenote {% include sidenote.html id="8" label="here." content="Sidenotes everywhere." %}
+
+> And the {% include sidenote.html id="9" label="last one." content="Enough." %}
+</div>
+</details>
 
 Here's how to use sidenotes in Papicu:
 
