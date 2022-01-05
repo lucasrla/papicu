@@ -243,6 +243,8 @@ A couple of caveats when using sidenotes within Papicu:
 
 - Several edge cases have not been properly handled. For instance, multiple sidenotes in a short paragraph may result in some ugly overlapping
 
+- The look 'n' feel is suboptimal on Apple's [Safari Reader](https://support.apple.com/guide/safari/hide-ads-when-reading-sfri32632/mac)
+
 And just for the sake of it, here are a few stress tests to check if our sidenote positions are working correctly:
 
 - Firstly, a sidenote inside a {% include sidenote.html id="6" label="list" content="Another sidenote." %}

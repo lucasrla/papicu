@@ -625,6 +625,7 @@ ul.toc-menu li.active a {
 }
 
 /* Hidden, but accessible to browsers that don't do CSS (e.g. screenreaders, Pocket) */
+/* TODO: make this work on Safari Reader as well */
 .sidenote__content-parenthesis {
   position: absolute;
   left: -99999px;
