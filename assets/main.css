@@ -109,8 +109,9 @@ blockquote {
   font-size: 0.9em;
 }
 
-blockquote + * {
-  margin-top: 2em;
+blockquote + *,
+blockquote + details {
+  margin-top: 1.5em;
 }
 
 a {
@@ -381,6 +382,10 @@ canvas {
     overflow-x: auto;
     overflow-y: hidden;
   }
+}
+
+.katex-display {
+  margin-bottom: 1.5em;
 }
 
 /* -------------- TOC / TABLE OF CONTENTS -------------- */
