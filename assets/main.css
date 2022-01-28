@@ -385,7 +385,7 @@ canvas {
 }
 
 .katex-display {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5em !important;
 }
 
 /* -------------- TOC / TABLE OF CONTENTS -------------- */
