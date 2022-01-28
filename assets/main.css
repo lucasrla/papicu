@@ -288,7 +288,7 @@ details {
 }
 
 details[open] {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   border-bottom: 1px solid var(--links);
   background-color: var(--bg-expandable);
 }
@@ -304,7 +304,8 @@ summary:focus {
 }
 
 details[open] > div {
-  padding: 0.5em 1em;
+  padding: 0 1em;
+  padding-top: 0.5em;
 }
 
 summary::-webkit-details-marker {
