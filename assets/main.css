@@ -376,7 +376,6 @@ canvas {
 /* Workaround to make Katex block formulas (sort of) responsive */
 /* https://github.com/KaTeX/KaTeX/issues/455 */
 /* https://github.com/KaTeX/KaTeX/issues/327 */
-/* 40rem is the width we set in body */
 @media only screen and (max-width: 640px) {
   .katex-display > .katex {
     max-width: 100%;

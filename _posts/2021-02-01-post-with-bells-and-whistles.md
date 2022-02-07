@@ -231,7 +231,7 @@ Papicu supports footnotes[^3] out-of-the-box thanks to Jekyll and kramdown.
 
 [^3]: This is a footnote.
 
-But, if given the choice, some people (including myself) would rather use sidenotes instead. Fortunately, Papicu supports {% include sidenote.html id="4" label="sidenotes" content="This is a sidenote (also known as a margin note)." -%} as well.
+But, if given the choice, some people (including myself) would rather use sidenotes instead. Fortunately, Papicu supports {% include sidenote.html id="4" label="sidenotes" content="This is a sidenote (also known as a margin note)." %} as well.
 
 Our sidenotes draw heavily from the [sidenotes code](https://github.com/kslstn/sidenotes) published by {% include sidenote.html id="5" label="Koos Looijesteijn." content="Check out his blog post, <a href='https://www.kooslooijesteijn.net/blog/sidenotes-without-js' class='muted'>Making semantic sidenotes without JavaScript</a>." %}
 
