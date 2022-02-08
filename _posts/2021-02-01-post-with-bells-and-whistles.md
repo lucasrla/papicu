@@ -7,6 +7,7 @@ ogimg: opengraphimage.jpeg
 katex: True
 chartjs: True
 toc: True
+# toc_starts_closed: True
 code_highlighter: True
 ---
 
@@ -30,7 +31,7 @@ Besides Shynet, there are several other privacy-friendly alternatives to Google 
 
 Browse a good list of analytics alternatives at [github.com/0xnr/awesome-analytics](https://github.com/0xnr/awesome-analytics#privacy-focused-analytics) and [Privacy Focused Analytics](https://privacyfocusedanalytics.info/).
 
-To enable Shynet, you must uncomment and modify the following line in `_config.yml`:
+Papicu has built-in support to Shynet. To enable it, uncomment and modify the following line in `_config.yml` to match your needs:
 
 ```conf
 shynet: "https://shynet.john_doe_website.com/ingress/uuid-universally-unique-identifier/"
@@ -227,7 +228,7 @@ $$
 
 ## Sidenotes
 
-Papicu supports footnotes[^3] out-of-the-box thanks to Jekyll and kramdown. 
+Papicu supports footnotes[^3] out of the box thanks to Jekyll and kramdown. 
 
 [^3]: This is a footnote.
 
@@ -235,34 +236,7 @@ But, if given the choice, some people (including myself) would rather use sideno
 
 Our sidenotes draw heavily from the [sidenotes code](https://github.com/kslstn/sidenotes) published by {% include sidenote.html id="5" label="Koos Looijesteijn." content="Check out his blog post, <a href='https://www.kooslooijesteijn.net/blog/sidenotes-without-js' class='muted'>Making semantic sidenotes without JavaScript</a>." %}
 
-A couple of caveats when using sidenotes within Papicu:
-
-- Footnotes and sidenotes are numbered independently. So pick your preferred method of annotation and stick to it
-
-- Numbering of sidenotes must be done manually (via the `id` property, see example below)
-
-- Several edge cases have not been properly handled. For instance, multiple sidenotes in a short paragraph may result in some ugly overlapping
-
-- The look 'n' feel is suboptimal on Apple's [Safari Reader](https://support.apple.com/guide/safari/hide-ads-when-reading-sfri32632/mac)
-
-And just for the sake of it, here are a few stress tests to check if our sidenote positions are working correctly:
-
-- Firstly, a sidenote inside a {% include sidenote.html id="6" label="list" content="Another sidenote." %}
-
-> Secondly, a sidenote inside a `<blockquote>` {% include sidenote.html id="7" label="tag." content="Yet another sidenote." %}
-
-<details>
-<summary markdown="span">
-Thirdly, sidenotes inside a `<details>` tag
-</summary>
-<div>
-A sidenote {% include sidenote.html id="8" label="here." content="Sidenotes everywhere." %}
-
-> And the {% include sidenote.html id="9" label="last one." content="Enough." %}
-</div>
-</details>
-
-Here's how to use sidenotes in Papicu:
+The basic usage of sidenotes in Papicu is self-explanatory:
 
 {% raw  %}
 ```html
@@ -270,7 +244,9 @@ Our sidenotes draw heavily from the [sidenotes code](https://github.com/kslstn/s
 ```
 {% endraw  %}
 
-And in case you need a Markdown refresher, here's how to use footnotes:
+For more, check out the post [Advanced usage of sidenotes](/sidenotes-caveats-testground/).
+
+Incidentally, here's how to use footnotes as well. There's nothing specific to it. It's just basic Markdown:
 
 ```html
 Papicu supports footnotes[^3] out-of-the-box thanks to Jekyll and kramdown. 
