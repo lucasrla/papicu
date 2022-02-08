@@ -297,13 +297,13 @@ details {
 
 details[open] {
   margin-bottom: 1.5em;
-  border-bottom: 1px solid var(--links);
-  background-color: var(--bg-expandable);
+  border-bottom: 1px solid var(--border);
+  /* background-color: var(--bg-expandable); */
 }
 
 details[open] > summary {
-  border-bottom: 1px solid var(--links);
-  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  /* background-color: var(--bg); */
 }
 
 summary:focus {
@@ -353,6 +353,7 @@ details[open] > summary:before {
     text-decoration: underline;
   }
 
+  details[open] > summary:hover,
   summary:hover {
     cursor: pointer;
     border-bottom: 1px solid var(--links);
