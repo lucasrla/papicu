@@ -429,6 +429,7 @@ aside.toc-sticky-sidebar details[open] {
     float: left;
     width: 18rem;
     margin-left: -20rem;
+    /* TODO: increase margin-left in case the screen is super wide? */
     padding-left: 0.5em;
     z-index: 10;
     overflow-y: auto;
@@ -481,6 +482,10 @@ ul.toc-menu li.active a {
   line-height: calc(1.1rem * var(--sn-text-ratio));
 }
 
+.sidenote__inline_label {
+  cursor: help;
+}
+
 .sidenote__button--number-2::after {
   content: "2";
 }
@@ -521,6 +526,22 @@ ul.toc-menu li.active a {
   content: "11";
 }
 
+.sidenote__button--number-12::after {
+  content: "12";
+}
+
+.sidenote__button--number-13::after {
+  content: "13";
+}
+
+.sidenote__button--number-14::after {
+  content: "14";
+}
+
+.sidenote__button--number-15::after {
+  content: "15";
+}
+
 /* For narrow viewports, the sidenote is hidden by default and shown when the checkbox is checked. */
 @media screen and (max-width: 1279px) {
 
@@ -557,6 +578,7 @@ ul.toc-menu li.active a {
 }
 
 @media screen and (min-width: 1280px) {
+  .sidenote:hover .sidenote__inline_label,
   .sidenote:hover .sidenote__button {
     text-decoration: underline;
     text-decoration-style: dotted;
@@ -568,6 +590,7 @@ ul.toc-menu li.active a {
   }
 
   .sidenote:hover .sidenote__button::after, 
+  .sidenote:hover .sidenote__inline_label,
   .sidenote:hover .sidenote__content {
     color: var(--text);
   }
@@ -639,6 +662,22 @@ ul.toc-menu li.active a {
 
 .sidenote__content--number-11::before {
   content: "11.\ ";
+}
+
+.sidenote__content--number-12::before {
+  content: "12.\ ";
+}
+
+.sidenote__content--number-13::before {
+  content: "13.\ ";
+}
+
+.sidenote__content--number-14::before {
+  content: "14.\ ";
+}
+
+.sidenote__content--number-15::before {
+  content: "15.\ ";
 }
 
 /* Hidden, but accessible to browsers that don't do CSS (e.g. screenreaders, Pocket) */
