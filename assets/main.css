@@ -178,6 +178,10 @@ hr.dotted:before {
   content: "· · ·";
 }
 
+.auto-overflow-x {
+  overflow-x: auto;
+}
+
 /* -------------- LAYOUT -------------- */
 
 header {
@@ -372,6 +376,7 @@ canvas {
 @media only screen and (max-width: 450px) {
   .warning-narrow-screen {
     display: block;
+    margin-bottom: 1em;
   }
 }
 
