@@ -297,7 +297,7 @@ details {
 
 details[open] {
   margin-bottom: 1.5em;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--bg);
   /* background-color: var(--bg-expandable); */
 }
 
