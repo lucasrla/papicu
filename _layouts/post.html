@@ -14,22 +14,27 @@ layout: default
   <h1>{{ page.title | escape }}</h1>
 
   {% if page.description %}
-  <p class="muted">{{ page.description | escape }}</p>
-  {% include separator.html %}
+  <p class="muted bottom-spacer">{{ page.description | escape }}</p>
   {% endif %}
 
   {% if page.toc %}
   <aside class="toc-sticky-sidebar">
     <nav>
-      <header>Contents</header>
-      {% include toc.html sanitize=true html=content h_min=1 h_max=2 class="toc-menu" skip_no_ids=true %}
+      {% if page.toc_starts_closed %}
+      <details>
+      {% else %}
+      <details open>
+      {% endif %}
+        <summary>Table of Contents</summary>
+        {% include toc.html sanitize=true html=content h_min=1 h_max=2 class="toc-menu" skip_no_ids=true %}
+      </details>
     </nav>
   </aside>
   {% endif %}
 
   {{ content }}
 
-  <p class="muted small right">{{ page.date | date: "%B %Y" }}</p>
+  <p class="muted small right top-spacer">{{ page.date | date: "%B %Y" }}</p>
 
 </article>
 

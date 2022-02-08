@@ -18,7 +18,7 @@ body {
   --sn-margin-fix: 632px;
 }
 
-@media only screen and (min-width: 1281px) {
+@media only screen and (min-width: 1381px) {
   body {
    font-size: 18px;
    --sn-text-ratio: calc(18/16);
@@ -145,7 +145,7 @@ hr {
   color: var(--muted);
 }
 
-a.muted {
+.underlined, a.muted {
   text-decoration: underline;
 }
 
@@ -194,7 +194,11 @@ footer {
   margin-bottom: 8em;
 }
 
-.home-header {
+.top-spacer {
+  margin-top: 5em;
+}
+
+.home-header, .bottom-spacer {
   margin-bottom: 3em;
 }
 
@@ -390,14 +394,24 @@ canvas {
 
 /* -------------- TOC / TABLE OF CONTENTS -------------- */
 
-aside.toc-sticky-sidebar header {
-  color: var(--muted);
-  margin-bottom: 0;
-  font-variant: all-small-caps;
-}
-
 aside.toc-sticky-sidebar {
   margin-bottom: 3em;
+}
+
+aside.toc-sticky-sidebar summary {
+  color: var(--links);
+  margin-bottom: 0;
+  font-variant: all-small-caps;
+  border-bottom: none;
+}
+
+aside.toc-sticky-sidebar details {
+  margin: 0;
+}
+
+aside.toc-sticky-sidebar details[open] {
+  background-color: var(--bg);
+  border-bottom: none;
 }
 
 @media only screen and (min-width: 1280px) {
@@ -414,25 +428,23 @@ aside.toc-sticky-sidebar {
     right: 0;
     float: left;
     width: 18rem;
-    margin-left: -18rem;
-    margin-bottom: 1em;
-    padding-right: 2em;
+    margin-left: -20rem;
+    padding-left: 0.5em;
     z-index: 10;
     overflow-y: auto;
     max-height: 100%;
-    text-align: right;
   }
 }
 
 ul.toc-menu {
-  list-style-type: none;  
+  list-style-type: none;
   padding-inline-start: 0;
-  margin: 0;
+  margin: 0.5em 0;
 }
 
 ul.toc-menu li {
   font-size: 0.75em;
-  line-height: 1.2em;
+  line-height: 1.33em;
 }
 
 ul.toc-menu a {
