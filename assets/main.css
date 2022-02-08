@@ -51,9 +51,8 @@ td {
 
 th {
   padding: 0.5em;  
-  border-bottom: 2px solid var(--border);
+  border-bottom: 3px solid var(--border);
   font-weight: normal;
-  font-style: italic;
 }
 
 tfoot > tr > td {
@@ -78,6 +77,7 @@ h3 {
   margin-top: 2em;
 }
 
+/* TODO: is this still necessary? */
 h2 + h3, aside + h2 {
   margin-top: 1em;
 }
