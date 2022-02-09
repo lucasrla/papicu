@@ -415,8 +415,8 @@ aside.toc-sticky-sidebar details {
   margin: 0;
 }
 
+aside.toc-sticky-sidebar details[open] > summary:hover,
 aside.toc-sticky-sidebar details[open] {
-  background-color: var(--bg);
   border-bottom: none;
 }
 
