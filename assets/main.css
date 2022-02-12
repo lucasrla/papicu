@@ -457,7 +457,7 @@ canvas {
 }
 
 #toc-menu > ul ul {
-  padding-inline-start: 1em;
+  padding-inline-start: 0.75em;
 }
 
 #toc-menu li {
