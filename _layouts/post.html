@@ -18,7 +18,7 @@ layout: default
   {% endif %}
 
   {% if page.toc %}
-  <aside class="toc-sticky-sidebar">
+  <aside id="toc-sticky-sidebar">
     <nav>
       {% if page.toc_starts_closed %}
       <details>
@@ -26,7 +26,11 @@ layout: default
       <details open>
       {% endif %}
         <summary>Table of Contents</summary>
-        {% include toc.html sanitize=true html=content h_min=1 h_max=2 class="toc-menu" skip_no_ids=true %}
+        <div id="toc-menu">
+          {% assign header_min = page.toc_header_min | default: 1 %}
+          {% assign header_max = page.toc_header_max | default: 3 %}
+          {% include toc.html sanitize=true html=content h_min=header_min h_max=header_max skip_no_ids=true %}
+        </div>
       </details>
     </nav>
   </aside>

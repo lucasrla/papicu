@@ -8,6 +8,8 @@ katex: True
 chartjs: True
 toc: True
 # toc_starts_closed: True
+# toc_header_min: 1
+# toc_header_max: 2
 code_highlighter: True
 ---
 
