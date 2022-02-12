@@ -109,7 +109,9 @@ blockquote {
   font-size: 0.9em;
 }
 
-blockquote + *,
+blockquote + p,
+blockquote + ul,
+blockquote + div,
 blockquote + details {
   margin-top: 1.5em;
 }
@@ -461,7 +463,7 @@ canvas {
 }
 
 #toc-menu li {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   line-height: 1.1rem;
 }
 
