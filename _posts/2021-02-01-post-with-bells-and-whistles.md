@@ -7,6 +7,7 @@ ogimg: opengraphimage.jpeg
 katex: True
 chartjs: True
 toc: True
+# toc_type: "fixed"
 # toc_starts_closed: True
 # toc_header_min: 1
 # toc_header_max: 2

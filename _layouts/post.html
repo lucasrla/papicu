@@ -18,22 +18,25 @@ layout: default
   {% endif %}
 
   {% if page.toc %}
-  <aside id="toc-sticky-sidebar">
-    <nav>
-      {% if page.toc_starts_closed %}
+  {% assign toc_type = page.toc_type | default: "sticky" %}
+    {% if toc_type == "sticky" %}
+      <nav id="toc-sticky" class="toc-sidebar">
+    {% elsif toc_type == "fixed" %}
+      <nav id="toc-fixed" class="toc-sidebar">
+    {% endif %}
+    {% if page.toc_starts_closed %}
       <details>
-      {% else %}
+    {% else %}
       <details open>
-      {% endif %}
-        <summary>Table of Contents</summary>
-        <div id="toc-menu">
-          {% assign header_min = page.toc_header_min | default: 1 %}
-          {% assign header_max = page.toc_header_max | default: 3 %}
-          {% include toc.html sanitize=true html=content h_min=header_min h_max=header_max skip_no_ids=true %}
-        </div>
-      </details>
-    </nav>
-  </aside>
+    {% endif %}
+      <summary>Table of Contents</summary>
+      <div id="toc-menu">
+        {% assign header_min = page.toc_header_min | default: 1 %}
+        {% assign header_max = page.toc_header_max | default: 3 %}
+        {% include toc.html sanitize=true html=content h_min=header_min h_max=header_max skip_no_ids=true %}
+      </div>
+    </details>
+  </nav>
   {% endif %}
 
   {{ content }}
