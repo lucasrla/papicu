@@ -435,8 +435,6 @@ canvas {
   border-bottom: none;
 }
 
-/* TODO: find a way to implement a scrollable sticky element (for the cases in which the TOC is too long) */
-/* eg: https://discourse.wicg.io/t/scrollable-sticky-element/5669 + https://jsfiddle.net/qm3KZ/26/ */
 @media only screen and (min-width: 1280px) {
   .toc-sidebar {
     display: block;
@@ -463,7 +461,24 @@ canvas {
     left: 1rem;
     position: fixed;
     overflow-y: auto;
+    height: 100%;
+    padding-right: 0.5rem;
   }
+}
+
+/* Make things larger in wider screens */
+@media only screen and (min-width: 1721px) {
+  .toc-sidebar {
+    width: 18rem;
+  }
+
+  #toc-sticky {
+    margin-left: -21rem;
+  }
+
+  #toc-menu li {
+    font-size: 0.9rem;
+  }  
 }
 
 #toc-menu ul {
@@ -480,18 +495,16 @@ canvas {
 }
 
 #toc-menu li {
-  font-size: 0.9rem;
-  line-height: 1.1rem;
+  font-size: 0.8rem;
+  line-height: 1rem;
 }
 
 #toc-menu a {
   color: var(--muted);
-  text-decoration: underline;
 }
 
 #toc-menu .active a {
-  color: var(--muted);
-  text-decoration: none;
+  color: var(--text);
 }
 
 /* -------------- SIDENOTES -------------- */
