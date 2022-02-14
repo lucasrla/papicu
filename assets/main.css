@@ -71,7 +71,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.3em;
+  font-size: 1.2em;
   line-height: normal;
   font-variant: all-small-caps;
   margin-top: 2em;
@@ -463,6 +463,7 @@ canvas {
     overflow-y: auto;
     height: 100%;
     padding-right: 0.5rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -476,9 +477,11 @@ canvas {
     margin-left: -21rem;
   }
 
-  #toc-menu li {
+  #toc-fixed #toc-menu li,
+  #toc-sticky #toc-menu li {
     font-size: 0.9rem;
-  }  
+    margin-bottom: 0.8rem;
+  }
 }
 
 #toc-menu ul {
@@ -497,6 +500,7 @@ canvas {
 #toc-menu li {
   font-size: 0.8rem;
   line-height: 1rem;
+  margin-bottom: 0.7rem;
 }
 
 #toc-menu a {
