@@ -528,7 +528,7 @@ canvas {
 }
 
 .sidenote__button::after {
-  content: "1";
+  content: "";
   display: inline-block;
   vertical-align: super;
   font-size: 0.833333em;
@@ -538,10 +538,15 @@ canvas {
   color: var(--muted);
   font-size: calc(0.8rem * var(--sn-text-ratio));
   line-height: calc(1.1rem * var(--sn-text-ratio));
+  font-weight: normal;
 }
 
 .sidenote__inline_label {
   cursor: help;
+}
+
+.sidenote__button--number-1::after {
+  content: "1";
 }
 
 .sidenote__button--number-2::after {
@@ -598,6 +603,26 @@ canvas {
 
 .sidenote__button--number-15::after {
   content: "15";
+}
+
+.sidenote__button--number-16::after {
+  content: "16";
+}
+
+.sidenote__button--number-17::after {
+  content: "17";
+}
+
+.sidenote__button--number-18::after {
+  content: "18";
+}
+
+.sidenote__button--number-19::after {
+  content: "19";
+}
+
+.sidenote__button--number-20::after {
+  content: "20";
 }
 
 /* For narrow viewports, the sidenote is hidden by default and shown when the checkbox is checked. */
@@ -679,6 +704,10 @@ canvas {
 }
 
 .sidenote__content::before {
+  content: "";
+}
+
+.sidenote__content--number-1::before {
   content: "1.\ ";
 }
 
@@ -736,6 +765,26 @@ canvas {
 
 .sidenote__content--number-15::before {
   content: "15.\ ";
+}
+
+.sidenote__content--number-16::before {
+  content: "16";
+}
+
+.sidenote__content--number-17::before {
+  content: "17";
+}
+
+.sidenote__content--number-18::before {
+  content: "18";
+}
+
+.sidenote__content--number-19::before {
+  content: "19";
+}
+
+.sidenote__content--number-20::before {
+  content: "20";
 }
 
 /* Hidden, but accessible to browsers that don't do CSS (e.g. screenreaders, Pocket) */

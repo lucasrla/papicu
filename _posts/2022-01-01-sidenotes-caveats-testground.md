@@ -25,7 +25,7 @@ Here are sidenotes applied to a few different elements:
 
 > Secondly, a sidenote inside a `<blockquote>` tag, but the label of this one is different. It is not superscript like the others. It's inline! {% include sidenote.html id="2" mode="inline" content="A sidenote with a different kind of label." %}
 
-<details>
+<details class="inline-expander">
 <summary markdown="span">
 Thirdly, sidenotes inside a `<details>` tag
 </summary>
@@ -35,5 +35,7 @@ A sidenote {% include sidenote.html id="3" label="here." content="Sidenotes ever
 > And the {% include sidenote.html id="4" label="last one." content="Enough." %}
 </div>
 </details>
+
+Finally, {% include sidenote.html label="let's try a sidenote with no numbering" content="Here it is! Simply include a sidenote with `label` set, but with no `id` whatsoever." %}. A word of caution though. This kind of "numberless" sidenotes won't be easily accessible (or visible) to readers using mobile devices.
 
 Explore the source code of this page to learn how the sausage has been made.
