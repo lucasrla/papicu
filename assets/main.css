@@ -301,6 +301,8 @@ iframe.ytp {
 
 /* -------------- EXPANDABLE / COLLAPSIBLE -------------- */
 
+/* TODO: check out https://fotis.xyz/posts/details-is-awesome */
+
 details {
   margin: 1em 0;
 }
@@ -308,12 +310,10 @@ details {
 details[open] {
   margin-bottom: 1.5em;
   border-bottom: 1px solid var(--bg);
-  /* background-color: var(--bg-expandable); */
 }
 
 details[open] > summary {
   border-bottom: 1px solid var(--border);
-  /* background-color: var(--bg); */
 }
 
 summary:focus {
@@ -347,11 +347,15 @@ details[open] > summary:before {
   content: "- ";
 }
 
-/* TODO: find a way to vertically center details marker on Safari and Firefox */
-/* https://stackoverflow.com/questions/59211525/how-to-center-details-marker */
-/* https://stackoverflow.com/questions/51131818/how-to-vertically-align-detailss-arrow-with-summarys-content */
+.inline-expander summary {
+  margin-left: 1em;
+}
 
-/* TODO: check out https://fotis.xyz/posts/details-is-awesome/ */
+.inline-expander summary:before {
+  font-size: 1.1em;
+  float: left;
+  margin-left: -1em;  
+}
 
 /* -------------- HOVERING EFFECTS -------------- */
 

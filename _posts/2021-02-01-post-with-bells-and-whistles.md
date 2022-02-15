@@ -95,7 +95,7 @@ Papicu takes `<summary>` and `<details>` to the next level and make collapsible 
 
 If you have ever used [Notion](https://notion.so) or [Workflowy](https://workflowy.com), you have already experienced the power of collapsible blocks.
 
-<details open>
+<details open class="inline-expander">
 <summary markdown="span">
 Here is an example of a collapsible box that starts out open
 </summary>
@@ -121,7 +121,7 @@ We started with vanilla `CSS` to create boxes like this. Then, we added a few tr
 
 Here are a few more examples of "expandable" boxes. The ones below start out closed by default. You will need to tap/click on them to expand and read what's inside.
 
-<details>
+<details class="inline-expander">
 <summary markdown="span">
 Here are a few more examples (that start out closed)
 </summary>
@@ -130,7 +130,7 @@ Hey!
 </div>
 </details>
 
-<details>
+<details class="inline-expander">
 <summary markdown="span">
 Yet another closed one
 </summary>
@@ -139,7 +139,7 @@ Howdy!
 </div>
 </details>
 
-<details>
+<details class="inline-expander">
 <summary markdown="span">
 Third time's a charm
 </summary>
@@ -151,7 +151,7 @@ Isn't it?
 Their source code is pretty straightforward:
 
 ```html
-<details>
+<details class="inline-expander">
 <summary markdown="span">
 Here are a few more examples (that start out as closed)
 </summary>
@@ -160,7 +160,7 @@ Hey!
 </div>
 </details>
 
-<details>
+<details class="inline-expander">
 <summary markdown="span">
 Yet another closed one
 </summary>
@@ -169,7 +169,7 @@ Howdy!
 </div>
 </details>
 
-<details>
+<details class="inline-expander">
 <summary markdown="span">
 Third time's a charm
 </summary>
