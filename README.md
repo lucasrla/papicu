@@ -21,6 +21,7 @@ Main features:
 - Support to [Chart.js](https://www.chartjs.org) interactive charts
 - Support to table of contents (TOC)
 - Support to sidenotes (a.k.a. margin notes)
+- Support to deep anchor links
 - Expandable & collapsible content
 - Lazy-loaded, responsive YouTube embeds with 16:9 aspect ratio
 
@@ -169,6 +170,7 @@ Papicu itself is distributed under the terms of the [MIT License](https://en.wik
 - YouTube embeds via [jekyll-youtube](https://github.com/pibby/jekyll-youtube)
 - YouTube lazy loading via [dev.to/haggen](https://dev.to/haggen/lazy-load-embedded-youtube-videos-520g)
 - Compressed HTML via [jekyll-minifier](https://github.com/Mendeo/jekyll-minifier)
+- Anchor links via [AnchorJS](https://www.bryanbraun.com/anchorjs/)
 
 
 # What does papicu mean?

@@ -374,6 +374,16 @@ details[open] > summary:before {
   }
 }
 
+/* -------------- ANCHORJS -------------- */
+
+.anchorjs-link {
+  padding-right: 0;
+}
+
+.anchorjs-link::after {
+  font-size: 0.9em;
+}
+
 /* -------------- CHARTS -------------- */
 
 canvas {

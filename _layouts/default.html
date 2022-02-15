@@ -37,6 +37,16 @@ layout: html_minifier
     });
   </script>
   {% endif %}
+
+  {% if page.anchorjs %}
+  <script>
+    anchors.options = {
+      placement: 'left',
+      // visible: 'touch'
+    };
+    anchors.add();
+  </script>
+  {% endif %}
 </body>
 
 </html>

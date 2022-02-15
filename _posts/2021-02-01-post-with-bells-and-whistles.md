@@ -12,6 +12,7 @@ toc: True
 # toc_header_min: 1
 # toc_header_max: 2
 code_highlighter: True
+anchorjs: True
 ---
 
 ## Dark mode via Darken
@@ -288,6 +289,24 @@ Here is how to use it:
 {% endraw %}
 
 Our implementation was based on [this snippet](https://github.com/pibby/jekyll-youtube) by [@pibby](https://pibby.com/) and [this codesandbox](https://codesandbox.io/s/youtube-iframe-lazy-load-qdzu6) by [@haggen](https://codesandbox.io/u/haggen).
+
+## Anchor links via AnchorJS
+
+In [their own words](https://www.bryanbraun.com/anchorjs/):
+
+> AnchorJS lets you drop deep anchor links onto any webpage, and be on your way.
+>
+> You don't need to set up IDs or worry about urls. AnchorJS will respect your IDs if you have them, and generate them if you don't.
+>
+> AnchorJS is lightweight, accessible, and dependency-free.
+
+What is an anchor link you might ask? 
+
+If you are on a computer, just hover your mouse above the title of this section &mdash; Anchor links to headers via AnchorJS &mdash; and look at the blue <code style="font-family: 'anchorjs-icons'; font-size: 1em; -webkit-font-smoothing: antialiased;"></code> symbol on your left. That's an anchor link.
+
+They're useful when someone needs to link to a specific part of a webpage. And that's why they are also known as "deep links."
+
+If you are on a touch-based device (e.g. phone, tablet), to make things cleaner and simpler, we have anchor links hidden out by default. But you can turn it on by uncommenting the `visible: touch` line inside the `default.html` file.
 
 {% include separator.html %}
 
