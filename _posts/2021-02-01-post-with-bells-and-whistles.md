@@ -1,8 +1,8 @@
 ---
 layout: post
-title: A post with bells and whistles
+title: A post with demos of several features
 date:	2021-02-01
-description: Example post featuring interactive charts, expandable & collapsible content, and more
+description: Example post with demos of interactive charts, expandable & collapsible content, and all the other features found in Papicu.
 ogimg: opengraphimage.jpeg
 katex: True
 chartjs: True
@@ -13,6 +13,7 @@ toc: True
 # toc_header_max: 2
 code_highlighter: True
 anchorjs: True
+lightbox: True
 ---
 
 ## Dark mode via Darken
@@ -274,6 +275,24 @@ Here is the source code behind what you see above:
 <p class="small center"><em>Photo by [deltafruit](https://www.flickr.com/photos/55953988@N00/), via [Wikipedia entry about Fortaleza](https://en.wikipedia.org/wiki/Fortaleza)</em></p>
 ```
 
+## Lightbox
+
+Thanks to [Tobii](https://github.com/midzer/tobii), Papicu has the ability to show images in a lightbox, where they can be bigger and easier to zoom in.
+
+For instance, instead of having just the `640px`-wide image of Fortaleza's coastline (that we've seen above), we could give to users interested in a closer looking the chance to view a higher quality, `2560px`-wide image. 
+
+To see it in action, simply tap or click on the image below:
+
+<a class="lightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/2560px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg">
+  <img alt="Fortaleza's coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
+</a>
+
+```html
+<a class="lightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/2560px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg">
+  <img alt="Fortaleza's coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
+</a>
+```
+
 ## Lazy-loaded, responsive, 16:9 YouTube embeds
 
 Now, why not some drone aerial footage the city of Fortaleza?
@@ -291,6 +310,8 @@ Here is how to use it:
 Our implementation was based on [this snippet](https://github.com/pibby/jekyll-youtube) by [@pibby](https://pibby.com/) and [this codesandbox](https://codesandbox.io/s/youtube-iframe-lazy-load-qdzu6) by [@haggen](https://codesandbox.io/u/haggen).
 
 ## Anchor links via AnchorJS
+
+Papicu can create anchor links throughout your page. This feature is brought to you by AnchorJS. 
 
 In [their own words](https://www.bryanbraun.com/anchorjs/):
 

@@ -55,6 +55,10 @@ TODO: add something like [Open Graph Image as a Service](https://github.com/verc
 <meta name="theme_author" content="Lucas Amaro" />
 <meta name="theme_url" content="https://lucasamaro.com/papicu" />
 
+{% if page.lightbox %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@midzer/tobii@2.3.2/dist/tobii.min.css" integrity="sha256-pKJvBeCb3mXQKk/1a7Dh8tAf2lRXbHOPXPd0VWb0e1A=" crossorigin="anonymous">
+{% endif %}
+
 <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
 
 {% if page.code_highlighter %}
@@ -93,4 +97,8 @@ integrity="sha256-r/9biws8g6l28IaMAzQW4jw/wTmuDPmcEaXn1qqD9iM=" crossorigin="ano
 
 {% if page.anchorjs %}
 <script src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" integrity="sha256-0WMZ9PF4b2hTF66Eglv/9H5Vwk6lnOG4AbmCJxo96WQ=" crossorigin="anonymous"></script>
+{% endif %}
+
+{% if page.lightbox %}
+<script src="https://cdn.jsdelivr.net/npm/@midzer/tobii@2.3.2/dist/tobii.min.js" integrity="sha256-8fh7vRVLKtVACCTYz4Z6dG8YleIh70+9dPCPVLD/mdQ=" crossorigin="anonymous"></script>
 {% endif %}

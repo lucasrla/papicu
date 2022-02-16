@@ -253,6 +253,10 @@ footer {
   height: auto;
 }
 
+.tobii-zoom {
+  display: block;
+}
+
 /* -------------- DARKEN / DARK MODE -------------- */
 
 #darken-button {

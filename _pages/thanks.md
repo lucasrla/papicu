@@ -20,6 +20,9 @@ Free, open source software:
 - [jekyll-toc](https://github.com/allejo/jekyll-toc)
 - [gumshoe](https://github.com/cferdinandi/gumshoe/)
 - [jekyll-minifier](https://github.com/Mendeo/jekyll-minifier)
+- [AnchorJS](https://github.com/bryanbraun/anchorjs)
+- [Sidenotes](https://github.com/kslstn/sidenotes)
+- [Tobii](https://github.com/midzer/tobii)
 
 Services provided for free:
 

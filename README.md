@@ -171,6 +171,7 @@ Papicu itself is distributed under the terms of the [MIT License](https://en.wik
 - YouTube lazy loading via [dev.to/haggen](https://dev.to/haggen/lazy-load-embedded-youtube-videos-520g)
 - Compressed HTML via [jekyll-minifier](https://github.com/Mendeo/jekyll-minifier)
 - Anchor links via [AnchorJS](https://www.bryanbraun.com/anchorjs/)
+- Lightbox via [Tobii](https://github.com/midzer/tobii)
 
 
 # What does papicu mean?
