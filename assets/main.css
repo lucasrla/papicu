@@ -253,6 +253,9 @@ footer {
   height: auto;
 }
 
+/* NOTE: This is to overwrite tobii-zoom's display (inline-block) */
+/* We intend to only show zoomable images in text "blocks" (never inline) */
+/* eg https://quirksmode.org/css/css2/display.html#inlineblock */
 .tobii-zoom {
   display: block;
 }

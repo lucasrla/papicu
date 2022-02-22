@@ -22,6 +22,7 @@ Main features:
 - Support to table of contents (TOC)
 - Support to sidenotes (a.k.a. margin notes)
 - Support to deep anchor links
+- Support to lightbox for image zooming
 - Expandable & collapsible content
 - Lazy-loaded, responsive YouTube embeds with 16:9 aspect ratio
 
