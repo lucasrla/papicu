@@ -14,7 +14,7 @@ bin/
 # jekyll
 _site/
 .jekyll-cache/
-.jekyll-metadata/
+.jekyll-metadata
 
 # misc
 _/
