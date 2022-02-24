@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A post with demos of several features
+title: Post containing demos of several features
 date:	2021-02-01
 description: Example post with demos of interactive charts, expandable & collapsible content, and all the other features found in Papicu.
 ogimg: opengraphimage.jpeg
@@ -329,7 +329,7 @@ They're useful when someone needs to link to a specific part of a webpage. And t
 
 If you are on a touch-based device (e.g. phone, tablet), to make things cleaner and simpler, we have anchor links hidden out by default. But you can turn it on by uncommenting the `visible: touch` line inside the `default.html` file.
 
-{% include separator.html %}
+{% include divider.html %}
 
 {% include chartjs/defaults.html %}
 {% include interact/mortality-curves.html %}

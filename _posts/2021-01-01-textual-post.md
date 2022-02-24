@@ -9,7 +9,7 @@ category: Latin
 
 _The content from example post was taken from [Clio](https://github.com/danromero/clio/blob/master/_posts/2020-01-01-hello-world.md) by [@danromero](http://danromero.org/)._
 
-{% include separator.html %}
+{% include divider.html %}
 
 Lorem markdownum cum dixit exspectare sanguine favillae Boreas in libandas unda
 ast lacrimas, est [monte membra](http://quem.io/semina) mediumque vetus! Volat

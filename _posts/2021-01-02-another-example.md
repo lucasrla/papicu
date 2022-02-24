@@ -7,7 +7,7 @@ code_highlighter: True
 
 _The content from this example post was taken from [Poole](https://github.com/poole/poole/blob/master/_posts/2020-04-02-example-content.md) by [@mdo](https://twitter.com/mdo)._
 
-{% include separator.html %}
+{% include divider.html %}
 
 Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
 
@@ -138,6 +138,6 @@ Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, conse
 
 Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.
 
-{% include separator.html %}
+{% include divider.html %}
 
 [^fn-sample_footnote]: Handy! Now click the return link to go back.
