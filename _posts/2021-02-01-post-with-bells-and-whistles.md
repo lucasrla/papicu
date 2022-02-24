@@ -270,7 +270,7 @@ A picture of Fortaleza's coast that resizes automatically on different screen si
 Here is the source code behind what you see above:
 
 ```html
-<img alt="Fortaleza's coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
+<img alt="Fortaleza’s coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
 
 <p class="small center"><em>Photo by [deltafruit](https://www.flickr.com/photos/55953988@N00/), via [Wikipedia entry about Fortaleza](https://en.wikipedia.org/wiki/Fortaleza)</em></p>
 ```
@@ -284,12 +284,12 @@ For instance, instead of having just the `640px`-wide image of Fortaleza's coast
 To see it in action, simply tap or click on the image below:
 
 <a class="lightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/2560px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg">
-  <img alt="Fortaleza's coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
+  <img alt="Fortaleza’s coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
 </a>
 
 ```html
 <a class="lightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/2560px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg">
-  <img alt="Fortaleza's coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
+  <img alt="Fortaleza’s coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
 </a>
 ```
 
