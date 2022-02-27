@@ -4,8 +4,6 @@
 .vscode/
 .ruby-version
 
-Gemfile.lock
-
 # bundler
 vendor/
 vendor.noindex/
