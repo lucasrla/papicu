@@ -30,9 +30,8 @@ Papicu also includes:
 
 - A homepage that displays a brief introduction and the most recent blog posts in reverse chronological order
 - An about page located at `/about/`
-- Three sample blog posts
+- A few sample blog posts
 - An `RSS` feed
-- Support to [Open Graph](https://ogp.me/) images as [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started)
 
 Performance-wise:
 
@@ -95,18 +94,20 @@ If you are reasonably well-versed in Jekyll, clone or fork this repository and h
 
 Unfortunately, Papicu **is not compatible** with GitHub Pages standard workflow.
 
-Why? Because, as of April 2021, GitHub Pages ([gem version 214](https://rubygems.org/gems/github-pages)) still uses Jekyll `=3.9.0`. Papicu needs Jekyll `~>4.1` for `slugified_categories` (i.e., [well-formed permalinks](https://jekyllrb.com/docs/permalinks/#placeholders)).
+Why? Because, as of February 2022, GitHub Pages ([gem version 223](https://rubygems.org/gems/github-pages)) still uses Jekyll `=3.9.0`. Papicu needs Jekyll `~>4.1` for `slugified_categories` (i.e., [well-formed permalinks](https://jekyllrb.com/docs/permalinks/#placeholders)).
 
 For those who are really interested, it is possible circumvent this limitation and run Papicu on GitHub Pages by using GitHub Actions. Read [Jekyll's official guide on GitHub Actions](https://jekyllrb.com/docs/continuous-integration/github-actions/) for the details.
+
+Alternatively, sign up for an account with [Netlify](https://www.netlify.com/) and deploy your website there for free. We did that for our demo page: [https://papicu.netlify.app](https://papicu.netlify.app)). If you need help doing that, read [A Step-by-Step Guide: Jekyll 4.0 on Netlify](https://www.netlify.com/blog/2020/04/02/a-step-by-step-guide-jekyll-4.0-on-netlify/).
 
 
 # Usage
 
 ## Examples
 
-Each example post inside `_posts/` demonstrates a few of Papicu features. 
+Each example post inside `_posts/` demonstrates a few of Papicu features.
 
-Have a look, for example, at the post titled [A post with bells and whistles](https://papicu.netlify.app/post-with-bells-and-whistles/), and make sure you review its source code `_posts/2021-02-01-post-with-bells-and-whistles.md` as well.
+Have a look, for example, at the post titled [Post containing demos of several features](https://papicu.netlify.app/post-with-bells-and-whistles/), and make sure you review its source code `_posts/2021-02-01-post-with-bells-and-whistles.md` as well.
 
 
 ## Favicon generator
@@ -114,12 +115,13 @@ Have a look, for example, at the post titled [A post with bells and whistles](ht
 Try [realfavicongenerator.net](https://realfavicongenerator.net).
 
 
-## Open Graph and Twitter Cards
+## Metadata – JSON-LD, Open Graph, and Twitter Cards
 
-1. Put the image file inside `/assets/img/og/`
-2. Add the image filename to `ogimg:` in the post or page's [front matter](https://jekyllrb.com/docs/front-matter/)
+Papicu takes advantage of [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag/) to easily generate relevant metadata tags for search engines and social media.
 
-For an actual example, see `_posts/2021-01-01-textual-post.md`.
+[Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards), [Open Graph](https://ogp.me/) and [JSON-LD](https://en.wikipedia.org/wiki/JSON-LD) ([Google's guide](https://developers.google.com/search/docs/guides/intro-structured-data)) are supported out-of-the-box. 
+
+Please note that jekyll-seo-tag, as of [v2.8.0](https://github.com/jekyll/jekyll-seo-tag/releases/tag/v2.8.0), sets the Twitter Cards to `summary_large_image` only if there is an actual image referenced (say, at your post's front-matter). If there is none, it will default to `summary`. See, for instance, their issue [#287](https://github.com/jekyll/jekyll-seo-tag/issues/287).
 
 
 ## Tips for a Jekyll setup on your local machine
@@ -173,6 +175,7 @@ Papicu itself is distributed under the terms of the [MIT License](https://en.wik
 - Compressed HTML via [jekyll-minifier](https://github.com/Mendeo/jekyll-minifier)
 - Anchor links via [AnchorJS](https://www.bryanbraun.com/anchorjs/)
 - Lightbox via [Tobii](https://github.com/midzer/tobii)
+- [And other foundational Jekyll plugins](https://github.com/lucasrla/papicu/blob/main/Gemfile)
 
 
 # What does papicu mean?

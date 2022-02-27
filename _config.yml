@@ -1,10 +1,22 @@
 title: "John Doe"
-description: "John Doe's personal website"
+tagline: "John Doe’s personal website"
+description: "A longer description of John Doe’s personal website"
 url: https://papicu.netlify.app
+email: site@john_doe_website.com
+locale: en_US
 
-email: john_doe@example.com
-twitter: "john_doe_example"
+# papicu's homepage and twitter cards use this handler
+twitter:
+  username: "john_doe_website"
 
+# this is due to JSON-LD
+author:
+  name: "John Doe"
+  url: https://john_doe_author.com
+  email: me@john_doe_author.com
+  twitter: "john_doe_author"
+
+# uncomment and set this up if you are using shynet
 # shynet: "https://shynet.john_doe_website.com/ingress/uuid-universally-unique-identifier/"
 
 baseurl: ""
@@ -28,6 +40,7 @@ plugins:
   - jekyll-optional-front-matter
   - jekyll-redirect-from
   - jekyll-archives
+  - jekyll-last-modified-at
 
 include:
   - _pages/

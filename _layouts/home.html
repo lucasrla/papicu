@@ -7,11 +7,11 @@ layout: default
 
   <div class="small flex-header">
     <div>
-      {% if site.twitter %}
-       <a href="https://twitter.com/{{ site.twitter }}">twitter</a>
+      {% if site.twitter.username %}
+       <a href="https://twitter.com/{{ site.twitter.username }}">twitter</a>
       {% endif %}
 
-      {% if site.twitter and site.email %}
+      {% if site.twitter.username and site.email %}
       &nbsp;&#183;&nbsp;
       {% endif %}
 
