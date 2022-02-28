@@ -5,10 +5,10 @@ date:	2021-02-01
 description: Example post with demos of interactive charts, expandable & collapsible content, and all the other features found in Papicu
 description_visible: true
 image: 
-  path: assets/img/og/image.png
-  height: 256
-  width: 256
-  alt: "Papicu’s Blue"
+  path: assets/img/screenshot-post-with-bells-and-whistles-light.png
+  # height: 256
+  # width: 256
+  alt: "Screenshot of this post"
 katex: True
 chartjs: True
 toc: True

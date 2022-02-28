@@ -2,6 +2,7 @@
 layout: post
 title: Advanced usage of sidenotes
 description: An example post showing the different ways of using sidenotes within Papicu
+image: assets/img/screenshot-advanced-sidenotes-light.png
 date:	2022-01-01
 ---
 

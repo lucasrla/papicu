@@ -3,6 +3,7 @@ layout: post
 title: Post showcasing various HTML tags and code highlighting
 description: An example post showing how Papicu displays HTML tags, like \<ul\>, \<ol\>, \<table\>, \<strong\>, \<em\> \<mark\>, \<code\>, etc
 date:	2021-01-02
+image: assets/img/screenshot-another-example-post-light.png
 code_highlighter: True
 ---
 

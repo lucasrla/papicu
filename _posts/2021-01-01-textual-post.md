@@ -4,7 +4,7 @@ title: A simple, text-based example post
 date:	2021-01-01
 description: A post with text and an Open Graph image
 description_visible: true
-image: assets/img/og/image.png
+image: assets/img/screenshot-textual-post-light.png
 category: Latin
 ---
 
