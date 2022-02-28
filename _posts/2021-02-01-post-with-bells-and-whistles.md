@@ -3,6 +3,7 @@ layout: post
 title: Post containing demos of several features
 date:	2021-02-01
 description: Example post with demos of interactive charts, expandable & collapsible content, and all the other features found in Papicu
+description_visible: true
 image: 
   path: assets/img/og/image.png
   height: 256
