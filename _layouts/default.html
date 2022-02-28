@@ -3,7 +3,10 @@ layout: html_minifier
 ---
 
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+{% comment %}
+https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started Open Graph recommends specifying the “og” RDFa Core 1.1 CURIE prefix mapping via <html prefix="og: http://ogp.me/ns#">, [but] no such markup is required for Twitter cards and its use of the twitter: prefix in a HTML meta element’s name attribute.
+{% endcomment %}
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" prefix="og: https://ogp.me/ns#">
 
 <head>
 {%- include head.html -%}
