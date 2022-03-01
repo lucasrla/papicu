@@ -17,7 +17,9 @@ author:
   twitter: "john_doe_author"
 
 # uncomment and set this up if you are using shynet
-# shynet: "https://shynet.john_doe_website.com/ingress/uuid-universally-unique-identifier/"
+# shynet: https://shynet.john_doe_website.com/ingress/uuid-universally-unique-identifier/
+
+favicon_color: "#5AC8FA"
 
 baseurl: ""
 
