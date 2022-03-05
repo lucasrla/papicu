@@ -1,7 +1,7 @@
 /* -------------- GENERAL -------------- */
 
 /* NOTE: CSS color variables used below were defined in */
-/* `_includes/darken/init.html` */
+/* `_includes/darken.html` */
 
 body {
   /* inspired by https://bitsofco.de/the-new-system-font-stack/ but, if available, we prefer Helvetica Neue */
@@ -76,7 +76,7 @@ h3 {
   margin-top: 2em;
 }
 
-/* TODO: is this still necessary? */
+/* TODO: is aside + h2 still necessary? */
 h2 + h3, aside + h2 {
   margin-top: 1em;
 }
@@ -175,7 +175,7 @@ hr {
 }
 
 .padded {
-  padding-inline-start: 1em;
+  padding-inline-start: 1rem;
 }
 
 .no-padding {
@@ -224,7 +224,7 @@ footer {
   margin-top: 5em;
 }
 
-.home-header, .bottom-spacer {
+.bottom-spacer {
   margin-bottom: 3em;
 }
 
@@ -272,15 +272,44 @@ footer {
   display: block;
 }
 
+/* -------------- SVG ICONS -------------- */
+
+.home-icon {
+  height: 1.33rem;
+  width: 1.33rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  fill: var(--links);
+  overflow: hidden;  
+}
+
+.button-icon {
+  margin-top: 0.5em;
+  padding: 2px;
+  border-radius: 4px;
+  border: 1px solid var(--muted);
+  color: var(--muted);
+  fill: var(--muted);
+  overflow: hidden;
+}
+
 /* -------------- DARKEN / DARK MODE -------------- */
 
-#darken-button {
-  width: 1.5rem;
-  height: 1.5rem;
+#color-scheme-switch {
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  display: inline-flex;
+}
+
+.color-scheme-option {
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0 0.5em;
+  text-decoration: underline;
+}
+
+.color-scheme-option.selected {
+  cursor: default;
+  text-decoration: none;
 }
 
 /* TODO: is there a way to move the following into darken init? */

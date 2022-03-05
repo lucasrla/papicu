@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@midzer/tobii@2.3.2/dist/tobii.min.css" integrity="sha256-pKJvBeCb3mXQKk/1a7Dh8tAf2lRXbHOPXPd0VWb0e1A=" crossorigin="anonymous">
 {% endif %}
 
-<link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
 
 {% if page.code_highlighter %}
 <link rel="stylesheet" href="{{ '/assets/rouge.css' | relative_url }}">
@@ -26,6 +26,9 @@ integrity="sha256-Y6pO59dXdOEEwUl/HiqekT5Fj1o+thlUS/gkwgXIZo4=" crossorigin="ano
 
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS feed" href="{{ site.url }}/feed.xml" />
 
+{% comment %}
+- A good overview of the messy world of favicons: https://archive.is/3semP
+{% endcomment %}
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">

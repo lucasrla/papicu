@@ -1,22 +1,36 @@
 <hr />
 
-<footer>
-  <div class="flex-footer small">
-    <p><a class="muted" href="/">← Main</a></p>
+<footer class="small muted">
+  <div class="flex-footer">
+    <p><a class="muted" href="/">← Home Page</a></p>
     <p><a class="muted" href="#">Top ↑</a></p>
   </div>
 
-  <p class="muted small">
-    © <span id="copyright-year">2020</span> 
-    &#183; <a class="muted" href="/feed.xml">RSS</a> 
+  <br />
+
+  <div class="flex-footer">
+    <div>
+      <a href="/feed.xml">
+        {% include svg.html icon="rss" class="button-icon" %}
+      </a>
+    </div>
+
+    {%- include color-scheme-switch.html -%}
+  </div>
+
+  <br /><br />
+
+  <p class="center small">
+    © <span id="copyright-year">2020</span>
 
     {% assign thanks_page = site.pages | where: "permalink", "/thanks" %}
     {% if thanks_page[0].permalink %}
-    &#183; <a class="muted" href="/thanks">Thanks</a>
+    &nbsp;&#183;&nbsp;
+    <a class="muted" href="/thanks">Thanks</a>
     {% endif %}
 
-    &mdash;
-    Powered by <a class="muted" href="https://lucasamaro.com/papicu">Papicu</a>
+    &nbsp;&#183;&nbsp;
+    <a class="muted" href="https://lucasamaro.com/papicu">Papicu Theme</a>
   </p>
 </footer>
 

@@ -2,22 +2,26 @@
 layout: page
 title: "Thanks"
 permalink: /thanks
-katex: True
-description: "Acknowledgments to the free software and services that we rely on"
-hide_description: True
+katex: true
+description: "Acknowledgments to the free software, resources and services that we rely on"
+hide_description: true
+toc: true
 ---
 
-We rely on software and services provided for free by various companies and individuals.
+We rely on software, design resources and services provided for free by various companies and individuals.
 
 Thank you all.
 
-## Services provided for free
+## Services
 
 - [Netlify](https://netlify.com) &mdash; hosts this website
 - [GitHub](https://github.com) &mdash; hosts our git repositories
 - [jsDelivr](https://www.jsdelivr.com/) &mdash; serves the 3rd-party JS and CSS files that we need through their CDN
+{% comment %}
+- [Vercel](https://vercel.com) &mdash; hosts our open graph image generator
+{% endcomment %}
 
-## Free, open source software
+## Software
 
 ### Jekyll and its many plugins
 
@@ -50,6 +54,9 @@ Thank you all.
 - [AnchorJS](https://github.com/bryanbraun/anchorjs)
 - [Sidenotes](https://github.com/kslstn/sidenotes)
 - [Tobii](https://github.com/midzer/tobii)
+{% comment %}
+- [og-image](https://github.com/vercel/og-image)
+{% endcomment %}
 
 ### Math typesetting
 
@@ -60,3 +67,9 @@ Thank you all.
 ### Self-hosted, privacy-conscious analytics
 
 - [Shynet](https://github.com/milesmcc/shynet)
+
+## Design
+
+### SVG Icons
+
+- [Ionicons](https://github.com/ionic-team/ionicons) via [Icônes](https://github.com/antfu/icones)

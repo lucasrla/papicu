@@ -2,37 +2,28 @@
 layout: default
 ---
 
-<header class="home-header">
+<header class="flex-header bottom-spacer">
   <h1>{{ site.title | escape }}</h1>
 
-  <div class="small flex-header">
-    <div>
-      {% if site.twitter.username %}
-       <a href="https://twitter.com/{{ site.twitter.username }}">twitter</a>
-      {% endif %}
+  <div class="dont-shrink">
+    {% if site.twitter.username %}
+    <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener">
+      {%- include svg.html icon="twitter" class="home-icon" -%}
+    </a>
+    {% endif %}
 
-      {% if site.twitter.username and site.email %}
-      &nbsp;&#183;&nbsp;
-      {% endif %}
+    {% if site.email %}
+    <a href="mailto:{{ site.email }}" target="_blank" rel="noopener">
+      {%- include svg.html icon="email" class="home-icon" -%}
+    </a>
+    {% endif %}
 
-      {% if site.email %}
-      <a href="mailto:{{ site.email }}">email</a>
-      {% endif %}
-
-      {% assign about_page = site.pages | where: "permalink", "/about" %}
-
-      {% comment %}
-      https://shopify.github.io/liquid/basics/operators/ In tags with more than one and or or operator, operators are checked in order from right to left. You cannot change the order of operations using parentheses — parentheses are invalid characters in Liquid and will prevent your tags from working.
-      {% endcomment %}
-      {% if about_page[0].permalink and site.email or site.twitter.username %}
-      &nbsp;&#183;&nbsp;
-      {% endif %}
-
-      {% if about_page[0].permalink %}
-      <a href="/about">about</a>
-      {% endif %}
-    </div>
-    {%- include darken/button.html -%}
+    {% assign about_page = site.pages | where: "permalink", "/about" %}
+    {% if about_page[0].permalink %}
+    <a href="/about">
+      {%- include svg.html icon="person" class="home-icon" -%}
+    </a>
+    {% endif %}
   </div>
 </header>
 
@@ -48,7 +39,7 @@ layout: default
       <a href="{{ post.url | relative_url }}">
         {{ post.title | escape }}
       </a>
-      <span class="muted small dont-shrink">
+      <span class="muted smaller dont-shrink">
         {% if post.category %}
         {{ post.category | escape }} &#183;&nbsp;
         {% endif %}
@@ -57,5 +48,17 @@ layout: default
     </li>      
   </ul>
   {%- endfor -%}
-
 </main>
+
+<br />
+<hr />
+
+<footer class="small muted flex-footer">
+  <div>
+    <a href="/feed.xml">
+      {% include svg.html icon="rss" class="button-icon" %}
+    </a>
+  </div>
+
+  {%- include color-scheme-switch.html -%}
+</footer>

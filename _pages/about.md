@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about
+description: "Who am I? Find it out here"
 lightbox: true
 ---
 
