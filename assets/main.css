@@ -303,7 +303,8 @@ footer {
 
 .color-scheme-option {
   cursor: pointer;
-  padding: 0 0.5em;
+  padding: 0 0.75em;
+  line-height: 1.75em;
   text-decoration: underline;
 }
 
