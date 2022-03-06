@@ -3,12 +3,11 @@ layout: page
 title: "Thanks"
 permalink: /thanks
 katex: true
-description: "Acknowledgments to the free software, resources and services that we rely on"
-hide_description: true
+description: "Acknowledgments to the free software, resources and services that we rely on."
 toc: true
 ---
 
-We rely on software, design resources and services provided for free by various companies and individuals.
+We rely on software, design resources and services provided for free by generous people from all over the Internet.
 
 Thank you all.
 
@@ -16,7 +15,7 @@ Thank you all.
 
 - [Netlify](https://netlify.com) &mdash; hosts this website
 - [GitHub](https://github.com) &mdash; hosts our git repositories
-- [jsDelivr](https://www.jsdelivr.com/) &mdash; serves the 3rd-party JS and CSS files that we need through their CDN
+- [jsDelivr](https://www.jsdelivr.com/) &mdash; their CDN serves 3rd-party JS and CSS files for us
 {% comment %}
 - [Vercel](https://vercel.com) &mdash; hosts our open graph image generator
 {% endcomment %}
