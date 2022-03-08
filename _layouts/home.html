@@ -7,22 +7,12 @@ layout: default
 
   <div class="dont-shrink">
     {% if site.twitter.username %}
-    <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener">
-      {%- include svg.html icon="twitter" class="home-icon" -%}
-    </a>
-    {% endif %}
-
-    {% if site.email %}
-    <a href="mailto:{{ site.email }}" target="_blank" rel="noopener">
-      {%- include svg.html icon="email" class="home-icon" -%}
-    </a>
+    <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener">{%- include svg.html icon="twitter" class="homepage-icon" -%}</a>
     {% endif %}
 
     {% assign about_page = site.pages | where: "permalink", "/about" %}
     {% if about_page[0].permalink %}
-    <a href="/about">
-      {%- include svg.html icon="person" class="home-icon" -%}
-    </a>
+    <a href="/about">{%- include svg.html icon="person" class="homepage-icon" -%}</a>
     {% endif %}
   </div>
 </header>

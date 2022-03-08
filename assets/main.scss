@@ -14,7 +14,7 @@ body {
   line-height: 1.33em;
   font-size: 16px;
   max-width: 40em;
-  padding: 2em;
+  padding: 1em 1em;
   margin: auto;
   color: var(--text);
   background-color: var(--bg);
@@ -25,6 +25,7 @@ body {
 @media only screen and (min-width: 1381px) {
   body {
    font-size: 18px;
+   padding: 2em 2em;
    --sn-text-ratio: calc(18/16);
    --sn-margin-fix: 716px;
   }
@@ -199,6 +200,14 @@ hr {
   list-style-type: none;
 }
 
+.tight {
+ margin: 0.2em 0; 
+}
+
+.no-margins {
+  margin: 0;
+}
+
 hr.dotted-text {
   border-top: 0;
   text-align: center;
@@ -238,6 +247,14 @@ footer {
   margin-bottom: 8em;
 }
 
+.left-spacer {
+  margin-left: 1em;
+}
+
+.right-spacer {
+  margin-right: 1em;
+}
+
 .top-spacer {
   margin-top: 5em;
 }
@@ -253,9 +270,15 @@ footer {
 .flex-wrapper {
   display: flex;
   flex-wrap: wrap;
+  
+  /* https://stackoverflow.com/questions/30887071/margin-top-only-when-the-flex-item-is-wrapped */
+  margin-top: -1em;
 }
 
-/* TODO: merge into one class, .flex-justified */
+.wrapped-item {
+  margin-top: 1em;
+}
+
 .flex-item,
 .flex-header,
 .flex-footer {
@@ -276,7 +299,11 @@ footer {
 
   .feed-post {
     margin-bottom: 6em;
-  }  
+  }
+}
+
+.stretched {
+  align-self: stretch;
 }
 
 .dont-shrink {
@@ -293,11 +320,29 @@ footer {
   height: auto;
 }
 
+/* -------------- TOBII LIGHTBOX -------------- */
+
 /* NOTE: This is to overwrite tobii-zoom's display (inline-block) */
 /* We intend to only show zoomable images in text "blocks" (never inline) */
 /* eg https://quirksmode.org/css/css2/display.html#inlineblock */
 .tobii-zoom {
   display: block;
+}
+
+.tobii-zoom__icon {
+  background-color: var(--bg);
+  color: var(--links);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.tobii__btn {
+  border: none;
+  color: var(--muted);
+}
+
+.tobii__btn:hover {
+  border: none;
 }
 
 /* -------------- FORMS, INPUTS & BUTTONS -------------- */
@@ -327,7 +372,7 @@ a.link-button {
   display: inline-block;
   line-height: 1.5;
   vertical-align: middle;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.75em;
   background-color: var(--bg);
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -348,9 +393,9 @@ a.link-button:hover {
 
 button svg,
 a.link-button svg {
-  height: 0.8em;
-  width: 0.8em;
-  padding-right: 0.1em;
+  height: 0.9em;
+  width: 0.9em;
+  padding-right: 0.2em;
   overflow: hidden;
 }
 
@@ -380,7 +425,7 @@ button:disabled {
 
 /* -------------- SVG ICONS -------------- */
 
-.home-icon {
+.homepage-icon {
   height: 1.33rem;
   width: 1.33rem;
   margin-top: 0.5em;
@@ -390,9 +435,9 @@ button:disabled {
 }
 
 .header-icon {
-  height: 1em;
-  width: 1em;
-  color: var(--muted); 
+  height: 1.2em;
+  width: 1.2em;
+  color: var(--links); 
   margin-left: 0.5em;
   overflow: hidden;
 }
@@ -592,11 +637,13 @@ canvas {
   margin-bottom: 3em;
 }
 
-.toc-sidebar summary {
+.toc-sidebar summary,
+.metadata summary {
   color: var(--links);
   margin-bottom: 0;
-  font-variant: all-small-caps;
   border-bottom: none;
+  font-variant: all-small-caps;
+  font-weight: 500;
 }
 
 .toc-sidebar details {
