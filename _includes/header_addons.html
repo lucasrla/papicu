@@ -1,8 +1,0 @@
-<div class="dont-shrink">
-  {% assign about_page = site.pages | where: "permalink", "/about" %}
-  {% if about_page[0].permalink %}
-  <a href="/about">
-    {%- include svg.html icon="person" class="header-icon" -%}
-  </a>
-  {% endif %}
-</div>
