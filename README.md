@@ -95,13 +95,23 @@ If you are new to Jekyll, get familiar with it first: [jekyllrb.com/docs](https:
     remote_theme: lucasrla/papicu
     ```
 
-4. Run jekyll on terminal
+4. By default `remote_theme: lucasrla/papicu` points to `HEAD`, the latest commit of Papicu. Optionally, you can refer `remote_theme` to a specific commit, tag or branch:
+
+    ```yml
+    remote_theme: lucasrla/papicu@1316b145a02c610347b9172da3d2feba32aaf595 # pointing to commit: https://github.com/lucasrla/papicu/commit/1316b145a02c610347b9172da3d2feba32aaf595
+    ```
+
+    ```yml
+    remote_theme: lucasrla/papicu@v1.0.0 # pointing to (a theoretical) release tag v1.0.0 (please note that papicu has no releases yet)
+    ```
+
+5. Now, run jekyll on terminal
 
     ```sh
     bundle exec jekyll serve
     ```
 
-5. Visit your website at [http://127.0.0.1:4000](http://127.0.0.1:4000)
+6. Visit your website at [http://127.0.0.1:4000](http://127.0.0.1:4000)
 
 ### Option B: clone or fork this repository
 
