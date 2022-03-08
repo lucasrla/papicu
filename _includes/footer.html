@@ -1,37 +1,28 @@
-<hr />
+<div class="flex-footer">
+  <p><a class="muted" href="/">← Home Page</a></p>
+  <p><a class="muted" href="#">Top ↑</a></p>
+</div>
 
-<footer class="small muted">
-  <div class="flex-footer">
-    <p><a class="muted" href="/">← Home Page</a></p>
-    <p><a class="muted" href="#">Top ↑</a></p>
+<br />
+
+<div class="flex-footer">
+  <div>
+    <a href="/feed.xml">
+      {% include svg.html icon="rss" class="button-icon" %}
+    </a>
   </div>
 
-  <br />
+  {%- include color-scheme-switch.html -%}
+</div>
 
-  <div class="flex-footer">
-    <div>
-      <a href="/feed.xml">
-        {% include svg.html icon="rss" class="button-icon" %}
-      </a>
-    </div>
+<br /><br />
 
-    {%- include color-scheme-switch.html -%}
-  </div>
+<p class="center small">
+  © <span id="copyright-year">2020</span>
 
-  <br /><br />
+  &nbsp;&#183;&nbsp;
+  <a class="muted" href="https://papicu.netlify.app/theme">Papicu Theme</a>
 
-  <p class="center small all-small-caps">
-    <small>© <span id="copyright-year">2020</span></small>
-
-    &nbsp;&#183;&nbsp;
-    <a class="muted" href="https://lucasamaro.com/papicu">Papicu</a> Theme
-
-    &nbsp;&#183;&nbsp;
-    <a class="muted" href="https://papicu.netlify.app/thanks">Thanks</a>    
-  </p>
-</footer>
-
-<script>
-  const yearStr = new Date().getFullYear()
-  document.querySelector('#copyright-year').innerText = yearStr
-</script>
+  &nbsp;&#183;&nbsp;
+  <a class="muted" href="https://papicu.netlify.app/thanks">Thanks</a>    
+</p>

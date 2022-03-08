@@ -5,6 +5,7 @@ layout: default
 <header>
   <div class="flex-header">
     <a class="muted small" href="/">{{ site.title | escape }}</a>
+    {%- include header_addons.html -%}
   </div>
 </header>
 
@@ -40,8 +41,19 @@ layout: default
 
   {{ content }}
 
+  {% unless page.date_not_visible == true %}
   <p class="muted small right top-spacer">{{ page.date | date: "%B %Y" }}</p>
+  {% endunless %}
 
 </article>
 
-{%- include footer.html -%}
+<hr />
+
+<footer class="small muted">
+  {%- include footer.html -%}
+</footer>
+
+<script>
+  const yearStr = new Date().getFullYear()
+  document.querySelector('#copyright-year').innerText = yearStr
+</script>

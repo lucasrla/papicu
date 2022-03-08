@@ -5,9 +5,9 @@ layout: default
 <header>
   <div class="flex-header">
     <a class="muted small" href="/">{{ site.title | escape }}</a>
+    {%- include header_addons.html -%}
   </div>
 </header>
-
 <article>
 
   <h1>{{ page.title | escape }}</h1>
@@ -42,4 +42,13 @@ layout: default
 
 </article>
 
-{%- include footer.html -%}
+<hr />
+
+<footer class="small muted">
+  {%- include footer.html -%}
+</footer>
+
+<script>
+  const yearStr = new Date().getFullYear()
+  document.querySelector('#copyright-year').innerText = yearStr
+</script>
