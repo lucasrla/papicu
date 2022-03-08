@@ -62,3 +62,12 @@ defaults:
       path: "assets/**/*.csv"
     values:
       sitemap: false
+
+jekyll-archives:
+  enabled:
+    - categories
+  layouts:
+    category: listing
+  permalinks:
+    category: /:name/
+  slug_mode: pretty
