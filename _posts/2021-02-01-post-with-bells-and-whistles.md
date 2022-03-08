@@ -9,16 +9,17 @@ image:
   # height: 256
   # width: 256
   alt: "Screenshot of this post"
-katex: True
-chartjs: True
-toc: True
+katex: true
+chartjs: true
+toc: true
 # toc_type: fixed
-# toc_starts_closed: True
+# toc_starts_closed: true
 # toc_header_min: 1
 # toc_header_max: 2
-code_highlighter: True
-anchorjs: True
-lightbox: True
+code_highlighter: true
+anchorjs: true
+lightbox: true
+listjs: true
 ---
 
 ## Dark mode via Darken
@@ -292,6 +293,8 @@ To see it in action, simply tap or click on the image below:
   <img alt="Fortaleza’s coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
 </a>
 
+To use it, add `lightbox: true` to your post's [front matter](https://jekyllrb.com/docs/front-matter/) and then:
+
 ```html
 <a class="lightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/2560px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg">
   <img alt="Fortaleza’s coastline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Fortaleza_-_Cear%C3%A1_-_Brasil.jpg/640px-Fortaleza_-_Cear%C3%A1_-_Brasil.jpg" class="center-block responsive" />
@@ -333,6 +336,162 @@ If you are on a computer, just hover your mouse above the title of this section 
 They're useful when someone needs to link to a specific part of a webpage. And that's why they are also known as "deep links."
 
 If you are on a touch-based device (e.g. phone, tablet), to make things cleaner and simpler, we have anchor links hidden out by default. But you can turn it on by uncommenting the `visible: touch` line inside the `default.html` file.
+
+To enable them, add `anchorjs: true` to your post's [front matter](https://jekyllrb.com/docs/front-matter/).
+
+## Site search via DuckDuckGo
+
+Inspired by [Derek Kedziora](https://derekkedziora.com)'s [implementation of site search](https://github.com/derekkedziora/derekkedziora.com/blob/8e95cea88813b47dd4a4c3390e2836389db6faa1/_includes/search.html), we've created ours:
+
+{::nomarkdown}{% include duckduckgo-search.html %}{:/}
+
+Use it with:
+
+{% raw  %}
+```liquid
+{% include duckduckgo-search.html %}
+```
+{% endraw %}
+
+If you are putting the search form inline in a Markdown file (instead of a HTML file), you will also need to enclose the include between `{::nomarkdown}` and `{:/}` to prevent kramdown from generating broken HTML:
+
+{% raw  %}
+```liquid
+{::nomarkdown}
+{% include duckduckgo-search.html %}
+{:/}
+```
+{% endraw %}
+
+{% comment %}
+Refs:
+- https://kramdown.gettalong.org/syntax.html#extensions
+- https://stackoverflow.com/questions/13693827/markdown-prevent-paragraph-tag-being-wrapped-around-standard-html-span-tag
+- https://stackoverflow.com/questions/27238542/form-tag-closing-automatically
+{% endcomment %}
+
+## Searchable, sortable, filterable tables
+
+[List.js](https://listjs.com/) is a:
+
+> Tiny, invisible and simple, yet powerful and incredibly fast vanilla JavaScript that adds search, sort, filters and flexibility to plain HTML lists, tables, or anything.
+
+Check it out in action:
+
+{::nomarkdown}
+<div id="post-table">
+  <p><input class="search wrapper-100" type="search" placeholder="Type here to filter entries by title, category, etc" /></p>
+
+  {% assign posts = site.posts %}
+  {% assign pages = site.html_pages %}
+  <table class="small">
+    <thead>
+      <th class="sort" data-sort="title">Title</th>
+      <th class="sort" data-sort="category">Category</th>
+      <th class="sort" data-sort="type">Type</th>
+    </thead>
+    <tbody class="list">
+      {% for p in posts %}
+      <tr>
+        <td class="title">
+          {{ p.title | escape }}
+        </td>
+        <td class="category">
+          {% if p.category %}{{ p.category | escape }}{% endif %}
+        </td>
+        <td class="type">
+          <code>post</code>
+        </td>
+      </tr>
+      {% endfor %}
+      {% for p in pages %}
+      {% unless p.url == "/" or p.url == "/404.html" %}
+      <tr>
+        <td class="title">
+          {{ p.title | escape }}
+        </td>
+        <td class="category"></td>
+        <td class="type">
+          <code>page</code>
+        </td>
+      </tr>
+      {% endunless %}
+      {% endfor %}
+    </tbody>
+  </table>
+  <br />
+</div>
+
+<script>
+let listJSOptions = { valueNames: ["title", "type", "category"] };
+let postsTable = new List("post-table", listJSOptions);
+</script>
+{:/}
+
+To use it, first, add `listjs: true` to your post's [front matter](https://jekyllrb.com/docs/front-matter/). And then, sprinkle some magic:
+
+{% raw  %}
+```html
+{::nomarkdown}
+<div id="post-table">
+  <p><input class="search" type="search" placeholder="Filter entries by title, type and/or category" /></p>
+  
+  <table>
+    <thead>
+      <th class="sort" data-sort="title">Title</th>
+      <th class="sort" data-sort="category">Category</th>
+      <th class="sort" data-sort="type">Type</th>
+    </thead>
+  <tbody class="list">
+    <tr>
+      <td class="title">Advanced usage of sidenotes</td>
+      <td class="category"></td>
+      <td class="type"><code>post</code></td>
+    </tr>
+    <tr>
+      <td class="title">Post containing demos of several features</td>
+      <td class="category"></td>
+      <td class="type"><code>post</code></td>
+    </tr>
+    <tr>
+      <td class="title">Post showcasing various HTML tags and code highlighting</td>
+      <td class="category"></td>
+      <td class="type"><code>post</code></td>
+    </tr>
+    <tr>
+      <td class="title">A simple, text-based example post</td>
+      <td class="category">Latin</td>
+      <td class="type"><code>post</code></td>
+    </tr>
+    <tr>
+      <td class="title">About</td>
+      <td class="category"></td>
+      <td class="type"><code>page</code></td>
+    </tr>
+    <tr>
+      <td class="title">Thanks</td>
+      <td class="category"></td>
+      <td class="type"><code>page</code></td>
+    </tr>
+    <tr>
+      <td class="title">Papicu</td>
+      <td class="category"></td>
+      <td class="type"><code>page</code></td>
+    </tr>
+    </tbody>
+  </table>
+  <br />
+</div>
+
+<script>
+  var options = { valueNames: ["title", "type", "category"] };
+  var postsTable = new List("post-table", options);
+</script>
+{:/}
+```
+{% endraw %}
+
+For further information, make sure you read [List.js documentation](https://listjs.com/docs/).
 
 {% include divider.html %}
 
