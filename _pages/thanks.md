@@ -15,7 +15,7 @@ Thank you all.
 
 - [Netlify](https://netlify.com) &mdash; hosts this website
 - [GitHub](https://github.com) &mdash; hosts our git repositories
-- [jsDelivr](https://www.jsdelivr.com/) &mdash; their CDN serves 3rd-party JS and CSS files for us
+- [jsDelivr](https://www.jsdelivr.com/) &mdash; their CDN serves us third-party JS and CSS files
 {% comment %}
 - [Vercel](https://vercel.com) &mdash; hosts our open graph image generator
 {% endcomment %}
@@ -39,7 +39,7 @@ Thank you all.
 
 - [Clio](https://github.com/danromero/clio)
 - [Poole](https://github.com/poole/poole/)
-- [Papicu](https://lucasamaro.com/papicu)
+- [Papicu](https://github.com/lucasrla/papicu)
 
 ### Markdown parser and converter
 
@@ -53,6 +53,7 @@ Thank you all.
 - [AnchorJS](https://github.com/bryanbraun/anchorjs)
 - [Sidenotes](https://github.com/kslstn/sidenotes)
 - [Tobii](https://github.com/midzer/tobii)
+- [List.js](https://github.com/javve/list.js)
 {% comment %}
 - [og-image](https://github.com/vercel/og-image)
 {% endcomment %}
