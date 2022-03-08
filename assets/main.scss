@@ -1,3 +1,8 @@
+---
+# Use a comment to ensure Jekyll reads the file to be transformed into CSS later
+# only main files contain this front matter, not partials.
+---
+
 /* -------------- GENERAL -------------- */
 
 /* NOTE: CSS color variables used below were defined in */
@@ -136,6 +141,10 @@ hr {
 
 /* -------------- UTILITIES -------------- */
 
+.hidden {
+  display: none;
+}
+
 .center-block {
   display: block;
   margin-left: auto;
@@ -160,6 +169,10 @@ hr {
 
 .underlined, a.muted {
   text-decoration: underline;
+}
+
+.large {
+  font-size: 1.25em;
 }
 
 .small {
@@ -200,6 +213,11 @@ hr.dotted-text:before {
   margin: auto;
 }
 
+.wrapper-100 {
+  width: 100%;
+  margin: auto;
+}
+
 .auto-overflow-x {
   overflow-x: auto;
 }
@@ -228,6 +246,16 @@ footer {
   margin-bottom: 3em;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* TODO: merge into one class, .flex-justified */
 .flex-item,
 .flex-header,
 .flex-footer {
@@ -272,15 +300,101 @@ footer {
   display: block;
 }
 
+/* -------------- FORMS, INPUTS & BUTTONS -------------- */
+
+input[type='text'], 
+input[type='search'] {
+  background-color: var(--bg-expandable);
+  border: 1px solid var(--border);
+  color: var(--text);
+  height: 2.5em;
+  font-size: 0.8em;
+  margin-top: 0;
+  min-width: 50%;
+  padding-left: 0.5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+}
+
+input::placeholder {
+	color: var(--muted);
+}
+
+button,
+a.link-button {
+  display: inline-block;
+  line-height: 1.5;
+  vertical-align: middle;
+  padding: 0.5em 1em;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.8em;
+  color: var(--links);
+  cursor: pointer;
+}
+
+form button {
+  padding: 0.1em 1em;
+}
+
+button:hover,
+a.link-button:hover {
+  border: 1px solid var(--links);
+  text-decoration: none;
+}
+
+button svg,
+a.link-button svg {
+  height: 0.8em;
+  width: 0.8em;
+  padding-right: 0.1em;
+  overflow: hidden;
+}
+
+button:disabled {
+  pointer-events: none;
+  opacity: 0.50;
+  border: 1px solid var(--muted);
+  color: var(--muted);
+}
+
+#site-search input {
+  flex-grow: 6;
+}
+
+#site-search button {
+  margin-left: 0.5em;
+  flex-grow: 1;
+}
+
+.pill {
+  margin: 0.5em 0.5em 0.5em 0;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
 /* -------------- SVG ICONS -------------- */
 
 .home-icon {
   height: 1.33rem;
   width: 1.33rem;
-  margin-top: 0.5rem;
-  margin-left: 1rem;
-  fill: var(--links);
-  overflow: hidden;  
+  margin-top: 0.5em;
+  margin-left: 0.75em;
+  color: var(--links);
+  overflow: hidden;
+}
+
+.header-icon {
+  height: 1em;
+  width: 1em;
+  color: var(--muted); 
+  margin-left: 0.5em;
+  overflow: hidden;
 }
 
 .button-icon {
@@ -289,7 +403,6 @@ footer {
   border-radius: 4px;
   border: 1px solid var(--muted);
   color: var(--muted);
-  fill: var(--muted);
   overflow: hidden;
 }
 
@@ -854,4 +967,25 @@ canvas {
   position: absolute;
   left: -99999px;
   top: auto;
+}
+
+/* -------------- LIST.JS -------------- */
+
+.sort {
+  color:var(--links); 
+  cursor: pointer;
+}
+
+.sort.asc::after {
+  content: "▲";
+  color: var(--links);
+  font-size: 0.8em;
+  padding-left: 5px;
+}
+
+.sort.desc::after {
+  content: "▼";
+  color: var(--links);
+  font-size: 0.8em;
+  padding-left: 5px;
 }
