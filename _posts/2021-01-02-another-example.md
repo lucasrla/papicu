@@ -96,9 +96,9 @@ Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo r
 
 Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at.
 
-<a href="https://placeholder.com"><img src="https://via.placeholder.com/800x400" alt="Large example image"></a>
-<a href="https://placeholder.com"><img src="https://via.placeholder.com/400x200" alt="Medium example image"></a>
-<a href="https://placeholder.com"><img src="https://via.placeholder.com/200x200" alt="Small example image"></a>
+<a href="https://plchldr.co/" target="_blank" rel="noopener"><img src="https://plchldr.co/i/800x400?bg=999999" alt="800x400 placeholder image by plchldr.co"></a>
+<a href="https://plchldr.co/" target="_blank" rel="noopener"><img src="https://plchldr.co/i/400x250?bg=999999" alt="400x250 placeholder image by plchldr.co"></a>
+<a href="https://plchldr.co/" target="_blank" rel="noopener"><img src="https://plchldr.co/i/250x250?bg=999999" alt="250x250 placeholder image by plchldr.co"></a>
 
 ### Tables
 

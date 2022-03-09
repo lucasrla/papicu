@@ -34,6 +34,7 @@ Thank you all.
 - [jekyll-last-modified-at](https://github.com/gjtorikian/jekyll-last-modified-at)
 - [jekyll-minifier](https://github.com/Mendeo/jekyll-minifier)
 - [jekyll-toc](https://github.com/allejo/jekyll-toc)
+- [jekyll-remote-theme](https://github.com/benbalter/jekyll-remote-theme/)
 
 ### Jekyll themes
 
