@@ -69,16 +69,14 @@ defaults:
     values:
       image:
         path: "/assets/img/papicu-blue-square-512.png"
-        width: 512
-        height: 512
+        # jekyll-seo-tag v2.8.0 does not output `width` and `height` to meta
+        # tags if they're set here. it seems to recognize only the `path`
   - scope:
       path: ""
       type: "posts"
     values:
       image:
         path: "/assets/img/papicu-blue-square-512.png"
-        width: 512
-        height: 512
 
 jekyll-archives:
   enabled:
