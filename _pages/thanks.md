@@ -6,13 +6,13 @@ description: "Acknowledgments to the free software, resources and services that 
 date: 2022-01-01
 image: 
   path: /assets/img/screenshot-homepage-light.png
-  width: 1280
-  height: 646
+  # width: 1280
+  # height: 646
 toc: true
 katex: true
 ---
 
-We rely on software, design resources and services provided for free by generous people from all over the Internet.
+We rely on software, design resources and services provided for free by companies and generous people from all over the Internet.
 
 Thank you all.
 
