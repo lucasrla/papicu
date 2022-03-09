@@ -53,6 +53,7 @@ exclude:
   - "TODOs.md"
   - "README.md"
 
+# ref: https://jekyllrb.com/docs/configuration/front-matter-defaults/
 defaults:
   - scope:
       path: "assets/**/*.pdf"
@@ -62,6 +63,22 @@ defaults:
       path: "assets/**/*.csv"
     values:
       sitemap: false
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      image:
+        path: "/assets/img/papicu-blue-square-512.png"
+        width: 512
+        height: 512
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      image:
+        path: "/assets/img/papicu-blue-square-512.png"
+        width: 512
+        height: 512
 
 jekyll-archives:
   enabled:
