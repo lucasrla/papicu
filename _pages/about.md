@@ -2,7 +2,8 @@
 layout: page
 title: About
 permalink: /about
-description: "Who am I? Find it out here"
+description: "Who am I?"
+image: /assets/img/screenshot-homepage-light.png
 lightbox: true
 ---
 
