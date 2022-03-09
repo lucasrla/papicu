@@ -14,7 +14,7 @@ body {
   line-height: 1.33em;
   font-size: 16px;
   max-width: 40em;
-  padding: 1em 1em;
+  padding: 1.5em 1.5em;
   margin: auto;
   color: var(--text);
   background-color: var(--bg);
@@ -80,10 +80,11 @@ h3 {
   line-height: normal;
   font-variant: all-small-caps;
   margin-top: 2em;
+  letter-spacing: 0.02em;
+  font-weight: 500;
 }
 
-/* TODO: is aside + h2 still necessary? */
-h2 + h3, aside + h2 {
+h2 + h3, nav + h2 {
   margin-top: 1em;
 }
 
@@ -227,8 +228,21 @@ hr.dotted-text:before {
   margin: auto;
 }
 
+.wrapper-50 {
+  width: 50%;
+  margin: auto;
+}
+
 .auto-overflow-x {
   overflow-x: auto;
+}
+
+.slight-margin-right {
+  margin-right: 0.1em;
+}
+
+.slight-margin-left {
+  margin-left: 0.1em;
 }
 
 /* -------------- LAYOUT -------------- */
@@ -236,6 +250,10 @@ hr.dotted-text:before {
 header {
   display: block;
   width: 100%;
+}
+
+header h1 {
+  margin: 0;
 }
 
 footer {
@@ -425,13 +443,17 @@ button:disabled {
 
 /* -------------- SVG ICONS -------------- */
 
+/* some refs:
+- https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
+- https://milanaryal.com.np/how-to-align-svg-icons-to-text/ */
+
 .homepage-icon {
-  height: 1.33rem;
-  width: 1.33rem;
-  margin-top: 0.5em;
+  height: 1.33em;
+  width: 1.33em;
   margin-left: 0.75em;
   color: var(--links);
   overflow: hidden;
+  vertical-align: -0.2em;
 }
 
 .header-icon {
@@ -440,6 +462,7 @@ button:disabled {
   color: var(--links); 
   margin-left: 0.5em;
   overflow: hidden;
+  vertical-align: -0.2em;
 }
 
 .button-icon {
@@ -449,6 +472,16 @@ button:disabled {
   border: 1px solid var(--muted);
   color: var(--muted);
   overflow: hidden;
+}
+
+.inline-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-size: inherit;
+  color: inherit;
+  vertical-align: -0.125em;
+  fill: currentColor;
 }
 
 /* -------------- DARKEN / DARK MODE -------------- */
@@ -464,7 +497,8 @@ button:disabled {
   padding: 0 0.75em;
   line-height: 1.75em;
   text-decoration: underline;
-  font-weight: bold;
+  letter-spacing: 0.05em;
+  /* font-weight: 500; */
 }
 
 .color-scheme-option.selected {
@@ -645,6 +679,7 @@ canvas {
   border-bottom: none;
   font-variant: all-small-caps;
   font-weight: 500;
+  letter-spacing: 0.03em;
 }
 
 .toc-sidebar details {
@@ -1036,4 +1071,16 @@ canvas {
   color: var(--links);
   font-size: 0.8em;
   padding-left: 5px;
+}
+
+/* -------------- POST NAVIGATION -------------- */
+
+.post-nav {
+  font-variant: all-small-caps;
+  letter-spacing:0.1em;
+}
+
+.post-nav svg.inline-icon {
+  width: 0.8em;
+  height: 0.8em;  
 }
