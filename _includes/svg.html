@@ -102,3 +102,7 @@ https://icones.netlify.app/collection/ion
 {% comment %} ion:ios-archive {% endcomment %}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="{{include.class}}" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path d="M460 120H52c-2.2 0-4-1.8-4-4V96c0-17.7 14.3-32 32-32h352c17.7 0 32 14.3 32 32v20c0 2.2-1.8 4-4 4z" fill="currentColor"></path><path d="M440 146H72c-4.4 0-8 3.6-8 8v262c0 17.6 14.4 32 32 32h320c17.6 0 32-14.4 32-32V154c0-4.4-3.6-8-8-8zM306 288h-99.6c-7.1 0-13.4-5.2-14.3-12.3-1-8.5 5.6-15.7 13.9-15.7h99.6c7.1 0 13.4 5.2 14.3 12.3 1 8.4-5.6 15.7-13.9 15.7z" fill="currentColor"></path></svg>
 {% endif %}
+{% if include.icon == "filter" or include.show_all %}
+{% comment %} ion:filter-circle {% endcomment %}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="{{include.class}}" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="currentColor" d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208s208-93.31 208-208S370.69 48 256 48Zm32 304h-64a16 16 0 0 1 0-32h64a16 16 0 0 1 0 32Zm48-64H176a16 16 0 0 1 0-32h160a16 16 0 0 1 0 32Zm32-64H144a16 16 0 0 1 0-32h224a16 16 0 0 1 0 32Z"></path></svg>
+{% endif %}
