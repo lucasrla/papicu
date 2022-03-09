@@ -2,7 +2,10 @@
 layout: post
 title: Advanced usage of sidenotes
 description: An example post showing the different ways of using sidenotes within Papicu
-image: assets/img/screenshot-advanced-sidenotes-light.png
+image: 
+  path: assets/img/screenshot-advanced-sidenotes-light.png
+  width: 1280
+  height: 646
 date:	2022-01-01
 code_highlighter: true
 ---
