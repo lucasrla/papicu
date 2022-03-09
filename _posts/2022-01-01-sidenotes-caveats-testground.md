@@ -4,6 +4,7 @@ title: Advanced usage of sidenotes
 description: An example post showing the different ways of using sidenotes within Papicu
 image: assets/img/screenshot-advanced-sidenotes-light.png
 date:	2022-01-01
+code_highlighter: true
 ---
 
 ## Advanced examples
@@ -27,7 +28,7 @@ A sidenote {% include sidenote.html id="3" label="here." content="Sidenotes ever
 
 Finally, {% include sidenote.html label="let's try a sidenote with no numbering" content="Here it is! Simply include a sidenote with `label` set, but with no `id` whatsoever." %}. A word of caution though. This kind of "numberless" sidenotes won't be easily accessible (or visible) to readers using mobile devices.
 
-Check out the [Markdown file behind this page](https://raw.githubusercontent.com/lucasrla/papicu/main/_posts/2022-01-01-sidenotes-caveats-testground.md) to learn how the sausage was made.
+Check out this page's Markdown file, `_posts/2022-01-01-sidenotes-caveats-testground.md`, to learn how the sausage was made.
 
 ## Caveats
 
@@ -39,4 +40,4 @@ A couple of caveats when using sidenotes within Papicu:
 
 - Several edge cases have not been properly handled. For instance, multiple sidenotes in a short paragraph may result in some ugly overlapping
 
-- The look 'n' feel is suboptimal on Apple's [Safari Reader](https://support.apple.com/guide/safari/hide-ads-when-reading-sfri32632/mac) ([a](https://archive.is/zZK5G))
+- [The look 'n' feel is suboptimal on Apple's Safari Reader](https://support.apple.com/guide/safari/hide-ads-when-reading-sfri32632/mac) <span class="muted">([a](https://archive.is/zZK5G))</span>
