@@ -1,34 +1,65 @@
 ---
-layout: default
+layout: html_minifier
 ---
 
-<header>
-  {%- include header.html -%}
-</header>
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" prefix="og: https://ogp.me/ns#">
 
-<article>
+<head>
+  {%- include head.html -%}
+  <meta property="og:image" content="https://papicu.netlify.app/assets/img/papicu-blue-square-512.png">
+  <meta property="twitter:image" content="https://papicu.netlify.app/assets/img/papicu-blue-square-512.png">
+</head>
 
-  <h1>{{ page.title | escape }}</h1>
+<body>
+  <header>
+    {%- include header.html -%}
+  </header>
+  
+  <article>
+  
+    <h1>{{ page.title | escape }}</h1>
+  
+    <p>Posts filed under this category:</p>
+  
+    <ul>
+    {%- for post in page.posts -%}
+      <li>
+        <a href="{{ post.url }}">{{ post.title | escape }}</a>
+      </li>
+    {%- endfor -%}
+    </ul>
+  
+  </article>
+  
+  <hr />
+  
+  <footer class="small muted">
+    {%- include footer.html -%}
+  </footer>
 
-  <p>Posts filled under this category:</p>
+  {%- include darken.html -%}
 
-  <ul>
-  {%- for post in page.posts -%}
-    <li>
-      <a href="{{ post.url }}">{{ post.title | escape }}</a>
-    </li>
-  {%- endfor -%}
-  </ul>
+  {% if jekyll.environment != "local" and site.shynet %}
 
-</article>
+  {% comment %} This is to prevent double slashes "//" {% endcomment %}
+  {% assign shynet_last_char = site.shynet | slice: -1 %}
 
-<hr />
+  {% if shynet_last_char == "/" %}
+  {% assign new_length = site.shynet | size | minus: 1 %}
+  {% assign shynet = site.shynet | slice: 0, new_length %}
+  {% else %}
+  {% assign shynet = site.shynet %}
+  {% endif %}
 
-<footer class="small muted">
-  {%- include footer.html -%}
-</footer>
+  <noscript><img src="{{ shynet }}/pixel.gif"></noscript>
+  <script defer src="{{ shynet }}/script.js"></script>
+  {% endif %}
 
-<script>
-  const yearStr = new Date().getFullYear()
-  document.querySelector('#copyright-year').innerText = yearStr
-</script>
+  <script>
+    const yearStr = new Date().getFullYear()
+    document.querySelector('#copyright-year').innerText = yearStr
+  </script>
+</body>
+
+</html>
