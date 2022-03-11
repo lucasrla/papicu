@@ -1,15 +1,17 @@
-/* Copied from Poole, I have made just a few minor tweaks */
-/* https://github.com/poole/poole/blob/master/_sass/_code.scss */
+/* Heavily inspired by: */
+/* - https://github.com/poole/poole/blob/master/_sass/_code.scss */
 
 code,
 pre {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack */
+  font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
 code {
-  font-size: 85%;
+  font-size: 0.9em;
 }
 
+// TODO: where does this usually appear?
 pre {
   display: block;
   margin-top: 0;
@@ -21,13 +23,12 @@ pre {
 article {
   code:not(pre.highlight code):not(figure.highlight pre code) {
     background-color: var(--bg-inline-code);
-    padding: 0.15em;
+    padding: 0.1em 0.2em;
   }
 }
 
 .highlight {
-  padding: 1rem;
-  margin: 0 0 1rem 0;
+  padding: 0.5em;
   background-color: var(--bg-code-block);
 
   pre {
@@ -40,9 +41,18 @@ article {
   }
 }
 
+.highlighter-rouge {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.highlighter-rouge + .highlighter-rouge {
+  margin-top: -1em;
+}
+
 .rouge-table {
   margin-bottom: 0;
-  font-size: 100%;
+  font-size: 1em;
 
   &,
   td,

@@ -1,10 +1,9 @@
 ---
-# Use a comment to ensure Jekyll reads the file to be transformed into CSS later
-# only main files contain this front matter, not partials.
 ---
 
-/* Copied from Poole, I have made just a few minor tweaks */
-/* https://github.com/poole/poole/blob/master/styles.scss */
+// TODO: switch between these two according to the overall color scheme
+// @import "pygments-css-themes/base16-tomorrow-light";
+// @import "pygments-css-themes/base16-tomorrow-dark";
 
-@import "code";
-@import "highlight";
+@import "pygments-css-themes/poole";
+// @import "pygments-css-themes/native";
