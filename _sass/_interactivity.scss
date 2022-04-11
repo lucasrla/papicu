@@ -1,0 +1,206 @@
+/* -------------- LINKS -------------- */
+
+a {
+  // color: hsla-color("link");
+  color: color("link");
+  text-decoration: none;
+
+  &:hover,
+  &:visited:hover {
+    // color: hsla-color("link", $lightness: +10%);
+    color: color("link-hover");
+    text-decoration: underline;    
+  }
+
+  &:visited {
+    // color: hsla-color("link", $saturation: -33%);
+    color: color("link-visited");
+    text-decoration: underline;    
+  }
+
+  &:active {
+    // color: hsla-color("link", $lightness: -33%);
+    color: color("link-active");
+    text-decoration: underline;
+  }
+}
+
+.muted a,
+.sn a, // links in sidenotes
+figcaption a, // links in figure captions
+a.muted {
+  color: color("muted");
+  text-decoration: underline;
+
+  &:hover,
+  &:visited:hover {
+    color: color("muted-hover");
+  }
+
+  &:visited {
+    color: color("muted-visited");
+  }
+
+  &:active {
+    color: color("muted-active");
+  }
+}
+
+/* -------------- BUTTONS -------------- */
+
+input[type='text'], 
+input[type='search'] {
+  background-color: color("ui-input-bg");
+  border: 1px solid color("ui-border-stress");
+  color: color("txt");
+  height: 2.5em;
+  // font-size: 0.8em;
+  margin-top: 0;
+  min-width: 50%;
+  padding-left: 0.5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+}
+
+input::placeholder {
+	color: color("muted");
+}
+
+button,
+.button {
+  display: inline-block;
+  line-height: 1.5;
+  vertical-align: middle;
+  padding: 0.5em 0.75em;
+  background-color: color("bg");
+  border: 1px solid color("ui-border-stress");
+  border-radius: $border-radius;
+  color: color("txt");
+  cursor: pointer;
+}
+
+button.muted,
+.button.muted {
+  text-decoration: none;
+}
+
+button:visited,
+.button:visited {
+  color: color("muted");
+}
+
+button.muted:hover,
+.button.muted:hover,
+button.muted:visited:hover,
+.button.muted:visited:hover,
+button:hover,
+.button:hover {
+  border: 1px solid color("link");
+  color: color("link");
+  text-decoration: none;
+}
+
+button:disabled {
+  pointer-events: none;
+  opacity: 0.50;
+  border: 1px solid color("muted");
+  color: color("muted");
+}
+
+form button {
+  padding: 0.1em 1em;
+}
+
+.pill {
+  margin: 0.5em 0.5em 0.5em 0;
+  padding: 0.1em 0.3em;
+  border-radius: $border-radius-sm;
+  border: 1px solid color("ui-border");
+  color: color("muted");
+}
+
+/* -------------- SVG ICONS -------------- */
+
+button svg,
+.button svg {
+  // height: 0.9em;
+  // width: 0.9em;
+  height: 1.25em;
+  width: 1.25em;
+  vertical-align: text-bottom;
+  padding-right: 0.2em;
+  overflow: hidden;
+}
+
+// - https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
+// - https://milanaryal.com.np/how-to-align-svg-icons-to-text/
+// - https://github.com/primer/css/blob/00f5d87c82f20552eb69773221127490307fca4b/src/base/octicons.scss
+
+.spot-icon {
+  height: 1.33em;
+  width: 1.33em;
+  margin-left: 1em;
+  overflow: hidden;
+  vertical-align: text-bottom;
+}
+
+.inline-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-size: inherit;
+  color: inherit;
+  // vertical-align: text-bottom;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+/* -------------- TWEAKS TO TOBII LIGHTBOX -------------- */
+
+// This is to overwrite tobii-zoom's display (inline-block)
+// We intend to only show zoomable images in text "blocks" (never inline)
+// eg https://quirksmode.org/css/css2/display.html#inlineblock
+.tobii-zoom {
+  display: block;
+}
+
+// their "floating" zoom icon
+// (see also `.tobii-zoom__icon:hover` above)
+.tobii-zoom__icon {
+  background-color: color("ui-bg");
+  border: 1px solid color("ui-border-stress");
+  border-radius: $border-radius;
+}
+
+.tobii-zoom__icon:hover {
+  // border: 1px solid hsla-color("link");
+  border: 1px solid color("link");
+  // color: hsla-color("link");
+  color: color("link");
+}
+
+// previous, next, and close buttons
+.tobii__btn {
+  color: color("ui-border-stress");
+  opacity: 1; // overwriting their `opacity: 0.5`
+  border: none;
+
+  &:hover {
+    border: none;
+  }
+  
+  // removing focus outline (i saw it on mobile)
+  &:focus {
+    outline: none;
+  }  
+}
+
+.tobii__btn--next, 
+.tobii__btn--previous {
+  background: none;
+}
+
+// TODO: investigate why previous/next buttons are not showing up
+//       on iOS (Safari, Firefox), background:none isn't the culprit

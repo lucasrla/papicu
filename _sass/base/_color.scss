@@ -1,0 +1,122 @@
+// NOTES BELOW ARE OUTDATED, we've changed our approach!
+
+// we are using HEX format for all colors except for "link" and "txt-muted".
+// for these two we use HSLA, they are the ones we dynamically manipulate their
+// `lightness`. to see it yourself, search for CSS selectors like a:hover
+// across other *.scss
+
+// we couldn't get SASS to "minify" the HSLA back to HEX (which are much 
+// shorter) nor did we manage to convert HSLA to HEX (using
+// https://sass-lang.com/documentation/modules/color#ie-hex-str via 
+// https://stackoverflow.com/a/52425299).
+// so we ended up keeping HSLA only where it was "needed"
+
+// we are using mixins to achieve both:
+// 1. easy HSL color adjustments
+// 2. dark/light mode (via html's @media prefers-color-scheme)
+// 
+// our neat implementation comes from https://stackoverflow.com/a/71150011
+// 
+// note that sass default functions (e.g. `darken()` `desaturate()`) can't solve both tasks. they are preprocessed and do not work with CSS variables `vars()`. vars, on the other hand, can change at runtime (e.g. on light/dark mode)
+
+// if we didn't want #1, the following approaches would be good ways to get #2:
+// - https://thoughtbot.com/blog/controlling-color-with-sass-color-functions
+// - https://dev.to/zetareticoli/dark-mode-with-sass-and-css-variables-4f9b
+
+/* -------------- COLOR MIXINS -------------- */
+
+@mixin define-hsla-color($title, $color) {
+  --#{$title}-h: #{hue($color)};
+  --#{$title}-l: #{lightness($color)};
+  --#{$title}-s: #{saturation($color)};
+  --#{$title}-a: #{alpha($color)};
+}
+
+@mixin define-color($title, $color) {
+  --#{$title}: #{$color};
+}
+
+@function hsla-color($title, $hue: 0deg, $lightness: 0%, $saturation: 0%, $alpha: 0) {
+  @return hsla(
+      calc(var(--#{$title}-h) + #{$hue}), 
+      calc(var(--#{$title}-s) + #{$saturation}),
+      calc(var(--#{$title}-l) + #{$lightness}),
+      calc(var(--#{$title}-a) + #{$alpha}),
+  );
+}
+
+@function color($title) {
+  @return var(--#{$title});
+}
+
+/* -------------- CSS SCOPED VARIABLES -------------- */
+// these will change/adapt at runtime, need to be inserted as var()
+
+// https://stackoverflow.com/questions/15899615/whats-the-difference-between-css3s-root-pseudo-class-and-html
+// https://stackoverflow.com/questions/69112693/css-vs-root-vs-html-vs-body-what-is-the-standard-practice-for-setting-defau
+:root {
+  // useful for trying out sass filters: https://sassme.jim-nielsen.com/
+
+  @include define-color("txt", #222);
+  @include define-color("txt-muted", lighten(#222, 20%)); // #555555
+
+  @include define-color("heading", darken(#222, 10%)); // #080808
+  // which is equivalent to `hsla-color("txt", $lightness: -10%);` in a css rule
+
+  @include define-color("accent", #f0f097);
+  
+  @include define-color("link", #0074d9);
+  @include define-color("link-hover", lighten(#0074d9, 10%));
+  @include define-color("link-visited", desaturate(#0074d9, 33%));
+  @include define-color("link-active", darken(#0074d9, 33%));
+
+  @include define-color("muted", lighten(#222, 35%)); // #7b7b7b
+  @include define-color("muted-hover", lighten(#7b7b7b, 10%));
+  @include define-color("muted-visited", desaturate(#7b7b7b, 25%));
+  @include define-color("muted-active", darken(#7b7b7b, 25%));
+
+  @include define-color("marker-muted", lighten(#222, 66%)); // #cacaca
+
+  @include define-color("bg", #fafafa);
+  @include define-color("ui-bg", darken(#fafafa, 3%)); // #f2f2f2
+  @include define-color("ui-input-bg", #fff);
+  
+  @include define-color("ui-border", #eee);
+  @include define-color("ui-border-stress", darken(#eee, 10%)); // #d4d4d4
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include define-color("txt", #ccc); 
+    @include define-color("txt-muted", darken(#ccc, 15%)); // #a6a6a6
+
+    @include define-color("heading", lighten(#ccc, 10%)); // #e6e6e6
+
+    // @include define-color("accent", #6666004d);
+    // @include define-color("accent", #c2a200);
+    // @include define-color("accent", #804a00);
+    // @include define-color("accent", #753900);
+    // @include define-color("accent", #754400);
+    // @include define-color("accent", #a35a00);
+    @include define-color("accent", #663800); // darken(#ff8c00, 30);
+
+    @include define-color("link", #2997ff);
+    @include define-color("link-hover", lighten(#2997ff, 10%));
+    @include define-color("link-visited", desaturate(#2997ff, 33%));
+    @include define-color("link-active", darken(#2997ff, 33%));    
+
+    @include define-color("muted", darken(#ccc, 30%)); // #808080
+    @include define-color("muted-hover", lighten(#808080, 10%));
+    @include define-color("muted-visited", desaturate(#808080, 25%));
+    @include define-color("muted-active", darken(#808080, 25%));    
+    
+    @include define-color("marker-muted", darken(#ccc, 50%)); // #4d4d4d
+
+    @include define-color("bg", #222);
+    @include define-color("ui-bg", darken(#222, 2%)); // #1d1d1d
+    @include define-color("ui-input-bg", #000);
+
+    @include define-color("ui-border", #333);
+    @include define-color("ui-border-stress", lighten(#333, 10%)); // #4d4d4d
+  }
+}

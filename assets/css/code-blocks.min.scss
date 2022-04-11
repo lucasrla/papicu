@@ -1,0 +1,15 @@
+---
+---
+// this file is being processed by jekyll-sass-converter
+// that comes bundled with jekyll itself
+// https://github.com/jekyll/jekyll-sass-converter
+
+// it requires this front matter to trigger the processing
+
+$line-height: 1.5;
+
+@function color($title) {
+  @return var(--#{$title});
+}
+
+@import "code-blocks";

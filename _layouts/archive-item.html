@@ -1,0 +1,40 @@
+---
+layout: archive
+---
+
+<h1>
+  {% if page.type == "tag" %}<code class="muted">#</code>{% endif %}{{ page.title | escape }}
+</h1>
+
+{% assign page_type = page.type %}
+{% if page_type == "category" %}{% assign page_type = "topic" %}{% endif %}
+<p class="muted negative-top-x-spacer bottom-x-spacer">
+  {{ page_type | capitalize }}
+</p>
+
+<ul class="no-padding none-list">
+{%- for post in page.posts -%}
+  {% assign post_date = post.date | date: "%Y-%m-%d" %}
+  <li class="flex align-items-baseline wider-gap bottom-spacer">
+    <span class="marker-muted small dont-shrink">
+      {{ post_date }}
+    </span>
+    <div>
+      <a class="slightly-bold" href="{{ post.url | relative_url }}">
+        {{- post.title | escape -}}
+      </a><br/>
+      <span>{{- post.description | smartify -}}</span>
+    </div>
+  </li>
+{%- endfor -%}
+</ul>
+
+{% comment %}
+{% include divider.html %}
+
+{% assign tags_page = site.pages | where: "permalink", "/tags" %}
+{% assign archive_page = site.pages | where: "permalink", "/archive" %}
+<p class="top-x-spacer">
+  Browse all posts at <a href="{{ "/archive" | relative_url }}">{{ archive_page[0].title }}</a>.
+</p>
+{% endcomment %}

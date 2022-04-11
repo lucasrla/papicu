@@ -1,0 +1,42 @@
+---
+layout: html_minifier
+---
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" prefix="og: https://ogp.me/ns#">
+
+  <head>
+    {%- include head.html -%}
+    <meta property="og:image" content="{{ site.defaults[0].values.image.path | absolute_url | default: "https://papicu.netlify.app/assets/img/papicu-blue-square-512.png" }} ">
+    <meta property="twitter:image" content="{{ site.defaults[0].values.image.path | absolute_url | default: "https://papicu.netlify.app/assets/img/papicu-blue-square-512.png" }} ">
+  </head>
+
+  <body>
+    <div class="frame">
+      <header class="small muted">
+        {%- include header.html -%}
+      </header>
+      
+      <main>
+        {{ content }}
+      </main>
+      
+      <footer>
+        <hr />
+
+        {%- include footer.html -%}
+      </footer>
+    </div>
+    
+    <script>
+      {%- include copyright-year.min.js -%}
+
+      {% if page.enhanced_details %}
+        {%- include enhanced-details.min.js -%}
+      {% endif %}      
+    </script>
+
+    {% include analytics.html %}
+  </body>
+
+</html>

@@ -1,0 +1,8 @@
+{% comment %}
+thanks to https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+{% endcomment %}
+
+{% if _code contains '<pre class="lineno">' %}
+  {% assign _code = _code | replace: "<pre><code", "<code" %}
+  {% assign _code = _code | replace: "</code></pre>", "</code>" %}
+{% endif %}

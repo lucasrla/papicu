@@ -1,0 +1,40 @@
+{
+  "author": "@lucasrla",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^10.4.4",
+    "critical": "^4.0.1",
+    "cssnano": "^5.1.5",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-file-assets": "^3.1.5",
+    "gulp-filter": "^7.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-posthtml": "^3.0.5",
+    "gulp-purgecss": "^4.1.3",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.3",
+    "gulp-rev": "^9.0.0",
+    "gulp-uglify": "^3.0.2",
+    "penthouse": "pocketjoso/penthouse",
+    "postcss": "^8.4.12",
+    "postcss-variable-compress": "^1.0.1",
+    "posthtml-minify-classnames": "^0.3.0",
+    "through2": "^4.0.2"
+  },
+  "browserslist": [
+    "last 1 version or > 0.5%"
+  ],
+  "devDependencies": {
+    "@netlify/plugin-lighthouse": "^2.1.3"
+  },
+  "scripts": {
+    "prepare-js": "gulp bundle_and_minify_js",
+    "build-local": "bundle exec jekyll build",
+    "build-optimize-local": "npm run build-local && gulp optimize_css_each_html_file",
+    "serve-optimize-local": "npm run build-optimize-local && bundle exec jekyll serve -P 4001 --host=0.0.0.0 --skip-initial-build",
+    "build-netlify": "jekyll build && gulp optimize_css_each_html_file"
+  }
+}

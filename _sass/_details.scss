@@ -1,0 +1,243 @@
+
+// TODO: improve usability of our details / summary. eg:
+// - https://fotis.xyz/posts/details-is-awesome/
+
+
+/* -------------- SUMMARY -------------- */
+
+// VANILLA
+
+summary {
+  border-bottom: 1px solid color("bg");
+
+  &::before,
+  &::marker,
+  &::-webkit-details-marker {
+    color: color("link");
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// hover targeting only mouse and touchpad (touchscreens are out)
+// - https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c
+@media(hover: hover) and (pointer: fine) {
+  summary:hover {
+    cursor: pointer;
+  }
+}
+
+
+// SUMMARY STYLE: + plus / - minus hanging on the left-hand side
+
+summary.signed-text {
+  color: color("link");
+  list-style: none;
+
+  &::marker,
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::before {
+    content: "+ ";
+    font-family: ui-monospace, Menlo, monospace;
+    float: left;
+    margin-left: -1em;
+    font-size: 1em;
+    line-height: 1.7;
+  }
+}
+
+details[open] > summary.signed-text::before,
+details[open] > summary.signed-heading > h2::before,
+details[open] > summary.signed-heading > h3::before {
+  content: "- ";
+}
+
+summary.signed-heading {
+  list-style: none;
+
+  &::marker,
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  & > h2,
+  & > h3 {
+    color: color("link");
+  }
+
+  & > h2::before,
+  & > h3::before {
+    color: color("link");
+    content: "+ ";
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 1em;
+    float: left;
+    margin-left: -1em;
+  }
+
+  & > h3::before {
+    line-height: 1.6;
+  }
+
+  h2, h3 {
+    display: inline;
+  }
+}
+
+// show hovering effects for better a UX on desktop
+@media(hover: hover) and (pointer: fine) {
+  details.content-details > summary:hover,
+  details.section-details > summary:hover,
+  details > summary.signed-text:hover,
+  details > summary.signed-heading:hover {
+    border-bottom: 1px solid color("link");
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  // hide all left-hanging +/- signs on mobile
+  summary.signed-text,
+  summary.signed-heading {
+    list-style: none;
+
+    &::marker,
+    &::-webkit-details-marker,
+    &::before {
+      display: none;
+    }
+
+    & > h2::before,
+    & > h3::before {
+      display: none;
+    }
+  }
+
+  :root {
+    --display-pseudo-el: "block";
+  }
+
+  // show an "expand button" floating on mobile
+  // NOTE: if js is enabled, this will be hidden via `--display-pseudo-el`
+  summary.signed-text::after,
+  summary.signed-heading::after {
+    content: "+";
+    // content: "^";
+    // transform: rotate(180deg);
+    // transition: transform 100ms ease-in-out;
+    font-family: ui-monospace, Menlo, monospace;
+    color: color("link");
+    // font-size: calc(1em * #{$coef-small});
+    // font-variant: all-small-caps;
+    // float: right;
+    background-color: color("bg");
+
+    display: var(--display-pseudo-el);
+  }
+
+  details[open] > summary.signed-text::after,
+  details[open] > summary.signed-heading::after {
+    display: none;
+  }
+
+  // clear the floating box
+  details > summary.signed-text + *,
+  details > summary.signed-heading + *,
+  details + * {
+    clear: both;
+  }
+}
+
+
+// SUMMARY STYLE: quotes
+
+summary.quote-summary {
+  color: color("txt");
+  // border-bottom: 1px solid color("link");
+}
+
+
+// SUMMARY STYLE: show / hide (button-like)
+
+summary.show-hide {
+  &::marker,
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::before {
+    color: color("txt");
+    content: "Show ";
+  }
+
+  &:hover::before {
+    color: color("link");
+  }
+}
+
+details[open] > summary.show-hide::before {
+  content: "Hide ";
+}
+
+
+
+/* -------------- DETAILS -------------- */
+
+p + details, // vanilla <details> (coming after a paragraph)
+details.code-details { // show code snippet <details>
+  margin: 1em 0 1.5em 0;
+}
+
+// content-details: tighter margin-bottom for this one
+details.content-details {
+  margin: 1em 0;
+}
+
+details.content-details[open] {
+  margin-bottom: 1.5em;
+
+  & > div {
+    padding-left: 1em;
+  }
+
+  & > div.quote-container {
+    padding-left: 0;
+  }
+}
+
+// section-details: give it more space to breath on desktop
+details.section-details {
+  margin: 2.5em 0 1.5em 0;
+}
+
+@media only screen and (max-width: 640px) {
+  details.section-details,
+  details.content-details {
+    margin-bottom: 1em;
+  }
+
+  details.section-details[open],
+  details.content-details[open] {
+    margin-bottom: 1em;
+
+    &> div {
+      padding-left: 0;
+    }
+
+    &> summary {
+      background-color: color("bg");
+      z-index: 3;
+    }
+
+    // will rely only on color to differentiate blockquotes 
+    // inside section-details and content-details on mobile
+    blockquote {
+      padding-left: 0;
+      border-left: none;
+    }
+  }
+}

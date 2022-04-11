@@ -1,0 +1,511 @@
+// inspired by
+// - https://github.com/poole/poole/blob/master/_sass/_variables.scss
+// - https://github.com/jimniels/blog/blob/b81e75c01dbd3f8a57288f9dda2617799776fdc2/src/client/assets/css/base.css
+// - https://github.com/derekkedziora/derekkedziora.com/blob/344f51fecd92ec3069629189797fe49fa0d554ab/css/main.scss
+
+// TODO: move to @use? (when using dart-sass)
+// https://stackoverflow.com/a/61500282
+@import "base/color";
+@import "base/sizing";
+@import "base/modern-normalize";
+@import "base/typography";
+
+@import "base/html-body";
+
+
+/* -------------- MISC ELEMENTS -------------- */
+
+hr {
+  border: 0;
+  border-top: 1px solid color("ui-border");
+  margin: 2.5em 0;
+  width: 100%;
+}
+
+hr.dotted-text {
+  height: 1.5em;
+  border-top: 0;
+  text-align: center;
+
+  &:before {
+    content: "• • •";
+  }
+}
+
+table {
+  // trying to have proper overflow
+  // - https://stackoverflow.com/questions/19794211/horizontal-scroll-on-overflow-of-table
+  // - https://johnfraney.ca/blog/how-to-write-responsive-html-tables/
+
+  // TODO: this doesn't work well on iOS, it causes a "zoom-out", find a fix
+  // adding a "responsive div/wrapper" doesn't work either
+  display: block;
+  overflow: auto;
+
+  // width: 100%; // doesn't work to "stretch" tables 
+  max-width: fit-content;
+  margin: 1em auto 1.5em auto;
+
+  border-spacing: 0.25em;
+}
+
+td {
+  // TODO: fix padding and breaks responsiveness / overflow (Safari iOS)
+  padding: 0.25em 0.5em;
+  border-bottom: 1px solid color("ui-border");
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap; // prevent line-breaks on td cells
+
+  &:first-of-type {
+    padding-left: 0;
+  }
+  
+  &:last-of-type {
+    padding-right: 0;
+  }  
+}
+
+th {
+  padding: 0.5em;
+  border-bottom: 3px solid color("ui-border");
+  font-weight: normal;
+  // white-space: nowrap; // prevent line-breaks on thead cells
+
+  &:first-of-type {
+    padding-left: 0;
+  }
+  
+  &:last-of-type {
+    padding-right: 0;
+  }
+}
+
+tfoot > tr > td {
+  border-bottom: none;
+}
+
+
+/* -------------- HEADINGS -------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  color: color("heading");
+  line-height: $line-height;
+}
+
+h1 {
+  font-size: 1.6em;
+  // line-height: normal;
+  margin: 0.75em 0 2em 0;
+}
+
+h2 {
+  font-size: 1.3em;
+  // line-height: normal;
+  margin-top: 3em;
+}
+
+h3 {
+  font-size: 1.2em;
+  // line-height: normal;
+  font-variant-caps: all-small-caps;
+  letter-spacing: $letter-spacing-sm;
+  font-weight: 500;
+  margin-top: 2em;
+}
+
+h4 {
+  font-size: 1em;
+  // line-height: normal;
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 1em;
+}
+
+nav + h2 {
+  margin-top: 1.5em;
+}
+
+h2 + h3 {
+  margin-top: 1em;
+}
+
+/* -------------- PARAGRAPHS AND BLOCKQUOTES -------------- */
+
+p {
+  // margin: 0.5em 0 1em 0;
+  margin: 1em 0;
+}
+
+p,
+summary,
+div {
+  line-height: $paragraph-line-height;
+}
+
+@supports (hanging-punctuation: first) {
+  p, summary, div {
+    hanging-punctuation: first;
+  }
+}
+
+article > div {
+  margin: 1em 0 1.5em 0;
+}
+
+blockquote {
+  color: color("txt-muted"); // a color between "txt" and "muted"
+  border-left: 1px solid color("ui-border");
+  padding-left: 1em;
+  margin: 1em 0 1.5em 0;
+}
+
+.citation {
+  text-align: right;
+  font-size: calc(1em * #{$coef-small});
+  margin: -1.25em 0 2em 0;
+  
+  &::before {
+    content: "— ";
+    color: color("ui-border");
+  }
+}
+
+/* -------------- HIGHLIGHTS -------------- */
+
+mark {
+  background-color: color("accent");
+  padding: 0.1em;
+  color: color("txt");
+}
+
+/* -------------- LISTS -------------- */
+
+ul, 
+ol {
+  padding-inline-start: 1.75em;
+}
+
+main ul,
+main ol,
+article ul, 
+article ol {
+    margin-bottom: 1.5em;
+}
+
+li {
+  margin-top: 0.5em;
+  margin-bottom: 0.75em;
+
+  &::marker {
+    // color: color("muted");
+    color: color("marker-muted");
+  }  
+}  
+
+/* -------------- LAYOUT -------------- */
+
+.frame {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+header {
+  display: block;
+  width: 100%;
+  flex-grow: 0;
+}
+
+header h1 {
+  margin: 0;
+}
+
+article, main {
+  flex-grow: 1;
+}
+
+aside {
+  flex-grow: 0;
+}
+
+footer {
+  // margin-top: 2em;
+  flex-grow: 0;
+}
+
+div.footnotes::before {
+  content: "Footnotes";
+  // font-variant: all-small-caps;
+  color: color("heading");
+  font-weight: 600;
+  letter-spacing: $letter-spacing-sm;
+  // font-size: 1.1em;
+}
+
+.footnotes {
+  // font-size: 0.9em;
+  margin-top: 5em;
+
+  li::marker {
+    color: color("txt");
+  }
+}
+
+.cols-3-to-2 {
+  column-count: 3;
+  column-gap: 2em;
+}
+
+.cols-2-to-1 {
+  column-count: 2;
+  column-gap: 4em;
+}
+
+@media only screen and (max-width: 640px) {
+  .cols-3-to-2 {
+    column-count: 2;
+  }
+
+  .cols-2-to-1 {
+    column-count: 1;
+  }  
+}
+
+.post-nav {
+  width: 50%;
+}
+
+.post-nav-next {
+  text-align: right;
+}
+
+@media only screen and (max-width: 640px) {
+  .post-nav {
+    width: 100%;
+  }
+
+  .post-nav-next {
+    text-align: left;
+  }
+}
+
+// TODO: move this inline
+
+#site-search input {
+  flex-grow: 6;
+}
+
+#site-search button {
+  margin-left: 0.5em;
+  flex-grow: 1;
+}
+
+/* -------------- FLEX AND RELATED -------------- */
+
+// usado somente no negocio dos posts... simplificar!
+.flex {
+  display: flex;
+  flex-direction: unset;
+  gap: 0.5em;
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  
+  // https://stackoverflow.com/questions/30887071/margin-top-only-when-the-flex-item-is-wrapped
+  // margin-top: -1em;
+}
+
+@media only screen and (max-width: 640px) {
+  .stack-on-mobile {
+    align-items: start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // gap: 0;
+  }
+}
+
+.align-items-baseline {
+  align-items: baseline;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.dont-shrink {
+  flex-shrink: 0;
+}
+
+.wider-gap {
+  gap: 1em;
+}
+
+.stretched {
+  align-self: stretch;
+}
+
+/* -------------- IMAGES -------------- */
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid color("ui-border-stress");
+}
+
+figure {
+  margin: 1em 0 1.5em 0;
+}
+
+figcaption {
+  margin-top: 0.5em;
+  font-size: calc(1em * #{$coef-small});
+  color: color("muted");
+  // font-weight: 300;
+  text-align: center;
+  line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  img {
+    // dim the image's colors for dark mode
+    // - https://jec.fyi/blog/supporting-dark-mode
+    // filter: grayscale(30%);
+    filter: brightness(70%);
+  }
+
+  // TODO: review and improve
+  .avoid-transparency {
+    background: color("ui-border");
+  }
+}
+
+/* -------------- 16:9 YOUTUBE VIDEOS -------------- */
+
+// thanks https://github.com/pibby/jekyll-youtube
+
+// BTW, FYI, this is famous padding-bottom hack in action:
+// - https://www.smashingmagazine.com/2013/09/responsive-images-performance-problem-case-study/
+
+// future: use aspect-ratio
+// - https://caniuse.com/mdn-css_properties_aspect-ratio
+// as of 2022 Safari and Firefox don't support it for iframes
+
+.yt-16_9 {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 56.25% is 9/16 */
+  overflow: hidden;
+  margin: 1em 0 1.5em 0;
+}
+
+.yt-16_9 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid color("ui-border-stress");
+}
+
+/* -------------- ANCHORJS -------------- */
+
+.anchorjs-link {
+  padding-right: 0;
+}
+
+.anchorjs-link::after {
+  font-size: 0.9em; // ad-hoc size!
+}
+
+/* -------------- CHARTS -------------- */
+
+.charts canvas {
+  margin: 2em 0;
+}
+
+.charts {
+  min-width: 275px;
+}
+
+/* -------------- KATEX -------------- */
+
+// wrapping katex display to layout
+.katex-display > .katex {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.katex-display {
+  margin-bottom: 1.5em !important;
+}
+
+// https://github.com/KaTeX/KaTeX/issues/1233
+// Line breaks sometimes happen immediately after an inline KaTeX block
+.katex-html { 
+  white-space: nowrap; 
+}
+
+/* -------------- LIST.JS -------------- */
+
+.sort {
+  // color: hsla-color("link");
+  color: color("link");
+  cursor: pointer;
+
+  &:hover {
+    // color: hsla-color("link", $lightness: +10%);
+    color: color("link-hover");
+    text-decoration: underline;
+  }
+}
+
+.sort.asc::after {
+  content: "▲";
+  // color: hsla-color("link");
+  color: color("link");
+  font-size: calc(1em * #{$coef-small}); // 0.8em
+  padding-left: 5px;
+}
+
+.sort.desc::after {
+  content: "▼";
+  // color: hsla-color("link");
+  color: color("link");
+  font-size: calc(1em * #{$coef-small}); // 0.8em
+  padding-left: 5px;
+}
+
+/* -------------- LINKS, INPUTS, BUTTONS, & SVG ICONS -------------- */
+
+@import "interactivity";
+
+/* -------------- UTILITIES -------------- */
+
+@import "utilities";
+
+/* -------------- SIDENOTES -------------- */
+
+@import "sidenotes";
+
+/* -------------- DETAILS / SUMMARY -------------- */
+
+@import "details";
+
+/* -------------- TOC / TABLE OF CONTENTS -------------- */
+
+@import "toc";
+
+/* -------------- PRE / CODE BLOCKS -------------- */
+
+// @import "code-blocks";

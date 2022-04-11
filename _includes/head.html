@@ -1,37 +1,93 @@
+{% comment %}
+TODO: review
+- https://www.matuzo.at/blog/html-boilerplate/
+- https://github.com/h5bp/html5-boilerplate
+{% endcomment %}
+
+{% comment %}
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+{% endcomment %}
+<link rel="preconnect" href="https://a.frontier.fyi">
+
 <meta content="text/html; charset=UTF-8" name="Content-Type" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width" />
 
 {% seo %}
 
+<meta name="twitter:dnt" content="on">
+
 {% if page.layout == 'post' or page.layout == 'page' %}
-<meta property="article:modified_time" content="{{ page.last_modified_at | date: '%Y-%m-%dT00:00:00-03:00' }}" />
+  <meta property="article:modified_time" content="{{ page.last_modified_at | date: '%Y-%m-%dT00:00:00-03:00' }}" />
 {% endif %}
 
-<meta name="theme" content="Papicu" />
+<meta name="theme" content="Papicu - Jekyll Theme" />
 <meta name="theme_url" content="https://papicu.netlify.app/theme" />
 
+{% comment %}
+- https://web.dev/defer-non-critical-css/
+
+- https://gomakethings.com/inlining-literally-everything-for-better-performance/
+- https://blog.jim-nielsen.com/2022/inline-all-the-things/
+
+"Disable inline CSS since HTTP/2 is probably widespread-enough"
+- https://blog.nerde.pw/2017/01/27/jekyll-optimize-site.html + https://gitlab.com/willypillow/NerdeNolzda/-/commit/459a3c1d2fce5910a7f6d27fc12bb81931470323 
+{% endcomment %}
+
 {% if page.lightbox %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@midzer/tobii@2.3.2/dist/tobii.min.css" integrity="sha256-pKJvBeCb3mXQKk/1a7Dh8tAf2lRXbHOPXPd0VWb0e1A=" crossorigin="anonymous">
+<link rel="preload" href="{{ '/assets/vendors/tobii@2.3.3.min.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="{{ '/assets/vendors/tobii@2.3.3.min.css' | relative_url }}">
+</noscript>
 {% endif %}
 
-<link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-
-{% if page.code_highlighter %}
-<link rel="stylesheet" href="{{ '/assets/rouge.css' | relative_url }}">
-{% endif %}
-
-<script src="https://cdn.jsdelivr.net/npm/darken@1.5.0/dist/darken.umd.js"
-integrity="sha256-Y6pO59dXdOEEwUl/HiqekT5Fj1o+thlUS/gkwgXIZo4=" crossorigin="anonymous"></script>
-
-<link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS feed" href="{{ site.url }}/feed.xml" />
+{% if page.katex %}
+<link rel="preload" href="{{ '/assets/vendors/katex@0.15.2.min.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="{{ '/assets/vendors/katex@0.15.2.min.css' | relative_url }}">
+</noscript>
 
 {% comment %}
-- A good overview of the messy world of favicons: https://archive.is/3semP
+
+TODO: maybe migrate to https://cdn.jsdelivr.net (KaTeX official docs CDN) to maximize the chances of users having the fonts already cached?
+
+preloading the two most commonly used fonts of KaTeX
+- https://katex.org/docs/browser.html#loading-as-global
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload
 {% endcomment %}
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+<link rel="preload" href="{{ "/assets/vendors/fonts/KaTeX_Main-Regular.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="{{ "/assets/vendors/fonts/KaTeX_Math-Italic.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin="anonymous">
+
+{% comment %}
+- https://web.dev/fast/#optimize-webfonts
+
+isn't font-display worth trying?
+- https://web.dev/optimize-webfont-loading/
+- https://web.dev/avoid-invisible-text/#option-1:-use-font-display
+{% endcomment %}
+{% endif %}
+
+{% comment %} 
+SASS_FILE = './_sass/_critical.scss' (via `_plugins/inline_sass.rb`)
+{% endcomment %}
+{% comment %} 
+<style>{{ site.data.inline_css }}</style>
+{% endcomment %}
+
+{% if page.code_blocks %}
+<link rel="stylesheet" href="{{ '/assets/css/papicu.min.css' | relative_url }}">
+{% else %}
+<link rel="stylesheet" href="{{ '/assets/css/papicu.noncode.min.css' | relative_url }}">
+{% endif %}
+
+{% comment %}
+- A good overview of the world of favicons: https://archive.is/3semP
+
+- `?v=2` is to force a favicon refresh. you only need this if you want to update the favicon of an existing website (if not, you can remove it safely): https://stackoverflow.com/questions/2208933/how-do-i-force-a-favicon-refresh
+{% endcomment %}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/icons/apple-touch-icon.png?v=2' | relative_url }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/icons/favicon-32x32.png?v=2' | relative_url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/icons/favicon-16x16.png?v=2' | relative_url }}">
 
 {% comment %}
 - #5AC8FA is "Papicu Blue"
@@ -39,43 +95,75 @@ integrity="sha256-Y6pO59dXdOEEwUl/HiqekT5Fj1o+thlUS/gkwgXIZo4=" crossorigin="ano
 - `solid-black-rect.svg` was created with macSVG v1.1.7 (https://macsvg.org)
 - FYI, Safari caches masked icons as PNG files inside `~/Library/Safari/Template\ Icons/`
 {% endcomment %}
-<link rel="mask-icon" href="/assets/icons/solid-black-rect.svg" color="{{ site.favicon_color | default: "#5ac8fa" }}">
+<link rel="mask-icon" href="{{ '/assets/icons/solid-black-rect.svg' | relative_url }}" color="{{ site.colors.favicon_safari_mask_icon | default: "#5ac8fa" }}">
 
 {% comment %}
-- https://web.dev/add-manifest/
-- https://developer.mozilla.org/en-US/docs/Web/Manifest
+- https://blog.jim-nielsen.com/2021/theme-color-in-css/
+- https://www.matuzo.at/blog/html-boilerplate/
 {% endcomment %}
-<link rel="manifest" href="/assets/site.webmanifest">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa">
-<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#2c2c2c">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="{{ site.colors.background_light | default: "#fafafa" }}">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="{{ site.colors.background_dark | default: "#222222" }}">
 
-{% if page.chartjs %}
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
-integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS feed" href="{{ site.url }}/feed.xml" />
 
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js"
-integrity="sha256-Ctym065YsaugUvysT5nHayKynbiDGVpgNBqUePRAL+0=" crossorigin="anonymous"></script>
+{% comment %} 
+"This image explains normal script tag, async and defer"
+- https://stackoverflow.com/a/39711009 
 
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair@1.1.6/dist/chartjs-plugin-crosshair.min.js"
-integrity="sha256-r/9biws8g6l28IaMAzQW4jw/wTmuDPmcEaXn1qqD9iM=" crossorigin="anonymous"></script>
-{% endif %}
+"If you have inline scripts which depend on a deferred script, you’ll have to move them to an external file (and add src & defer), as inline scripts cannot be deferred."
+- https://stackoverflow.com/a/47117418 
+{% endcomment %}
 
-{% if page.katex %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.css" integrity="sha256-L+3lnjtX3yMb2iIZ86SbDdVrl4nOhB5kJkUqbKP4D2A=" crossorigin="anonymous">
-{% endif %}
+{% comment %} 
+inspired by
+- https://cloudcannon.com/blog/bundling-javascript-for-jekyll
+{% endcomment %}
 
 {% if page.toc %}
-<script src="https://cdn.jsdelivr.net/npm/gumshoejs@5.1.2/dist/gumshoe.min.js" integrity="sha256-jQ/h16s1N4POLTSUtG12NXoZLMMNCNwyMJ+PwHEuDUs=" crossorigin="anonymous"></script>
+  <script defer src="{{ '/assets/js/toc.bundle.min.js' | relative_url }}"></script>
 {% endif %}
 
 {% if page.anchorjs %}
-<script src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" integrity="sha256-0WMZ9PF4b2hTF66Eglv/9H5Vwk6lnOG4AbmCJxo96WQ=" crossorigin="anonymous"></script>
+  <script defer src="{{ '/assets/js/anchors.bundle.min.js' | relative_url }}"></script>
 {% endif %}
 
 {% if page.lightbox %}
-<script src="https://cdn.jsdelivr.net/npm/@midzer/tobii@2.3.2/dist/tobii.min.js" integrity="sha256-8fh7vRVLKtVACCTYz4Z6dG8YleIh70+9dPCPVLD/mdQ=" crossorigin="anonymous"></script>
+  <script defer src="{{ '/assets/js/tobii.bundle.min.js' | relative_url }}"></script>
 {% endif %}
 
 {% if page.listjs %}
+{% comment %}
 <script src="https://cdn.jsdelivr.net/npm/list.js@2.3.1/dist/list.min.js" integrity="sha256-NEVvGNMGqFvs6adGLZjm5sLgcuX9rGTg1wlGtA1f7M8=" crossorigin="anonymous"></script>
+{% endcomment %}
+  <script defer src="{{ '/assets/vendors/listjs@2.3.1.min.js' | relative_url }}"></script>
+{% endif %}
+
+{% if page.katex %}
+  <script defer src="{{ '/assets/js/katex.tweaks.min.js' | relative_url }}"></script>
+{% endif %}
+
+{% comment %}
+- https://medium.com/expedia-group-tech/dns-prefetch-preconnect-7-tips-tricks-and-pitfalls-82d633c7f210
+{% endcomment %}
+
+{% if page.chartjs %}
+{% comment %}
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js" integrity="sha256-Ctym065YsaugUvysT5nHayKynbiDGVpgNBqUePRAL+0=" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair@1.1.6/dist/chartjs-plugin-crosshair.min.js" integrity="sha256-r/9biws8g6l28IaMAzQW4jw/wTmuDPmcEaXn1qqD9iM=" crossorigin="anonymous"></script>
+{% endcomment %}
+
+  <script defer src="{{ '/assets/vendors/chartjs@2.9.4.min.js' | relative_url }}"></script>
+
+  <script defer src="{{ '/assets/vendors/chartjs-plugins.min.js' | relative_url }}"></script>
+
+  <script defer src="{{ '/assets/js/chartjs.setup.min.js' | relative_url }}"></script>
+{% endif %}
+
+{% if page.papaparse %}
+  <script defer src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js" integrity="sha256-Xjq9HM9n3XzT47n/NmSEaJUwPi7hme++D8mxHfSr+0Q=" crossorigin="anonymous"></script>
+
+  <script defer src="{{ '/assets/js/papaparse.setup.min.js' | relative_url }}"></script>
 {% endif %}

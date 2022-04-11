@@ -15,5 +15,10 @@ _site/
 .jekyll-metadata
 
 # misc
+_gulp/
 _/
 TODOs.md
+tmp/
+
+# node
+node_modules/

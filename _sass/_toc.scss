@@ -1,0 +1,79 @@
+/* -------------- SUMMARY / DETAILS -------------- */
+
+.toc-sidebar.hidden {
+  display: none;
+}
+
+/* -------------- POSITIONING -------------- */
+
+// viewports >= 1220px get our "ideal" sidenote & toc experience
+// this number was determined by our own judgement during our empirical tests :)
+@media only screen and (min-width: 1220px) {
+  .toc-sidebar {
+    display: block;
+    box-sizing: border-box;
+    top: 0.5em;
+    width: $aside-width;
+    float: left;
+    z-index: 10;
+  }
+
+  #toc-sticky {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    margin-left: calc(-1 * var(--toc-pos));
+    // margin-top: 1.5em;
+  }
+
+  /* Particularly useful for long articles with several sections */
+  #toc-fixed {
+    top: 0.5em;
+    left: 1em;
+    position: fixed;
+    overflow-y: auto;
+    height: 100%;
+    padding-right: 0.5em;
+    padding-bottom: 1em;
+  }
+}
+
+/* -------------- LISTS -------------- */
+
+#toc-menu ul {
+  list-style-type: none;
+  margin: 1em 0;
+}
+
+#toc-menu > ul {
+  padding-inline-start: 0;
+  margin-top: 0.5em;
+}
+
+#toc-menu > ul ul {
+  padding-inline-start: 0.75em;
+}
+
+#toc-menu > ul > li {
+  font-size: calc(1em * #{$coef-small}); // 0.8em
+  line-height: 1.25em;
+  margin-bottom: 0.75em;
+}
+
+/* -------------- LINKS -------------- */
+
+#toc-menu a {
+  text-decoration: none;
+}
+
+#toc-menu li.active a.muted {
+  color: color("txt");
+}
+
+@media(hover: hover) and (pointer: fine) {
+  .toc-sidebar summary:hover {
+    text-decoration: underline;
+  }
+}

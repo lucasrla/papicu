@@ -1,11 +1,13 @@
-<div class="flex-header">
-  <a class="muted small" href="/">{{ site.title | escape }}</a>
+<div class="flex space-between">
+  <a href="{{ site.baseurl }}/">
+    {{ site.title | escape }}
+  </a>
 
   <div class="dont-shrink">
     {% assign about_page = site.pages | where: "permalink", "/about" %}
     {% if about_page[0].permalink %}
-    <a href="/about">
-      {%- include svg.html icon="person" class="header-icon" -%}
+    <a href={{ "/about" | relative_url }}>
+      {{ about_page[0].title }}
     </a>
     {% endif %}
   </div>

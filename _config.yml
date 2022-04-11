@@ -1,76 +1,163 @@
+################################# SITE INFO
+
 title: "John Doe"
 tagline: "John Doe’s personal website"
 description: "A longer description of John Doe’s personal website"
 url: https://papicu.netlify.app
 email: site@john_doe_website.com
-locale: en_US
 
 # papicu's homepage and twitter cards use this handler
 twitter:
   username: "john_doe_website"
 
-# this is due to JSON-LD
+# used by JSON-LD schema.org metadata
 author:
   name: "John Doe"
   url: https://john_doe_author.com
   email: me@john_doe_author.com
   twitter: "john_doe_author"
 
-# uncomment and set this up if you are using shynet
-# shynet: https://shynet.john_doe_website.com/ingress/uuid-universally-unique-identifier/
+lang: en
+locale: en_US
 
-favicon_color: "#5AC8FA"
+################################# THEME
 
-baseurl: ""
+# theme: papicu
 
-markdown: kramdown
+# remote_theme: lucasrla/papicu
+# 
+# https://github.com/benbalter/jekyll-remote-theme/
+# > You may also optionally specify a branch, tag, or commit to use by appending an @ and the Git ref (e.g., benbalter/retlab@v1.0.0 or benbalter/retlab@develop). If you don't specify a Git ref, the HEAD ref will be used.
 
-kramdown:
-  parse_block_html: true
-  math_engine: katex
+################################# THEME COLORS
 
-permalink: /:slugified_categories/:title/
+colors:
+  # both used in `theme-color` meta tag
+  # make sure these two match the background colors in `_sass/base/_color.scss`
+  background_light: "#fafafa" 
+  background_dark: "#222222"
 
-sass:
-  sass_dir: _sass
-  style: :compressed
+  # used in safari's `mask-icon` meta tag
+  # remove this if you have set your own `mask-icon` in `_includes/head.html`
+  favicon_safari_mask_icon: "#5ac8fa"
+
+################################# ANALYTICS
+
+# set this up with a proper URL if you are using Shynet
+analytics:
+  shynet: 
+    # MUST insert an url with NO trailing slash!
+    url: https://shynet.john_doe_website.com/ingress/uuid-universally-unique-identifier
+    # add tiny pixel to count feed reads, must add `_layouts/feed.xml` file
+    pixel_feed: true
+
+################################# JEKYLL-FEED
+
+feed:
+  # https://github.com/jekyll/jekyll-feed#posts-limit
+  posts_limit: 20
+  # https://github.com/jekyll/jekyll-feed/pull/362
+  template: _layouts/feed.xml
+
+################################# JEKYLL PLUGINS
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-optional-front-matter
   - jekyll-redirect-from
   - jekyll-archives
   - jekyll-last-modified-at
+  - jekyll-postfiles
+  - jekyll-remote-theme
+
+################################# KRAMDOWN / KATEX
+
+kramdown:
+  # https://kramdown.gettalong.org/converter/html.html#option-math-engine
+  math_engine: katex
+  # https://kramdown.gettalong.org/converter/html.html#option-footnote-backlink-inline
+  footnote_backlink_inline: true
+  #
+  # syntax_highlighter_opts:
+  #   # https://github.com/gettalong/kramdown/blob/70121c00e318e0bffb4b74bbef1acc5b071d5ed7/lib/kramdown/converter/syntax_highlighter/rouge.rb
+  #   # https://github.com/rouge-ruby/rouge#formatters
+  #   css_class: rouge 
+  #   # which is shorter than .highlight, but it doesn't work with the most recent kramdown/rouge versions
+
+################################# JEKYLL-SASS-CONVERTER
+
+sass:
+  implementation: sass-embedded
+  style: compressed
+  sourcemap: never
+
+################################# JEKYLL-ARCHIVES
+
+jekyll-archives:
+  layouts:
+    category: archive-item
+    tag: archive-item
+  enabled:
+    - categories
+    - tags
+  permalinks:
+    category: /:name/
+    tag: /tag/:name/
+  slug_mode: latin # MUST be the same as in `slugify_mode`
+
+################################# RELATED POSTS (LSI)
+
+# see `.gemspec` and `_includes/related.html` for more info
+lsi: true
+
+################################# FILES TO INCLUDE/EXCLUDE FROM BUILD
+#
+# whatever you need, must be added explicitly on your own `_config.yml`
+#
+# any jekyll site need to declare `include` and `exclude` explicitly
+# one cannot rely on the defaults listed by a theme's `_config.yml`
 
 include:
   - _pages/
 
 exclude:
-  - "vendor.noindex/"
-  - "bin/"
-  - "TODOs.md"
-  - "README.md"
+  - vendor/
+  - vendor.noindex/
+  - bin/
+  - "*.gemspec"
+  - TODOs.md
+  - README.md
+  - RESEARCH.md
+  - LICENSE
+  - node_modules/
+  - package*.json
+  - gulpfile.js
+  - .vscode/
 
+################################# DEFAULTS (AUTOMATICALLY ADDED TO FRONT MATTER)
+#
+# whatever you need, must be added explicitly on your own `_config.yml`
+#
+# any jekyll site need to declare `defaults` explicitly
+# ne cannot rely on the defaults listed by a theme's `_config.yml`
+#
 # ref: https://jekyllrb.com/docs/configuration/front-matter-defaults/
+
 defaults:
-  - scope:
-      path: "assets/**/*.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "assets/**/*.csv"
-    values:
-      sitemap: false
+  # MUST KEEP THIS AS FIRST ENTRY, we are using
+  # `site.defaults[0].values.image.path` in `_layouts/archive.html`
   - scope:
       path: ""
-      type: "pages"
+      type: "pages" 
+      # NOTE: category/tag/archive pages are NOT included in this "pages" scope
+      # so we are inserting `og:image` and `twitter:image` 
+      # manually in `_layouts/archive.html`      
     values:
       image:
         path: "/assets/img/papicu-blue-square-512.png"
         # jekyll-seo-tag v2.8.0 does not output `width` and `height` to meta
-        # tags if they're set here. it seems to recognize only the `path`
+        # tags if they're set here. it seems to get only `path` from defaults
   - scope:
       path: ""
       type: "posts"
@@ -78,11 +165,44 @@ defaults:
       image:
         path: "/assets/img/papicu-blue-square-512.png"
 
-jekyll-archives:
-  enabled:
-    - categories
-  layouts:
-    category: listing
-  permalinks:
-    category: /:name/
-  slug_mode: pretty
+################################# SLUGS
+#
+# whatever you need, must be added explicitly on your own `_config.yml`
+
+permalink: /:slugified_categories/:title/
+
+# https://jekyllrb.com/docs/liquid/filters/#options-for-the-slugify-filter
+# default: removes spaces and non-alphanumeric characters
+# latin: like default plus converts àèïòü to aeiou
+# pretty: like default but keeps the following chars ._~!$&'()+,;=@`
+# ascii: like default plus removes non-ASCII chars (eg non-latin alphabets)
+
+slugify_mode: latin # MUST be the same as in `jekyll-archives: slug_mode`
+
+################################# BASE URL
+
+# if you're deploying on GitHub Pages AND you don't have a custom domain,
+# change `baseurl` from "" to "/YOUR_REPO_NAME"
+baseurl: ""
+# we use the `relative_url` filter in URL paths pretty much everywhere to
+# automatically prepend `baseurl`
+# more info: https://jekyllrb.com/docs/liquid/filters/
+
+################################# LAYOUT LIQUID-BASED MINIFIERS
+
+# _layouts/{html,js}_minifier.liquid
+liquid_minifiers: 
+  # html_minifier breaks down with the html code in `enhanced-details.js``
+  # escaping the opening < symbol (with \<) didn't help there
+  html: false
+  js: false
+
+# ################################# JS MINIFIER (not using it anymore)
+
+# # jekyll-js-converter
+# javascript:
+#   javascript_dir: assets/js/_partials
+#   load_paths:
+#     - assets/vendors
+#     - _posts
+#   source_map: never

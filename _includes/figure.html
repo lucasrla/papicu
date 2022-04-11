@@ -1,0 +1,17 @@
+{% if include.src and include.caption and include.w and include.h %}
+  {% assign alt = include.alt | default: include.caption | strip_html %}
+  <figure>
+    {% if include.lightbox_img %}
+    <a class="lightbox" href="{{ include.lightbox_img }}" {% if include.lightbox_group %}data-group="{{ include.lightbox_group }}"{% endif %}>
+    {% endif %}
+      <img alt="{{ alt }}" src="{{ include.src }}" class="center-block" loading="lazy" width="{{ include.w }}" height="{{ include.h }}" style="aspect-ratio: {{ include.w }}/{{ include.h }};" />
+    {% if include.lightbox_img %}
+    </a>
+    {% endif %}
+    <figcaption markdown="span">
+      {{ include.caption }}
+    </figcaption>
+  </figure>
+{% else %}
+{% include prompt.html type="accent" text="`ERROR: Missing parameter(s) in figure`.<br/><br/>Make sure you provide the following parameters: `src`, `caption`, `w`, and `h`." %}
+{% endif %}

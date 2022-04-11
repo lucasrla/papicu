@@ -1,0 +1,48 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color-scheme: light dark;
+  background: color("bg");
+  color: color("txt");
+}
+
+// if user has prefers-reduced-motion enabled, disable smooth scrolling
+// - https://gomakethings.com/how-to-animate-scrolling-to-anchor-links-with-one-line-of-css/
+@media screen and (prefers-reduced-motion: reduce) {
+	body {
+		scroll-behavior: auto;
+	}
+}
+
+body {
+  margin: 0 auto;
+  max-width: $body-width;
+  padding: 1.5em var(--body-padding);
+}
+
+// mobile, 640px
+@media only screen and (max-width: 640px) {
+  :root {
+    --body-padding: #{$body-padding-small};
+  }
+
+  body {
+    padding: 1em var(--body-padding);
+  }
+}
+
+// --breakpoint-wide: 1560px;
+@media only screen and (min-width: 1560px) {
+  :root {
+    --body-padding: #{$body-padding-wide};
+  }
+}
+
+// --breakpoint-x-wide: 1960px;
+@media only screen and (min-width: 1960px) {
+  :root {
+    --body-padding: #{$body-padding-x-wide};
+  }
+}

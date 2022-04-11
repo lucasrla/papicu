@@ -14,9 +14,11 @@ layout: html_minifier
 
   <title>Redirecting &hellip;</title>
 
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/css/papicu.noncode.min.css" | relative_url }}">
 
   <link rel="canonical" href="{{ page.redirect.to }}">
+
+  {% include analytics.html %}
 
   <script>location = "{{ page.redirect.to }}"</script>
 </head>
@@ -26,22 +28,6 @@ layout: html_minifier
   <p>
     <a href="{{ page.redirect.to }}">Click here if you are not redirected.</a>
   </p>
-
-  {% if jekyll.environment != "local" and site.shynet %}
-
-  {% comment %} This is to prevent double slashes "//" {% endcomment %}
-  {% assign shynet_last_char = site.shynet | slice: -1 %}
-
-  {% if shynet_last_char == "/" %}
-  {% assign new_length = site.shynet | size | minus: 1 %}
-  {% assign shynet = site.shynet | slice: 0, new_length %}
-  {% else %}
-  {% assign shynet = site.shynet %}
-  {% endif %}
-
-  <noscript><img src="{{ shynet }}/pixel.gif"></noscript>
-  <script src="{{ shynet }}/script.js"></script>
-  {% endif %}
 </body>
 
 </html>

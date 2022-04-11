@@ -1,0 +1,141 @@
+// inspired by
+// - https://github.com/kslstn/sidenotes
+// - https://www.kooslooijesteijn.net/blog/sidenotes-without-js
+// - https://github.com/instantpage/instant.page-site
+
+body {
+  counter-reset: sn_num;
+}
+
+.sn {
+  display: inline;
+}
+
+.sn-checkbox {
+  display: none;
+}
+
+.sn-content {
+  color: color("muted");
+  font-size: calc(1em * #{$coef-small});
+  line-height: 1.33em;
+  font-weight: normal;
+}
+
+.sn-label {
+  cursor: help;
+}
+
+.sn-label::after {
+  counter-increment: sn_num;
+  content: "[" counter(sn_num) "]";
+  // font-weight: 300;
+  letter-spacing: $letter-spacing-ref;
+}
+
+.sn-content::before {
+  content: counter(sn_num) ".\ ";
+}
+
+// viewports >= 1220px get our "ideal" sidenote & toc experience
+// this number was determined by our own judgement during our empirical tests :)
+@media only screen and (min-width: 1220px) {
+  .sn:hover {
+    .sn-label {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      cursor: help;
+    }
+
+    .sn-label,
+    .sn-content,
+    .sn-content a {
+      color: color("txt");
+    }
+  }
+
+  .sn-content {
+    display: block;
+    position: absolute;
+    width: var(--sn-width);
+    margin-left: var(--sn-pos);
+    margin-top: -1 * $paragraph-line-height;
+  }
+
+  // FIXES - we're positioning sidenotes relatively to the inline text. in 
+  // the following cases the inline text has been shifted/padded to the right
+  // so we must "compensate" for that:
+  li .sn-content {
+    margin-left: calc(var(--sn-pos) - (1 / #{$coef-small})*#{$list-padding-inline-start});
+  }
+
+  details p .sn-content,
+  blockquote p .sn-content {
+    margin-left: calc(var(--sn-pos) - (1 / #{$coef-small})*1em);
+  }
+
+  details.content-details div.quote-container p.citation .sn-content {
+    // revert sn-content font-size back up to "normal"
+    font-size: 1em;
+
+    // correct vertical and horizontal alignments
+    margin-top: -1.5em;
+    margin-left: var(--sn-pos);
+
+    // realign sn-content to left (.citation is aligned to the right)
+    text-align: left;
+  }
+
+  details blockquote {
+    p .sn-content {
+      margin-left: calc(var(--sn-pos) - (1 / #{$coef-small})*2em);
+    }
+
+    li .sn-content {
+      margin-left: calc(var(--sn-pos) - (1 / #{$coef-small})*(2em + #{$list-padding-inline-start}));
+    }
+  } 
+}
+
+// narrow viewports get sidenotes hidden by default; they're shown only when 
+// the customized "checkbox" is :checked
+@media only screen and (max-width: 1219px) {
+  .sn-checkbox ~ .sn-content {
+    // hide sidenote content but still have it "accessible" for any narrow 
+    // viewports that don't do CSS
+    position: absolute;
+    left: -99999px;
+    top: auto;
+  } 
+
+  .sn-checkbox:checked ~ .sn-content {
+    // override hidden-but-accessible (the CSS rule above)
+    position: relative;
+    left: 0;
+
+    // don't break up the line containing the sidenote
+    float: left;
+    min-width: 100%;
+
+    display: block;
+    margin: 0.5em 0;
+  }
+
+  // make sure sidenotes are clear fixed on Safari iOS
+  // (do note that, as of March 2022, has() is supported only by Safari 15.4)
+  // https://caniuse.com/css-has
+  p:has(.sn-checkbox:checked ~ .sn-content)::after {
+    // https://stackoverflow.com/a/10699376
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+// browser readers, screenreaders and read-it-laters (with any width) that 
+// don't do CSS get sidenote conent in line (and between parenthesis)
+.sn-content-parenthesis {
+  position: absolute;
+  left: -99999px;
+  top: auto;
+}

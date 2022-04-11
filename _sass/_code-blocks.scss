@@ -1,0 +1,53 @@
+// code blocks (highlighted by rouge)
+
+@import "pygments-css-themes/base16-default-light";
+// @import "pygments-css-themes/base16-tomorrow-light";
+
+@media (prefers-color-scheme: dark) {
+  @import "pygments-css-themes/base16-default-dark";
+  // @import "pygments-css-themes/base16-tomorrow-dark";
+}
+
+div.highlighter-rouge {
+  margin: 1em 0 1.5em 0;
+}
+
+div.highlighter-rouge + div.highlighter-rouge, 
+figure.highlight + figure.highlight {
+  margin-top: -1em;
+}
+
+div.highlight,
+figure.highlight {
+  overflow: auto;
+}
+
+div.highlight > pre,
+figure.highlight pre {
+  margin: 0;
+  padding: 0.5em 0 0.5em 1em;
+  line-height: $line-height;
+}
+
+// rouge line numbering (linenos) creates <table> elements
+.rouge-table {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  
+  td,
+  th {
+    border: 0;
+    padding: 0;
+  }
+
+  .gutter {
+    vertical-align: top;
+    user-select: none;
+    opacity: .5;
+  }
+}
+
+.lineno {
+  color: color("muted");
+}

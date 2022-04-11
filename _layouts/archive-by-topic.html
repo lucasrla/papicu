@@ -1,0 +1,67 @@
+---
+layout: archive
+---
+
+<h1>
+  {{ page.title | escape }}
+</h1>
+
+{% assign categories_length = site.categories | size %}
+
+{% if categories_length == 0 %}
+<p>
+  No topics were found.
+</p>
+
+{% else %}
+
+<ul class="none-list no-padding cols-3-to-2">
+{% assign sorted_cats = site.categories | sort %}
+{% for cat in sorted_cats %}
+  <li class="no-margin-top">
+    <a href="#{{ cat[0] | slugify: site.slugify_mode }}">{{ cat[0] }}</a><span class="marker-muted">&nbsp;&#183;</span><span class="muted">&nbsp;{{ cat[1] | size }}</span>
+  </li>
+{% endfor %}
+</ul>
+
+{% include divider.html %}
+
+{% for cat in sorted_cats %}
+  {% assign sorted_posts = cat[1] %}
+  <div class="flex space-between align-items-baseline">
+    <h2 id="{{ cat[0] | slugify: site.slugify_mode }}">
+      {{ cat[0] }}
+    </h2>
+    <a class="no-shrink smaller button muted" href="#">↑</a>
+  </div>
+  <ul class="no-padding none-list">
+    {% for p in sorted_posts %}
+      {% if forloop.first == true %}
+        {% assign print_date = "9999-99-99" %}
+      {% endif %}
+      {% assign post_date = p.date | date: "%Y-%m-%d" %}
+      <li class="flex align-items-baseline">
+        {% comment %} descending order {% endcomment %}
+        {% if print_date > post_date %}
+          <span class="marker-muted small dont-shrink">
+        {% else %}
+          <span class="marker-muted small dont-shrink no-visibility">
+        {% endif %}  
+          {{ post_date }}
+          {% assign print_date = post_date %}
+        </span>
+        <a href="{{ p.url | relative_url }}">
+          {{ p.title | escape }}
+        </a>
+    </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+{% endif %}
+
+{% include divider.html %}
+
+<p class="top-x-spacer">
+  {{ content }}
+</p>

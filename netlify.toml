@@ -1,0 +1,73 @@
+# https://docs.netlify.com/configure-builds/file-based-configuration
+
+# Settings in the [build] context are global and are applied to 
+# all contexts unless otherwise overridden by more specific contexts.
+[build]
+  publish = "_site/"
+  # command = "jekyll build"
+  command = "npm run build-netlify"
+
+  # If skip_processing = true, all other settings are ignored
+  [build.processing]
+    skip_processing = false
+  [build.processing.css]
+    bundle = true
+    minify = false
+  [build.processing.js]
+    bundle = true
+    minify = false
+  [build.processing.images]
+    compress = true
+
+  # Will we need this?
+  # [build.processing.html]
+  #   pretty_urls = true
+
+
+# https://github.com/netlify-labs/netlify-plugin-lighthouse
+[[plugins]]
+  # Installs the Lighthouse Build Plugin for all deploy contexts
+  package = "@netlify/plugin-lighthouse"
+
+  # optional, fails build when a category is below a threshold
+  [plugins.inputs.thresholds]
+    performance = 0.95
+    accessibility = 0.95
+    best-practices = 0.95
+    seo = 0.95
+
+  # https://github.com/netlify-labs/netlify-plugin-lighthouse/pull/45
+  # TODO: improve this? currently, it seems we need to add each route manually
+  #
+  # maybe by configuring the underlying lighthouse itself? 
+  # https://github.com/GoogleChrome/lighthouse/blob/master/docs/configuration.md
+  
+  [[plugins.inputs.audits]]
+    path = ""
+
+  [[plugins.inputs.audits]]
+    path = "about"
+
+  [[plugins.inputs.audits]]
+    path = "archive"
+
+  [[plugins.inputs.audits]]
+    path = "features"
+
+  [[plugins.inputs.audits]]
+    path = "features/sidenotes"
+
+  [[plugins.inputs.audits]]
+    path = "features/math-katex"
+
+  [[plugins.inputs.audits]]
+    path = "features/svg-icons"
+
+  [[plugins.inputs.audits]]
+    path = "features/image-and-video"
+
+  [[plugins.inputs.audits]]
+    path = "features/code-highlighting"
+
+  [[plugins.inputs.audits]]
+    path = "features/basic-html-elements"

@@ -2,68 +2,76 @@
 layout: default
 ---
 
-<header class="flex-header bottom-spacer">
-  <h1>{{ site.title | escape }}</h1>
+<header class="bottom-spacer">
+  <div class="flex space-between">
+    <h1>{{ site.title | escape }}</h1>
 
-  <div class="dont-shrink">
-    {% if site.twitter.username %}
-    <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener">{%- include svg.html icon="twitter" class="homepage-icon" -%}</a>
-    {% endif %}
+    <div class="dont-shrink">
+      {% if site.twitter.username.size > 0 %}
+      <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener">{%- include svg.html icon="twitter" class="spot-icon" -%}</a>
+      {% endif %}
 
+      <a href="/feed.xml">
+        {%- include svg.html icon="rss" class="spot-icon" -%}
+      </a>
+    </div>
+  </div>
+
+  <p>
     {% assign about_page = site.pages | where: "permalink", "/about" %}
     {% if about_page[0].permalink %}
-    <a href="/about">{%- include svg.html icon="person" class="homepage-icon" -%}</a>
+    <a href={{ "/about" | relative_url }}>
+      {{ about_page[0].title }}
+    </a>
     {% endif %}
-  </div>
+  </p>
 </header>
 
 <main>
   {{ content }}
   
-  <h2>Posts</h2>
+  <h2 class="top-x-spacer">Latest</h2>
 
-  {% assign posts = site.posts %}
-  <ul class="padded none-list">
-    {% for p in posts %}
-    <li class="flex-item">
-      <a href="{{ p.url | relative_url }}">
-        {{ p.title | escape }}
-      </a>
-      <span class="muted smaller dont-shrink">
-        {% if p.category %}
-        {{ p.category | escape }} &#183;&nbsp;
-        {% endif %}
-        {{ p.date | date: "%b %Y"}}
-      </span>
-    </li>      
+  {% comment %} change this limit to fit your needs {% endcomment %}
+  <ul class="no-padding none-list">
+    {% for p in site.posts limit:5 %}
+      {% if forloop.first == true %}
+        {% assign print_date = "9999-99" %}
+      {% endif %}
+      {% assign post_date = p.date | date: "%Y-%m" %}
+      <li class="flex align-items-baseline wider-gap">
+        {% comment %} descending order {% endcomment %}
+        {% if print_date > post_date %}
+          <span class="muted small dont-shrink">
+        {% else %}
+          <span class="muted small dont-shrink no-visibility">
+        {% endif %}  
+          {{ post_date }}
+          {% comment %}{{ p.date | date: "%Y %b" }}{% endcomment %}
+          {% assign print_date = post_date %}
+        </span>
+        <a href="{{ p.url | relative_url }}">
+          {{ p.title | escape }}
+        </a>
+    </li>
     {% endfor %}
   </ul>
 
-  <h2>Pages</h2>
+  {% include divider.html %}
 
-  {% assign sorted_pages = site.html_pages | sort: 'title' %}
-  <ul class="padded none-list">
-  {% for p in sorted_pages %}
-  {% unless p.url == "/" or p.url == "/404.html" %}
-    <li class="flex-item">
-      <a href="{{ p.url | relative_url }}">
-        {{ p.title | escape }}
-      </a>
-    </li>      
-    {% endunless %}
-    {% endfor %}  
-  </ul>
+  {% comment %}
+  - https://jekyllrb.com/docs/liquid/tags/#links
+  "One major benefit of using the `link` or `post_url` tag is link validation. If the link doesn’t exist, Jekyll won’t build your site. This is a good thing, as it will alert you to a broken link so you can fix it (rather than allowing you to build and deploy a site with broken links)."
+  {% endcomment %}
+
+  <p class="top-x-spacer">
+    Alternatively, go to <a href="{% link _pages/archive.md %}">Archive</a>.
+  </p>
+
+  <p>
+    Or browse <a href="{% link _pages/tags.md %}">Tags</a>.
+  </p>
+
 </main>
 
 <br />
-<hr />
-
-<footer class="small muted flex-footer">
-  <div>
-    <a href="/feed.xml">
-      {% include svg.html icon="rss" class="button-icon" %}
-    </a>
-  </div>
-
-  {%- include color-scheme-switch.html -%}
-</footer>

@@ -23,6 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 {%- endcomment -%}
+{%- if jekyll.environment != "local" and site.liquid_minifiers.js -%}
 
 {%- assign replaceNames = true -%}
 
@@ -460,4 +461,5 @@ SOFTWARE.
 {%- assign content = content | replace: strMasks[1], '"' -%}
 {%- assign content = content | replace: strMasks[2], "`" -%}
 
+{%- endif -%}
 {{ content }}

@@ -1,38 +1,60 @@
-<div class="flex-footer">
-  <div>
-    <ul class="none-list no-padding no-margins">
-      <li class="tight"><a class="muted" href="/">Home Page</a></li>
-      
-      {% assign about_page = site.pages | where: "permalink", "/about" %}
-      {% if about_page[0].permalink %}
-      <li class="tight"><a class="muted" href="/about">About</a></li>
+<div class="flex space-between">
+  {% assign sorted_cats = site.categories | sort %}
+  <div class="dont-shrink">
+    <span class="all-small-caps muted">Browse</span>
+    <ul class="no-padding none-list no-margin">
+      {% for cat in sorted_cats %}
+      <li>
+        <a href="/{{ cat[0] | slugify: site.slugify_mode }}">{{cat[0] | escape}}</a>
+      </li>
+      {% endfor %}
+      {% assign tags_page = site.pages | where: "permalink", "/tags" %}
+      {% if tags_page.size > 0 %}
+      <li>
+        <a href={{ "/tags" | relative_url }}>{{ tags_page[0].title | default: "Tags" }}</a>
+      </li>
       {% endif %}
     </ul>
   </div>
-    
-  <div class="stretched">
-    <a class="muted" href="#">Top ↑</a>
+
+  <div class="dont-shrink right">
+    <span class="all-small-caps muted no-visibility">Pages</span>
+    <ul class="none-list no-padding no-margin">
+      <li><a href="{{ "/" | relative_url }}">Home</a></li>
+      {% assign about_page = site.pages | where: "permalink", "/about" %}
+      {% if about_page.size > 0 %}
+      <li>
+        <a href={{ "/about" | relative_url }}>{{ about_page[0].title | default: "About" }}</a>
+      </li>
+      {% endif %}
+    </ul>
+
+    {% comment %}
+    https://web.dev/external-anchors-use-rel-noopener/ In general, when you use target="_blank", always add rel="noopener". The rel="noopener" prevents the new page from being able to access the window.opener property and ensures it runs in a separate process.
+    {% endcomment %}
+
+    <div class="top-spacer">
+      {% if site.twitter.username.size > 0 %}
+      <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener">
+        {%- include svg.html icon="twitter" class="spot-icon" params="aria-label='Twitter'" -%}
+      </a>
+      {% endif %}
+      <a href="/feed.xml">
+        {%- include svg.html icon="rss" class="spot-icon" params="aria-label='Atom/RSS Feed'" -%}
+      </a>
+    </div>
   </div>
+
 </div>
 
-<br /><br /><br />
+<div class="flex space-between stack-on-mobile muted small top-xx-spacer">
+  <span class="dont-shrink">
+    © <span id="copyright-year">2020</span> {{ site.author.name }}
+  </span>
 
-<div class="flex-footer">
-  <div class="dont-shrink">
-    <a href="/feed.xml">
-      {% include svg.html icon="rss" class="button-icon" %}
-    </a>
-  </div>
-
-  <div class="small">
-    © <span id="copyright-year">2020</span>
-
+  <span class="dont-shrink right">
+    Powered by <a href="https://papicu.netlify.app/jekyll-theme">Papicu</a>, a Jekyll Theme 
     &nbsp;&#183;&nbsp;
-    <a class="muted" href="https://papicu.netlify.app/theme">Papicu Theme</a>
-  
-    &nbsp;&#183;&nbsp;
-    <a class="muted" href="https://papicu.netlify.app/thanks">Thanks</a>   
-  </div>
-
-  {%- include color-scheme-switch.html -%}
+    <a href="https://papicu.netlify.app/thanks">Thanks</a>
+  </span>
 </div>

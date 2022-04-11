@@ -2,12 +2,9 @@
 layout: page
 title: "Thanks"
 permalink: /thanks
-description: "Acknowledgments to the free software, resources and services that we rely on."
+description: "Acknowledgments to the free software, resources and services that Papicu relies on."
 date: 2022-01-01
-image: 
-  path: /assets/img/screenshot-homepage-light.png
-  # width: 1280
-  # height: 646
+# image: /assets/img/screenshot-homepage-light.png
 toc: true
 katex: true
 ---
@@ -20,7 +17,7 @@ Thank you all.
 
 - [Netlify](https://netlify.com) &mdash; hosts this website
 - [GitHub](https://github.com) &mdash; hosts our git repositories
-- [jsDelivr](https://www.jsdelivr.com/) &mdash; their CDN serves us third-party JS and CSS files
+- [jsDelivr](https://www.jsdelivr.com/) &mdash; we use their CDN to serve third-party JS and CSS files
 {% comment %}
 - [Vercel](https://vercel.com) &mdash; hosts our open graph image generator
 {% endcomment %}
@@ -40,20 +37,42 @@ Thank you all.
 - [jekyll-minifier](https://github.com/Mendeo/jekyll-minifier)
 - [jekyll-toc](https://github.com/allejo/jekyll-toc)
 - [jekyll-remote-theme](https://github.com/benbalter/jekyll-remote-theme/)
+- [And more](https://github.com/lucasrla/papicu/blob/main/papicu.gemspec)
+{% comment %}
+- [jekyll-flexible-include-plugin](https://github.com/mslinn/jekyll-flexible-include-plugin)
+- [jekyll-js-converter](https://github.com/dsusco/jekyll-js-converter)
+- [inline_sass](https://satyanash.net/software/2021/05/29/better-way-to-inline-sass-jekyll.html)
+{% endcomment %}
 
-### Jekyll themes
+### Ruby
 
-- [Clio](https://github.com/danromero/clio)
-- [Poole](https://github.com/poole/poole/)
-- [Papicu](https://github.com/lucasrla/papicu)
+- [classifier-reborn](https://github.com/jekyll/classifier-reborn)
+- [rb-gsl](https://github.com/SciRuby/rb-gsl/)
 
 ### Markdown parser and converter
 
 - [kramdown](https://kramdown.gettalong.org/)
 
-### Front-end / javascript projects
+### Math typesetting
 
+- [$${\KaTeX}$$](https://katex.org/)
+- [kramdown-math-katex](https://github.com/kramdown/math-katex)
+- [katex-ruby](https://github.com/glebm/katex-ruby)
+
+### Node.js
+
+- [gulp](https://gulpjs.com/)
+- [gulp-purgecss](https://github.com/FullHuman/gulp-purgecss)
+- [And several other gulp plugins](https://github.com/lucasrla/papicu/blob/main/package.json)
+{% comment %}
+- [critical](https://github.com/addyosmani/critical)
+{% endcomment %}
+
+### Client-side JavaScript
+
+{% comment %}
 - [Darken](https://github.com/ColinEspinas/darken)
+{% endcomment %}
 - [Chart.js](https://www.chartjs.org)
 - [gumshoe](https://github.com/cferdinandi/gumshoe/)
 - [AnchorJS](https://github.com/bryanbraun/anchorjs)
@@ -64,13 +83,17 @@ Thank you all.
 - [og-image](https://github.com/vercel/og-image)
 {% endcomment %}
 
-### Math typesetting
+### Jekyll themes
 
-- [$${\KaTeX}$$](https://katex.org/)
-- [kramdown-math-katex](https://github.com/kramdown/math-katex)
-- [katex-ruby](https://github.com/glebm/katex-ruby)
+- [Clio](https://github.com/danromero/clio)
+- [Poole](https://github.com/poole/poole/)
+- [Papicu](https://github.com/lucasrla/papicu)
 
-### Self-hosted, privacy-conscious analytics
+### CSS
+
+- [modern-normalize](https://github.com/sindresorhus/modern-normalize)
+
+### Analytics
 
 - [Shynet](https://github.com/milesmcc/shynet)
 

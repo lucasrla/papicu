@@ -2,21 +2,21 @@
 layout: page
 title: About
 permalink: /about
-description: "Who am I?"
-image: /assets/img/screenshot-homepage-light.png
-lightbox: true
+description: Who am I?
 ---
 
-I am John Doe. This is the About page of my website.
+I am John Doe. 
 
-Contact me with via email:
+My email address is {{ site.email }}:
 
-{::nomarkdown}
-<p>
-  <div class="flex-wrapper padded">
-    <a href="mailto:{{ site.email }}" class="link-button dont-shrink wrapped-item">{%- include svg.html icon="write" -%} Write to {{ site.email }}</a>&nbsp;
-    <button id="copy-button" class="dont-shrink wrapped-item" onclick="copyToClipboard('{{ site.email }}');"><span id="text-to-copy">{%- include svg.html icon="copy" -%} Copy {{ site.email }} address</span><span id="text-copied" class="hidden">{%- include svg.html icon="checkmark" -%} Email address copied</span></button>
-  </div>
+<p class="padded small">
+  <a href="mailto:{{ site.email }}?subject=Contact via Blog" class="button dont-shrink">{%- include svg.html icon="write" -%} Write to me</a>
+</p>
+
+{% comment %}
+<p class="flex-wrapper padded small">
+  <a href="mailto:{{ site.email }}?subject=Contact via Blog" class="button dont-shrink">{%- include svg.html icon="write" -%} Write to {{ site.email }}</a>&nbsp;
+  <button id="copy-button" class="dont-shrink" onclick="copyToClipboard('{{ site.email }}');"><span id="text-to-copy">{%- include svg.html icon="copy" -%} Copy {{ site.email }} address</span><span id="text-copied" class="hidden">{%- include svg.html icon="checkmark" -%} Email address copied</span></button>
 </p>
 
 <script>
@@ -27,26 +27,20 @@ Contact me with via email:
     document.getElementById('text-copied').classList.remove("hidden");
   }
 </script>
-{:/}
+{% endcomment %}
 
-Or find me on Twitter:
+Find me on Twitter:
 
-{::nomarkdown}
-<p class="padded">
-  <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener" class="link-button">
-    {% include svg.html icon="twitter" %} @{{ site.twitter.username }}
+<p class="padded small">
+  <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener" class="button">
+    {% include svg.html icon="twitter" params="aria-hidden='true'" %} @{{ site.twitter.username }}
   </a>
 </p>
-{:/}
 
-{% include divider.html %}
+Read my new posts via Atom / RSS:
 
-Since you are here, let me show you two screenshots of the home page:
-
-<a class="lightbox" href="/assets/img/safari-shot-homepage-light.png" data-group="homepage">
-  <img alt="Home Page (light mode)" src="/assets/img/safari-shot-homepage-light.png" class="center-block responsive" />
-</a>
-
-<a class="lightbox" href="/assets/img/safari-shot-homepage-dark.png" data-group="homepage">
-  <img alt="Home Page (dark mode)" src="/assets/img/safari-shot-homepage-dark.png" class="center-block responsive" />
-</a>
+<p class="padded small">
+  <a href="/feed.xml" class="button">
+    {% include svg.html icon="rss" params="aria-hidden='true'" %} Subscribe to our feed
+  </a>
+</p>

@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<header>
+<header class="small muted">
   {%- include header.html -%}
 </header>
 
@@ -11,29 +11,11 @@ layout: default
   <h1>{{ page.title | escape }}</h1>
 
   {% if page.description and page.description_visible == true %}
-  <p class="muted bottom-spacer">{{ page.description | escape }}</p>
+  <p class="muted negative-top-x-spacer bottom-x-spacer">{{ page.description | smartify }}</p>
   {% endif %}
 
   {% if page.toc %}
-  {% assign toc_type = page.toc_type | default: "sticky" %}
-    {% if toc_type == "sticky" %}
-      <nav id="toc-sticky" class="toc-sidebar">
-    {% elsif toc_type == "fixed" %}
-      <nav id="toc-fixed" class="toc-sidebar">
-    {% endif %}
-    {% if page.toc_starts_closed %}
-      <details>
-    {% else %}
-      <details open>
-    {% endif %}
-      <summary>Table of Contents</summary>
-      <div id="toc-menu">
-        {% assign header_min = page.toc_header_min | default: 1 %}
-        {% assign header_max = page.toc_header_max | default: 3 %}
-        {% include toc.html sanitize=true html=content h_min=header_min h_max=header_max skip_no_ids=true %}
-      </div>
-    </details>
-  </nav>
+    {% include toc.html %}
   {% endif %}
 
   {{ content }}
@@ -42,11 +24,6 @@ layout: default
 
 <hr />
 
-<footer class="small muted">
+<footer>
   {%- include footer.html -%}
 </footer>
-
-<script>
-  const yearStr = new Date().getFullYear()
-  document.querySelector('#copyright-year').innerText = yearStr
-</script>

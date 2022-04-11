@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<header class="small muted">
+  {%- include header.html -%}
+</header>
+
+<article>
+
+  <h1>{{ page.title | escape }}</h1>
+
+  {% if page.description and page.description_visible == true %}
+  <p class="muted negative-top-x-spacer bottom-x-spacer">{{ page.description | smartify }}</p>
+  {% endif %}
+
+  {% if page.toc %}
+    {% include toc.html %}
+  {% endif %}
+
+  {{ content }}
+
+  {% unless page.date_not_visible == true %}
+  <p class="muted small right top-spacer">{{ page.date | date: "%B %Y" }}</p>
+  {% endunless %}
+
+</article>
+
+<aside>
+  <hr />
+
+  {% include related.html %}
+</aside>
+
+<footer>
+  <hr />
+
+  {%- include footer.html -%}
+</footer>

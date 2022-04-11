@@ -1,0 +1,122 @@
+body {
+  // inspired by
+  // - https://bitsofco.de/the-new-system-font-stack/ 
+  // - https://blog.jim-nielsen.com/2020/system-fonts-on-the-web/
+  font-family: 
+    "Helvetica Neue",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen-Sans",
+    "Ubuntu",
+    "Cantarell",
+    "Arial",
+    sans-serif;
+  line-height: $line-height;
+  font-size: $font-size;
+
+  //https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric
+  // are these available on helvetica neue?
+  // font-variant-numeric: oldstyle-nums;
+  // font-variant-numeric: slashed-zero;
+
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-ligatures
+  font-variant-ligatures: common-ligatures;
+
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering
+  text-rendering: optimizeLegibility;
+
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings
+  // https://css-tricks.com/almanac/properties/f/font-feature-settings/
+  // https://blog.superhuman.com/how-to-hack-beautiful-flourishes-into-your-font/
+  font-feature-settings: "kern" on;
+}
+
+// reduce font-size to 16px for screens in between 1220 and 1380px
+// to be able to deliver toc + sidenotes to what probably is mostly laptops
+// 
+// narrower than this, goes back up to 18px, but there won't be no toc/sidenotes
+@media only screen and (min-width: 1220px) {
+  body {
+    font-size: $font-size * $coef-laptop;
+  }
+}
+
+@media only screen and (min-width: 1380px) {
+  body {
+    font-size: $font-size;
+  }
+}
+
+// 1560px was determined by our own empirical tests 
+// if you want to tweak it, make sure you also review toc and sidenote sizing 
+// as well as body padding
+@media only screen and (min-width: 1560px) { 
+  body {
+    font-size: $font-size * $coef-wide;
+  }
+ }
+
+// --breakpoint-x-wide: 1960px;
+@media only screen and (min-width: 1960px) {
+  body {
+    font-size: $font-size * $coef-x-wide;
+  }
+}
+
+// https://stackoverflow.com/a/32284528
+// - <kbd> represents keyboard input (StackOverflow renders it like real keys)
+// - <samp> represents sample computer output, and originally computers were monospaced :)
+// - <code> is an inline element, whereas <pre> is used for block-level markup (i.e. paragraphs) of code.
+
+// https://stackoverflow.com/a/16065688
+// - <pre> says "The whitespace in this element is important" (so new lines and spaces get rendered as new lines and spaces).
+// - <code> says "This is code".
+code,
+kbd,
+samp,
+pre {
+  // inspired by
+  // - https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack
+  font-family: 
+    ui-monospace,
+    Menlo,
+    Monaco,
+    "Cascadia Mono",
+    "Segoe UI Mono",
+    "Roboto Mono",
+    "Oxygen Mono",
+    "Ubuntu Monospace",
+    "Source Code Pro",
+    // "Fira Mono",
+    // "Droid Sans Mono",
+    "Courier New",
+    monospace;
+  font-size: $font-size-code-block;
+  font-variant-ligatures: none;
+}
+
+// inline code is selected by exclusion to allow for writing <code> explicitly 
+// in markwdown and still have the correct style applied to it
+// code:not(div.highlight pre.highlight code):not(figure.highlight pre code) {
+code:not(div.highlight code):not(figure.highlight code) {
+// code.rouge-highlighter {
+  // border: 1px solid color("ui-border");
+  // border-radius: var(--border-radius-sm);
+  // padding: 0.15em 0.2em;
+  font-size: $font-size-code-inline;
+}
+
+// trying to avoid emoji fonts
+// - https://github.com/jimniels/blog/blob/142d509f98e1d83343bd47b2f5d7c7ecc4795c86/src/client/assets/css/base.css#147
+a.reversefootnote{
+  // TODO: find an elegant way to make Safari iOS honor this (CSS-only)
+  // appending &#xFE0E; is not really an option because the symbol is being inserted by kramdown and I don't have much control over it
+  font-family: sans-serif;
+}

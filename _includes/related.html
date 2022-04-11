@@ -1,0 +1,37 @@
+{% comment %}
+- https://jekyllrb.com/docs/variables/#site-variables
+- https://en.wikipedia.org/wiki/Latent_semantic_analysis#Latent_semantic_indexing
+- https://www.frankindev.com/2019/11/21/enable-related-posts-with-lsi/ (https://archive.is/DzWqQ)
+- https://footle.org/2014/11/06/speeding-up-jekylls-lsi/ (https://archive.is/1oUp4)
+{% endcomment %}
+
+<h3 class="top-x-spacer">
+  {{ include.title | default: "You Might Also Like" }}
+</h3>
+{% comment %}
+Also Read, Related Posts/Entries/Content, More Reads
+{% endcomment %}
+
+{% assign maxRelatedPosts = include.maxNumber | default: 3 %}
+{% assign postsCounter = 0 %}
+
+{% comment %} Total: {{ site.related_posts | size }} {% endcomment %}
+
+<ul class="no-padding none-list">
+  {%- for post in site.related_posts -%}
+    {% unless post.url == page.url %}
+      <li class="bottom-spacer">
+        <a class="slightly-bold" href="{{ post.url | relative_url }}">
+          {{- post.title | escape -}}
+        </a>
+        <br/>
+        <span>{{- post.description | smartify -}}</span>
+      </li>
+
+      {% assign postsCounter = postsCounter | plus: 1 %}
+      {% if postsCounter >= maxRelatedPosts %}
+        {% break %}
+      {% endif %}
+    {% endunless %}
+  {% endfor %}
+</ul>

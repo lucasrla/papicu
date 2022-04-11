@@ -1,0 +1,67 @@
+---
+layout: archive
+---
+
+<h1>
+  {{ page.title | escape }}
+</h1>
+
+{% assign tags_length = site.tags | size %}
+
+{% if tags_length == 0 %}
+<p>
+  No tags were found.
+</p>
+
+{% else %}
+
+<ul class="none-list no-padding cols-3-to-2">
+{% assign sorted_tags = site.tags | sort %}
+{% for tag in sorted_tags %}
+  <li class="no-margin-top">
+    <a href="#{{ tag[0] | slugify: site.slugify_mode }}">{{ tag[0] | escape }}</a><span class="marker-muted">&nbsp;&#183;</span><span class="muted">&nbsp;{{ tag[1] | size }}</span>
+  </li>
+{% endfor %}
+</ul>
+
+{% include divider.html %}
+
+{% for tag in sorted_tags %}
+  {% assign sorted_posts = tag[1] %}
+  <div class="flex space-between align-items-baseline">
+    <h2 id="{{ tag[0] | slugify: site.slugify_mode }}">
+      <code class="muted small">#</code>{{ tag[0] }}
+    </h2>
+    <a class="no-shrink smaller button muted" href="#">↑</a>
+  </div>
+  <ul class="no-padding none-list">
+    {% for p in sorted_posts %}
+      {% if forloop.first == true %}
+        {% assign print_date = "9999-99-99" %}
+      {% endif %}
+      {% assign post_date = p.date | date: "%Y-%m-%d" %}
+      <li class="flex align-items-baseline">
+        {% comment %} descending order {% endcomment %}
+        {% if print_date > post_date %}
+          <span class="marker-muted small dont-shrink">
+        {% else %}
+          <span class="marker-muted small dont-shrink no-visibility">
+        {% endif %}  
+          {{ post_date }}
+          {% assign print_date = post_date %}
+        </span>
+        <a href="{{ p.url | relative_url }}">
+          {{ p.title | escape }}
+        </a>
+    </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+{% include divider.html %}
+
+<p class="top-x-spacer">
+  {{ content }}
+</p>
+
+{% endif %}

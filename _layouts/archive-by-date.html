@@ -1,0 +1,31 @@
+---
+layout: archive
+---
+
+<h1>
+  {{ page.title | escape }}
+</h1>
+
+{% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+
+{% for year in posts_by_year %}
+<h2>{{ year.name }}</h2>
+  <ul class="no-padding none-list">
+    {% for post in year.items %}
+      <li class="flex align-items-baseline wider-gap">
+        <span class="muted small dont-shrink">
+          {{ post.date | date: "%Y-%m-%d" }}
+        </span>
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+{% include divider.html %}
+
+<p class="top-x-spacer">
+  {{ content }}
+</p>

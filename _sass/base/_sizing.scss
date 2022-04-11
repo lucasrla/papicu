@@ -1,0 +1,62 @@
+/* -------------- SASS SCOPED VARIABLES -------------- */
+// these won't change, can be inserted to css as numeric values
+
+$font-size: 18px;
+$font-size-code-block: 0.9em;
+$font-size-code-inline: 0.925em;
+
+$letter-spacing-ref: 0.025em;
+$letter-spacing-sm: 0.01em;
+
+$line-height: 1.5;
+$paragraph-line-height: 1.66em;
+
+// TODO: experiment with Utopia https://utopia.fyi/
+// 
+// Elegantly scale type and space without breakpoints
+// 
+// Utopia is not a product, a plugin, or a framework. It’s a memorable/pretentious word we use to refer to a way of thinking about fluid responsive design. There’s no program or dependency to install
+
+$coef-laptop: 0.88888; // = 16/18
+
+$coef-wide: 1.11111; // = 20/18
+$coef-x-wide: 1.33333; // = 24/18
+
+$coef-small: 0.8;
+$coef-smaller: 0.7;
+
+$body-width: 40em;
+$aside-width: 16em;
+
+$body-padding-small: 1em;
+$body-padding: 1.5em;
+$body-padding-wide: 2em;
+$body-padding-x-wide: 4em;
+
+$list-padding-inline-start: 1.75em;
+
+$border-radius-sm: 4px;
+$border-radius: 6px;
+
+/* -------------- CSS SCOPED VARIABLES -------------- */
+// these will change/adapt at runtime, need to be inserted as var()
+
+// https://stackoverflow.com/questions/15899615/whats-the-difference-between-css3s-root-pseudo-class-and-html
+// https://stackoverflow.com/questions/69112693/css-vs-root-vs-html-vs-body-what-is-the-standard-practice-for-setting-defau
+:root {
+  --body-padding: #{$body-padding};
+
+  // --toc-width: $aside-width;
+  --toc-pos: calc(#{$aside-width} + var(--body-padding));
+
+  --sn-width: calc((1/#{$coef-small}) * #{$aside-width});
+  --sn-pos: calc((1/#{$coef-small}) * (#{$body-width} + var(--body-padding)));
+
+
+  // TODO: track https://stackoverflow.com/a/47212942
+  // CSS var() cannot be used in media queries, solution is env()
+  // --breakpoint-mobile: 640px; min-width
+  // --breakpoint-comp: 1230px; min-width
+  // --breakpoint-wide: 1380px; min-width
+  // --breakpoint-x-wide: 1800px; min-width
+}
