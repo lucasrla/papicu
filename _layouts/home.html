@@ -8,11 +8,11 @@ layout: default
 
     <div class="dont-shrink">
       {% if site.twitter.username.size > 0 %}
-      <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener">{%- include svg.html icon="twitter" class="spot-icon" -%}</a>
+      <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener">{%- include svg.html icon="twitter" class="spot-icon" params="aria-label='Twitter'" -%}</a>
       {% endif %}
 
       <a href="/feed.xml">
-        {%- include svg.html icon="rss" class="spot-icon" -%}
+        {%- include svg.html icon="rss" class="spot-icon" params="aria-label='Atom/RSS Feed'" -%}
       </a>
     </div>
   </div>

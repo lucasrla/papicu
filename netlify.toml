@@ -31,10 +31,13 @@
 
   # optional, fails build when a category is below a threshold
   [plugins.inputs.thresholds]
-    performance = 0.95
-    accessibility = 0.95
-    best-practices = 0.95
-    seo = 0.95
+    performance = 0.9
+    accessibility = 0.85
+    best-practices = 0.9
+    seo = 0.9
+
+  # TODO: track "Address reported error due to canonical link differences"
+  # https://github.com/netlify-labs/netlify-plugin-lighthouse/issues/403
 
   # https://github.com/netlify-labs/netlify-plugin-lighthouse/pull/45
   # TODO: improve this? currently, it seems we need to add each route manually
