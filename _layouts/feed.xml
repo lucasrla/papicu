@@ -64,7 +64,7 @@
       {% assign excerpt_only = post.feed.excerpt_only | default: site.feed.excerpt_only %}
       {% unless excerpt_only %}
         {% comment %}Add tiny Shynet pixel to count RSS reads{% endcomment %}
-        <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}"><![CDATA[{{ post.content | strip }}{% if site.analytics.shynet.pixel_feed %}<img src="{{ site.analytics.shynet.url }}/pixel.gif">{% endif %}]]></content>
+        <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}"><![CDATA[{{ post.content | strip }}{% if site.analytics.shynet.url.size > 0 and site.analytics.shynet.pixel_feed %}<img src="{{ site.analytics.shynet.url }}/pixel.gif">{% endif %}]]></content>
       {% endunless %}
 
       {% assign post_author = post.author | default: post.authors[0] | default: site.author %}

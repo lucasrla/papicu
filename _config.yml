@@ -42,12 +42,14 @@ colors:
   favicon_safari_mask_icon: "#5ac8fa"
 
 ################################# ANALYTICS
-
+#
 # set this up with a proper URL if you are using Shynet
+
 analytics:
   shynet: 
     # MUST insert an url with NO trailing slash!
-    url: https://shynet.john_doe_website.com/ingress/uuid-universally-unique-identifier
+    # url: https://shynet.john_doe_website.com/ingress/uuid-universally-unique-identifier
+
     # add tiny pixel to count feed reads, must add `_layouts/feed.xml` file
     pixel_feed: true
 
@@ -62,6 +64,7 @@ feed:
 ################################# JEKYLL PLUGINS
 
 plugins:
+  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-optional-front-matter
