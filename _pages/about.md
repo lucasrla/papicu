@@ -10,7 +10,9 @@ I am John Doe.
 My email address is {{ site.email }}:
 
 <p class="padded small">
-  <a href="mailto:{{ site.email }}?subject=Contact via Blog" class="button dont-shrink">{%- include svg.html icon="write" -%} Write to me</a>
+  <a href="mailto:{{ site.email }}?subject=Contact via Blog" class="button dont-shrink">
+    {%- include svg.html icon="write" params="aria-hidden='true'" -%}&nbsp;Write to me
+  </a>
 </p>
 
 {% comment %}
@@ -33,7 +35,7 @@ Find me on Twitter:
 
 <p class="padded small">
   <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener" class="button">
-    {% include svg.html icon="twitter" params="aria-hidden='true'" %} @{{ site.twitter.username }}
+    {% include svg.html icon="twitter" params="aria-hidden='true'" %}&nbsp;@{{ site.twitter.username }}
   </a>
 </p>
 
@@ -41,6 +43,6 @@ Read my new posts via Atom / RSS:
 
 <p class="padded small">
   <a href="/feed.xml" class="button">
-    {% include svg.html icon="rss" params="aria-hidden='true'" %} Subscribe to our feed
+    {% include svg.html icon="rss" params="aria-hidden='true'" %}&nbsp;Subscribe to our feed
   </a>
 </p>
