@@ -1,13 +1,13 @@
 <div class="flex stack-on-mobile wider-gap">
   <div class="flex-maintain-size post-nav">
     {% if page.previous %}
-    <span class="muted"><span class="small">{% include svg.html icon="chevron-back" class="inline-icon" %}</span><span class="all-small-caps">Previous</span></span><br/>
+    <span class="muted">{%- include svg.html icon="chevron-back" class="inline-icon small" -%}<span class="all-small-caps">&nbsp;Previous</span></span><br/>
     <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title | escape }}</a>
     {% endif %}
   </div>
   <div class="flex-maintain-size post-nav post-nav-next">
     {% if page.next %}
-    <span class="muted"><span class="all-small-caps">Next</span><span class="small">{% include svg.html icon="chevron-forward" class="inline-icon" %}</span></span><br/>
+    <span class="muted"><span class="all-small-caps">Next</span>{%- include svg.html icon="chevron-forward" class="inline-icon small" -%}</span><br/>
     <a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }}</a>
     {% endif %}  
   </div>
