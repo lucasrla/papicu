@@ -1,8 +1,10 @@
 # Papicu
 
-Papicu is a Jekyll theme that I put together for myself. But, if you like it, Papicu is free to use and modify.
+<p>
+  <img src="https://raw.githubusercontent.com/lucasrla/papicu/main/screenshot.png" alt="A screenshot of Papicu - Jekyll Theme" />
+</p>
 
-<img src="https://raw.githubusercontent.com/lucasrla/papicu/main/screenshot.png" width="720" height="450" alt="A screenshot of Papicu - Jekyll Theme" />
+Papicu is a [Jekyll](https://jekyllrb.com) theme that I put together for myself. But, if you like it, Papicu is free to use and modify under the [MIT License](https://tldrlegal.com/license/mit-license).
 
 ***
 
