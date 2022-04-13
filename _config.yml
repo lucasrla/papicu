@@ -35,7 +35,7 @@ colors:
   # both used in `theme-color` meta tag
   # make sure these two match the background colors in `_sass/base/_color.scss`
   background_light: "#fafafa" 
-  background_dark: "#222222"
+  background_dark: "#111111"
 
   # used in safari's `mask-icon` meta tag
   # remove this if you have set your own `mask-icon` in `_includes/head.html`
@@ -137,6 +137,7 @@ exclude:
   - package*.json
   - gulpfile.js
   - .vscode/
+  - netlify.toml
 
 ################################# DEFAULTS (AUTOMATICALLY ADDED TO FRONT MATTER)
 #

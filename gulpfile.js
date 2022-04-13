@@ -260,7 +260,7 @@ const bundleAndMinifyJs = async () => {
     }));
 
   
-  gulp.src('_posts/2022-02-01-searchable-sortable-filterable-elements/entries-table.js', { allowEmpty: true })
+  gulp.src('_posts/2022-02-01-searchable-sortable-filterable-elements/entries-table.js')
     .pipe(debug())
     .pipe(concat('entries-table.min.js'))
     .pipe(uglify())
@@ -268,7 +268,7 @@ const bundleAndMinifyJs = async () => {
       return path.dirname(file.path);
     }));
 
-  gulp.src('_posts/2022-03-01-interactive-charts/mortality-charts.js', { allowEmpty: true })
+  gulp.src('_posts/2022-03-01-interactive-charts/mortality-charts.js')
     .pipe(debug())
     .pipe(concat('mortality-charts.min.js'))
     .pipe(uglify())

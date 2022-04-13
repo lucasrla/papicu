@@ -42,7 +42,7 @@
   # https://github.com/netlify-labs/netlify-plugin-lighthouse/pull/45
   # TODO: improve this? currently, it seems we need to add each route manually
   #
-  # maybe by configuring the underlying lighthouse itself? 
+  # maybe improve this by configuring the underlying lighthouse itself?
   # https://github.com/GoogleChrome/lighthouse/blob/master/docs/configuration.md
   
   [[plugins.inputs.audits]]
