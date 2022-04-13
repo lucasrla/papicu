@@ -57,25 +57,26 @@
 :root {
   // useful for trying out sass filters: https://sassme.jim-nielsen.com/
 
-  @include define-color("txt", #222);
-  @include define-color("txt-muted", lighten(#222, 20%)); // #555555
+  @include define-color("txt", #111);
+  @include define-color("txt-muted", lighten(#111, 27%)); // #565656
 
-  @include define-color("heading", darken(#222, 10%)); // #080808
+  @include define-color("heading", darken(#111, 10%)); // #000
   // which is equivalent to `hsla-color("txt", $lightness: -10%);` in a css rule
 
   @include define-color("accent", #f0f097);
   
-  @include define-color("link", #0074d9);
-  @include define-color("link-hover", lighten(#0074d9, 10%));
-  @include define-color("link-visited", desaturate(#0074d9, 33%));
-  @include define-color("link-active", darken(#0074d9, 33%));
+  // @include define-color("link", #0074d9);
+  @include define-color("link", #0066c0);
+  @include define-color("link-hover", lighten(#0066c0, 10%));
+  @include define-color("link-visited", desaturate(#0066c0, 33%));
+  @include define-color("link-active", darken(#0066c0, 33%));
 
-  @include define-color("muted", lighten(#222, 35%)); // #7b7b7b
-  @include define-color("muted-hover", lighten(#7b7b7b, 10%));
-  @include define-color("muted-visited", desaturate(#7b7b7b, 25%));
-  @include define-color("muted-active", darken(#7b7b7b, 25%));
+  @include define-color("muted", lighten(#111, 37%)); // #6f6f6f
+  @include define-color("muted-hover", lighten(#6f6f6f, 10%));
+  @include define-color("muted-visited", desaturate(#6f6f6f, 25%));
+  @include define-color("muted-active", darken(#6f6f6f, 25%));
 
-  @include define-color("marker-muted", lighten(#222, 66%)); // #cacaca
+  @include define-color("marker-muted", lighten(#111, 66%)); // #b9b9b9
 
   @include define-color("bg", #fafafa);
   @include define-color("ui-bg", darken(#fafafa, 3%)); // #f2f2f2
@@ -87,8 +88,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    @include define-color("txt", #ccc); 
-    @include define-color("txt-muted", darken(#ccc, 15%)); // #a6a6a6
+    @include define-color("txt", #dedede);
+    @include define-color("txt-muted", darken(#dedede, 20%)); // #ababab
 
     @include define-color("heading", lighten(#ccc, 10%)); // #e6e6e6
 
@@ -105,15 +106,15 @@
     @include define-color("link-visited", desaturate(#2997ff, 33%));
     @include define-color("link-active", darken(#2997ff, 33%));    
 
-    @include define-color("muted", darken(#ccc, 30%)); // #808080
+    @include define-color("muted", darken(#dedede, 37%)); // #808080
     @include define-color("muted-hover", lighten(#808080, 10%));
     @include define-color("muted-visited", desaturate(#808080, 25%));
     @include define-color("muted-active", darken(#808080, 25%));    
     
-    @include define-color("marker-muted", darken(#ccc, 50%)); // #4d4d4d
+    @include define-color("marker-muted", darken(#dedede, 57%)); // #4d4d4d
 
-    @include define-color("bg", #222);
-    @include define-color("ui-bg", darken(#222, 2%)); // #1d1d1d
+    @include define-color("bg", #111);
+    @include define-color("ui-bg", darken(#111, 3%)); // #090909
     @include define-color("ui-input-bg", #000);
 
     @include define-color("ui-border", #333);

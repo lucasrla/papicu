@@ -84,9 +84,9 @@ Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo r
 
 Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at.
 
-<a href="https://plchldr.co/" target="_blank" rel="noopener"><img src="https://plchldr.co/i/800x400?bg=999999" alt="800x400 placeholder image by plchldr.co"></a>
-<a href="https://plchldr.co/" target="_blank" rel="noopener"><img src="https://plchldr.co/i/400x250?bg=999999" alt="400x250 placeholder image by plchldr.co"></a>
-<a href="https://plchldr.co/" target="_blank" rel="noopener"><img src="https://plchldr.co/i/250x250?bg=999999" alt="250x250 placeholder image by plchldr.co"></a>
+<a href="https://plchldr.co/" target="_blank" rel="noopener"><img src="https://plchldr.co/i/800x400?bg=999999" alt="800x400 placeholder image by plchldr.co" width="800" height="400"></a>
+<a href="https://plchldr.co/" target="_blank" rel="noopener"><img src="https://plchldr.co/i/400x250?bg=999999" alt="400x250 placeholder image by plchldr.co" width="400" height="250"></a>
+<a href="https://plchldr.co/" target="_blank" rel="noopener"><img src="https://plchldr.co/i/250x250?bg=999999" alt="250x250 placeholder image by plchldr.co" width="250" height="250"></a>
 
 ### Tables
 

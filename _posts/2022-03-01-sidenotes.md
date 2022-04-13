@@ -22,16 +22,6 @@ Insert a sidenote with the following line anywhere in your Markdown content {% i
 ```
 {% endraw  %}
 
-In case you didn't know already, here's how to use footnotes[^fn-1] as well:
-
-[^fn-1]: I am a footnote.
-
-```md
-In case you didn't know already, here's how to use footnotes[^fn-1] as well:
-
-[^fn-1]: I am a footnote.
-```
-
 
 ## Testing sidenotes in different contexts
 
