@@ -130,4 +130,4 @@ Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur e
 
 {% include divider.html %}
 
-_Most content from this example post was taken from [Poole](https://github.com/poole/poole/blob/master/_posts/2020-04-02-example-content.md) by [@mdo](https://twitter.com/mdo)._
+<p class="muted center" markdown="span">The content from this sample post was heavily inspired by [Poole](https://github.com/poole/poole/blob/master/_posts/2020-04-02-example-content.md).</p>

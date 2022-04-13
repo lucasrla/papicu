@@ -87,38 +87,42 @@ tfoot > tr > td {
 
 /* -------------- HEADINGS -------------- */
 
-h1, h2, h3, h4, h5, h6 {
-  color: color("heading");
-  line-height: $line-height;
-}
-
 h1 {
-  font-size: 1.6em;
-  // line-height: normal;
   margin: 0.75em 0 2em 0;
+  color: color("headings");
+  font-size: 1.6em;
+  line-height: $line-height;  
 }
 
 h2 {
-  font-size: 1.3em;
-  // line-height: normal;
   margin-top: 3em;
+  color: color("headings");
+  font-size: 1.3em;
+  line-height: $line-height;  
 }
 
 h3 {
-  font-size: 1.2em;
-  // line-height: normal;
-  font-variant-caps: all-small-caps;
-  letter-spacing: $letter-spacing-sm;
-  font-weight: 500;
   margin-top: 2em;
+  color: color("headings");
+  font-size: 1.2em;
+  font-variant-caps: all-small-caps;
+  font-weight: 500;
+  letter-spacing: $letter-spacing-sm;
+  line-height: $line-height;  
 }
 
 h4 {
+  margin-top: 1em;
+  color: color("headings");
   font-size: 1em;
-  // line-height: normal;
   font-style: italic;
   font-weight: normal;
-  margin-top: 1em;
+  line-height: $line-height;  
+}
+
+h5, h6 {
+  color: color("headings");
+  line-height: $line-height;
 }
 
 nav + h2 {
@@ -237,11 +241,12 @@ footer {
 
 div.footnotes::before {
   content: "Footnotes";
-  // font-variant: all-small-caps;
-  color: color("heading");
-  font-weight: 600;
-  letter-spacing: $letter-spacing-sm;
-  // font-size: 1.1em;
+  // analogous to <h4>
+  color: color("headings");
+  font-size: 1em;
+  font-style: italic;
+  font-weight: normal;
+  line-height: $line-height;  
 }
 
 .footnotes {

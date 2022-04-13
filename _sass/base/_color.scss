@@ -60,7 +60,7 @@
   @include define-color("txt", #111);
   @include define-color("txt-muted", lighten(#111, 27%)); // #565656
 
-  @include define-color("heading", darken(#111, 10%)); // #000
+  @include define-color("headings", darken(#111, 10%)); // #000
   // which is equivalent to `hsla-color("txt", $lightness: -10%);` in a css rule
 
   @include define-color("accent", #f0f097);
@@ -88,10 +88,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    @include define-color("txt", #dedede);
+    // @include define-color("txt", #dedede);
+    @include define-color("txt", #d1d1d1);
     @include define-color("txt-muted", darken(#dedede, 20%)); // #ababab
 
-    @include define-color("heading", lighten(#ccc, 10%)); // #e6e6e6
+    @include define-color("headings", lighten(#ccc, 10%)); // #e6e6e6
 
     // @include define-color("accent", #6666004d);
     // @include define-color("accent", #c2a200);
