@@ -7,8 +7,8 @@
   # command = "jekyll build"
   command = "npm run build-netlify"
 
-  # If skip_processing = true, all other settings are ignored
   [build.processing]
+    # If skip_processing = true, all other settings are ignored
     skip_processing = false
   [build.processing.css]
     bundle = true
@@ -17,7 +17,8 @@
     bundle = true
     minify = false
   [build.processing.images]
-    compress = true
+    # `false` because Netlify seemed to be messing with img's width and height
+    compress = false
 
   # Will we need this?
   # [build.processing.html]
