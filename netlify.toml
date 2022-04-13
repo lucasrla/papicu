@@ -9,12 +9,17 @@
 
   [build.processing]
     # If skip_processing = true, all other settings are ignored
-    skip_processing = false
+    skip_processing = true
+
   [build.processing.css]
-    bundle = true
+    # no bundling because Netlify was breaking our stuff!
+    bundle = false
+    # we are already minifying it ourselves
     minify = false
   [build.processing.js]
-    bundle = true
+    # no bundling because Netlify was breaking our stuff!
+    bundle = false
+    # we are already minifying it ourselves
     minify = false
   [build.processing.images]
     # `false` because Netlify seemed to be messing with img's width and height
