@@ -25,7 +25,9 @@ Also Read, Related Posts/Entries/Content, More Reads
           {{- post.title | escape -}}
         </a>
         <br/>
-        <span>{{- post.description | smartify -}}</span>
+        <span class="text-muted-color">
+          {{- post.description | smartify -}}
+        </span>
       </li>
 
       {% assign postsCounter = postsCounter | plus: 1 %}

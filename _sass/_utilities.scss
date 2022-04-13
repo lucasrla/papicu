@@ -28,12 +28,16 @@
   color: color("link");
 }
 
+.border-color {
+  color: color("ui-border");
+}
+
 .text-color {
   color: color("txt");
 }
 
-.border-color {
-  color: color("ui-border");
+.text-muted-color {
+  color: color("txt-muted");
 }
 
 .muted {
