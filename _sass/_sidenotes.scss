@@ -74,18 +74,6 @@ body {
     margin-left: calc(var(--sn-pos) - (1 / #{$coef-small})*1em);
   }
 
-  details.content-details div.quote-container p.citation .sn-content {
-    // revert sn-content font-size back up to "normal"
-    font-size: 1em;
-
-    // correct vertical and horizontal alignments
-    margin-top: -1.5em;
-    margin-left: var(--sn-pos);
-
-    // realign sn-content to left (.citation is aligned to the right)
-    text-align: left;
-  }
-
   details blockquote {
     p .sn-content {
       margin-left: calc(var(--sn-pos) - (1 / #{$coef-small})*2em);
@@ -95,6 +83,30 @@ body {
       margin-left: calc(var(--sn-pos) - (1 / #{$coef-small})*(2em + #{$list-padding-inline-start}));
     }
   } 
+
+  details.content-details div.quote-container {
+    p.citation .sn-content {
+      // revert sn-content font-size back up to "normal"
+      font-size: 1em;
+
+      // correct vertical and horizontal alignments
+      margin-top: -1.5em;
+      margin-left: var(--sn-pos);
+
+      // realign sn-content to left (.citation is aligned to the right)
+      text-align: left;
+    }
+
+    blockquote {
+      p .sn-content {
+        margin-left: calc(var(--sn-pos) - (1 / #{$coef-small})*1em);
+      }
+  
+      li .sn-content {
+        margin-left: calc(var(--sn-pos) - (1 / #{$coef-small})*(1em + #{$list-padding-inline-start}));
+      }
+    } 
+  }
 }
 
 // narrow viewports get sidenotes hidden by default; they're shown only when 
